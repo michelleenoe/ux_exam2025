@@ -4,6 +4,7 @@ Oprettede sider - med udkommenteret copy/paste fra foodRepo
 - login.html + login.js
 - signup.html + signup.js 
 - api.js med auth for headers
+##
 
 Øvrige sider som mangler (ikke besluttet endnu)
 
