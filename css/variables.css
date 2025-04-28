@@ -1,1 +1,63 @@
-:root {}
+:root {
+    /* Color Palette */
+    --primary-color: #0064D0;
+    --secondary-color: #493EFF;
+    --tertiary-color: #EF0000; 
+    ---quaternary-color: #707070;
+
+    --light-background-color: #FFFFFF;
+    --secondary-background-color: #2B2B2B;
+
+    --dark-text-color: #2B2B2B; 
+    --light-text-color: #FFFFFF; 
+
+    /* Typography */
+
+    /* Font Sizes */
+    --font-size-sm: clamp(0.75rem, 1vw, 0.875rem);  
+    --font-size-md: clamp(0.875rem, 1.2vw, 1rem);   
+    --font-size-lg: clamp(1rem, 1.3vw, 1.25rem);    
+    --font-size-xl: clamp(1.25rem, 2vw, 1.5rem);    
+    --font-size-xxl: clamp(1.75rem, 3.5vw, 2.5rem);
+    --font-size-header:clamp(1.5rem, 2.5vw, 2rem);    
+
+    /* Font Weight */
+    --font-light: 300;
+    --font-semibold: 400; 
+    --font-bold: 500; 
+    --font-bolder: 600;
+
+    /* Line Height */
+    --standard-line-height: 1.5rem;
+
+    /* Spacing */
+    --spacing-xs: 0.125rem ;  
+    --spacing-sm: 0.25rem ;    
+    --spacing-md: 0.5rem ;      
+    --spacing-lg: 0.8rem ;      
+    --spacing-xl: 1rem ;          
+    --spacing-xxl: 1.5rem;       
+    --spacing-xxxl: 2rem;       
+
+    /* Border Radius */
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;     
+    --border-radius-lg: 0.75rem;  
+    --border-radius-xl: 1rem;  
+    --border-radius-full: 100%;
+
+    /* Border width */
+    --border-width-sm: 1px;
+    --border-width-md: 2px;
+    --border-width-lg: 3px;
+
+    /* Image sizes */
+    --image-size-sm: 150px;
+
+    /* scale */
+    --full-scale: 100%;
+
+}
+
+
+
