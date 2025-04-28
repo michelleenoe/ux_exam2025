@@ -12,13 +12,14 @@ Oprettede sider - med udkommenteret copy/paste fra foodRepo
 * bogdetalje-side
 * admin-login-side
 * admin-dashboard-side
+##
 
 API - lokalt via Docker 
 http://localhost:8080
-
+##
 
 deadline 28.05.25 kl 12.00 
-
+##
 User can:
 
 * Sign up
