@@ -6,13 +6,6 @@ UX2025
 - signup.html + signup.js 
 - api.js med auth for headers
 
-## Øvrige sider som mangler (ikke besluttet endnu)
-
-* brugerprofil
-* forfattere
-* bogdetalje-side
-* admin-login-side
-* admin-dashboard-side
 
 ## API - lokalt via Docker 
 - Kør `docker-compose up -d`
