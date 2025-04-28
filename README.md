@@ -5,7 +5,6 @@ UX2025
 - login.html + login.js
 - signup.html + signup.js 
 - api.js med auth for headers
-##
 
 ## Øvrige sider som mangler (ikke besluttet endnu)
 
@@ -14,13 +13,11 @@ UX2025
 * bogdetalje-side
 * admin-login-side
 * admin-dashboard-side
-##
 
 ## API - lokalt via Docker 
 - Kør `docker-compose up -d`
 - http://localhost:8080
 - Start liveserver
-##
 
 ## deadline 28.05.25 kl 12.00 
 
