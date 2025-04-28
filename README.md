@@ -23,7 +23,6 @@ UX2025
 ##
 
 ## deadline 28.05.25 kl 12.00 
-##
 
 
 ## User can:
@@ -43,7 +42,6 @@ UX2025
 * The password and membership date cannot be changed
 * Remove user
 * Log out
-##
 
 ## The admin can:
 * Log in (user “admin.library@mail.com”, password “WebUdvikling25!”)
@@ -54,7 +52,6 @@ UX2025
 * Add a new author
 * Add a new publisher
 * Log out
-## 
 
 ## Users
 * When signing up, the application will require the user’s email, password, and repeating the password. A valid email address is expected. The password must have more than 8 characters, and contain lowercase and uppercase letters, numbers, and special characters. Both passwords must match.
