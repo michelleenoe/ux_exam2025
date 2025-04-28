@@ -13,7 +13,7 @@ Oprettede sider - med udkommenteret copy/paste fra foodRepo
 * admin-login-side
 * admin-dashboard-side
 
-API - lokalt via Dockr 
+API - lokalt via Docker 
 http://localhost:8080
 
 
