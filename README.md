@@ -19,28 +19,6 @@ http://localhost:8080
 
 deadline 28.05.25 kl 12.00 
 
-## Git Commands (note)
-
-- `git checkout branch_name`  
-  Skifter branch til den angivne branch.
-
-- `git add .`  
-  Tilføjer alle filer til din git cache og gør dem klar til commit.
-
-- `git commit -m "commit besked"`  
-  Comitter dine filer med en besked, der beskriver ændringerne.
-
-- `git push`  
-  Pusher dine commits op på den branch, du står i.
-
-- `git fetch`  
-  Tjekker om der er ændringer i fjern-repositoriet. Gør klar til pull, hvis nødvendigt.
-
-- `git pull`  
-  Henter ændringer fra fjern-repositoriet og opdaterer dine lokale filer.
-
-
-
 User can:
 
 * Sign up
