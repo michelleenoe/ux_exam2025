@@ -28,9 +28,11 @@ header{
     justify-content: space-between;
     align-items: center;
 
-    img{
-        width: var(--logo-size);
-        padding: var(--spacing-lg);
+    a{
+        img{
+            width: var(--logo-size);
+            padding: var(--spacing-lg);
+        }
     }
     #main_nav, #utility_not_logged{
         ul{
