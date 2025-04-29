@@ -48,50 +48,77 @@
 </nav> 
 </header>
 <main>
-    <h1>Sign up</h1>
-        <form id="form_signup">
-            <fieldset>
-                <section id="error" class="hidden">
-                    <header>
-                        <h3>Error</h3>
-                    </header>
-                    <p id="error_text"></p>
-                </section>
-                <div>
-                    <label for="first_name">First name</label>
-                    <input type="text" id="first_name" required>
-                </div>
-                <div>
-                    <label for="last_name">Last name</label>
-                    <input type="text" id="last_name" required>
-                </div>
-                <div>
-                    <label for="email">Email</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div>
-                    <label for="phone_number">Phone</label>
-                    <input type="number" id="phone" required>
-                </div>
-                    <label for="address">Address</label>
-                    <input type="text" id="adress" required>
-                <div>
-                </div>
-                    <label for="birth_date">Date of birth</label>
-                    <input type="date" id="birthday" required>
-                <div>
-                    <label for="password">Password</label>
-                    <input type="password" id="password" required>
-                </div>
-                <div>
-                    <label for="repeat_password">Repeat password</label>
-                    <input type="password" id="repeat_password" required>
-                </div>
-                <div>
-                    <button type="submit">Sign up</button>
-                </div>
-            </fieldset>
-        </form>
-    </main>
+    <form id="frmSignup" aria-describedby="pwHelp">
+    <!-- <fieldset> -->
+      <h1>Sign up</h1>
+
+      <div class="two-col">
+        <div class="field">
+          <label for="txtFirstName">First name</label>
+          <input id="txtFirstName" name="txtFirstName" type="text" required autocomplete="given-name">
+        </div>
+
+        <div class="field">
+          <label for="txtLastName">Last name</label>
+          <input id="txtLastName" name="txtLastName" type="text" required autocomplete="family-name">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="txtEmail">Email</label>
+        <input id="txtEmail" name="txtEmail" type="email" required autocomplete="email">
+      </div>
+
+        <div class="field">
+            <label for="txtPassword">Password</label>
+            <input id="txtPassword" name="txtPassword" type="password"
+                   pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{9,}"
+                   minlength="9" required>
+            <small id="pwHelp">Min. 9 chars incl. uppercase, lowercase, number &amp; symbol</small>
+          </div>
+
+        <div class="field">
+          <label for="txtRepeatPassword">Repeat password</label>
+          <input id="txtRepeatPassword" name="txtRepeatPassword" type="password"
+          minlength="9" required>
+        </div>
+
+      <div class="field">
+        <label for="txtAddress">Address</label>
+        <input id="txtAddress" name="txtAddress" type="text" required autocomplete="street-address">
+      </div>
+
+      <div class="two-col">
+        <div class="field">
+          <label for="txtPhone">Phone</label>
+          <input id="txtPhone" name="txtPhone" type="tel" required autocomplete="tel">
+        </div>
+
+        <div class="field">
+          <label for="txtBirthDate">Date of birth</label>
+          <input id="txtBirthDate" name="txtBirthDate" type="date" required>
+        </div>
+      </div>
+
+      <fieldset class="field checkbox">
+        <legend class="visually-hidden">Terms</legend>
+        <input id="chkTerms" name="chkTerms" type="checkbox" required>
+        <label for="chkTerms">I accept the terms and conditions</label>
+      </fieldset>
+
+      <button class="btn-primary" type="submit">Sign up</button>
+
+      <p class="login-link">
+        Already have an account?
+        <a href="login.html">Log in</a>
+      </p>
+     <!-- </fieldset> -->
+</form>      
+
+  </main>
+
 </body>
+<footer>
+
+</footer>
 </html>
