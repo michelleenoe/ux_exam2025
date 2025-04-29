@@ -5,3 +5,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+h1{
+  font-size:var(--font-size-xl);
+  margin-bottom:var(--spacing-lg);
+}
