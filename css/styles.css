@@ -1,4 +1,6 @@
-@import 'variables.css';
+@import "variables.css";
+@import "nav.css";
+@import "signup.css";
 
 * {
   margin: 0;

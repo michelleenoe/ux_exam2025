@@ -58,13 +58,25 @@
 
     /* scale */
     --full-scale: 100%;
+    --width-sm:250px;
+    --vh-100:100vh;
+    --vw-100:100vw;
 
     /* opacity */
     --opacity-sm: 0.5;
 
+    /* blur */
+    --blur-sm: 5px;
+
     /* touch, input and checkbox*/ 
     --touch-size:2.75rem;
     --checkbox-size:1.25rem;
+
+    /* side_menu */
+    --right-side-menu:-250px;
+
+    /* z-index */
+    --z-index-1000: 1000;
 }
 
 
