@@ -1,0 +1,70 @@
+@import 'styles.css';
+
+/* Navigation bar styles */
+nav {
+  padding: var(--spacing-xl);
+  ul{
+    list-style: none;
+    li{
+        margin: 0 var(--spacing-xl);
+        color: var(--dark-text-color);
+        a{
+            text-decoration: none;
+            color: var(--dark-text-color);
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-semibold);
+            
+    
+            &:hover {
+                color: var(--secondary-color);
+            }
+        }
+    }
+  }
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img{
+        width: var(--logo-size);
+        padding: var(--spacing-lg);
+    }
+    #main_nav, #utility_not_logged{
+        ul{
+        display: flex;
+        li{
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--border-radius-md);
+                &:hover {
+                        background-color: var(--secondary-color);
+                        opacity: var(--opacity-sm);
+                    }
+                a{
+
+                    &:hover {
+                    color: var(--light-text-color);
+                    }
+                }
+        }
+        }
+    }
+
+    #utility_not_logged{
+        ul{
+            li{
+                border: var(--border-width-md) solid var(--primary-color);
+            }
+        }
+    }
+}
+
+
+
+#utility_logged{
+    display: none;
+}
+
+

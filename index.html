@@ -4,24 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="./css/nav.css">
     <title>Chapter | Your online bookstore</title>
 </head>
 <body>
-    <header>
-        <img src="assets/images/logo.png" alt="Chapter Logo" class="logo">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="browse_books">Browse Books</a></li>
-            </ul>
-        </nav>
-        <nav>
-            <ul>
-                <li><a href="login.html">Log in</a></li>
-                <li><a href="signup.html">Sign up</a></li>
-            </ul>
-        </nav>
+        <header>
+            <img src="assets/images/logo.png" alt="Chapter Logo" class="logo">
+            <nav id="main_nav">
+                <ul>
+                    <li><a href="index.html" title="Homepage">Home</a></li>
+                    <li><a href="browse_books" title="Browse Books">Browse Books</a></li>
+                </ul>
+            </nav>
+            <nav id="utility_not_logged">
+                <ul>
+                    <li><a href="login.html" title="Log in">Log in</a></li>
+                    <li><a href="signup.html" title="Sign up">Sign up</a></li>
+                </ul>
+            </nav>
+            <nav id="utility_logged">
+                <ul>
+                    <li><a href="profile.html" title="Profile">Profile</a></li>
+                    <li><a href="admin.html" title="Admin">Admin</a></li>
+                    <li><button id="btnLogout">Logout</button></li>
+                </ul>
+            </nav> 
     </header>
+        </div>
+    </div>
     <main>
     </main>
     <footer></footer>

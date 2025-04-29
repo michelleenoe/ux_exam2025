@@ -3,7 +3,7 @@
     --primary-color: #0064D0;
     --secondary-color: #493EFF;
     --tertiary-color: #EF0000; 
-    ---quaternary-color: #707070;
+    --quaternary-color: #707070;
 
     --light-background-color: #FFFFFF;
     --secondary-background-color: #2B2B2B;
@@ -53,9 +53,13 @@
 
     /* Image sizes */
     --image-size-sm: 150px;
+    --logo-size: 100px;
 
     /* scale */
     --full-scale: 100%;
+
+    /* opacity */
+    --opacity-sm: 0.5;
 
 }
 
