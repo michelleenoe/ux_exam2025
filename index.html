@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter | Your online bookstore</title>
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <link rel="stylesheet" href="./css/nav.css">
-    <title>Chapter | Your online bookstore</title>
+    <script type="module" src="./js/script.js"></script>
 </head>
 <body>
         <header>
@@ -30,7 +31,20 @@
                     <li><a href="admin.html" title="Admin">Admin</a></li>
                     <li><button id="btnLogout">Logout</button></li>
                 </ul>
-            </nav> 
+            </nav>
+            <button id="burger_btn" aria-label="Open menu">
+        ☰
+    </button>
+
+    <!-- Slide-out menu -->
+    <nav id="side_menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="browse_books">Browse Books</a></li>
+            <li><a href="login.html">Log in</a></li>
+            <li><a href="signup.html">Sign up</a></li>
+        </ul>
+    </nav> 
     </header>
         </div>
     </div>
