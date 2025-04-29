@@ -1,10 +1,6 @@
 UX2025
-# Oprettede sider - med udkommenteret copy/paste fra foodRepo
 
-- index.html
-- login.html + login.js
-- signup.html + signup.js 
-- api.js med auth for headers
+# https://github.com/arturomorarioja/py_library_api_v3
 
 
 ## API - lokalt via Docker 
