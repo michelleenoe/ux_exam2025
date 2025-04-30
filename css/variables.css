@@ -76,7 +76,15 @@
     --right-side-menu:-250px;
 
     /* z-index */
+    --z-index-1: 1;
     --z-index-1000: 1000;
+
+    /* flex-grow */
+    --flex-grow-1: 1;
+
+
+    /* transitions */
+    --trasnition-short:0.3s;
 }
 
 

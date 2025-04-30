@@ -12,3 +12,7 @@ h1{
   font-size:var(--font-size-xl);
   margin-bottom:var(--spacing-lg);
 }
+
+.hidden{
+  display: none !important;
+}
