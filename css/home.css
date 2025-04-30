@@ -1,0 +1,112 @@
+@import 'styles.css';
+
+
+#hero_home {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: var(--vh-30);
+    width: var(--vw-100);
+    margin: 0;
+    padding: 0;
+    background-image: url("../assets/images/abstract-blur-defocused-library-book-store-shop-interior_mob.jpg");
+    background-size: cover;
+    background-position: center;
+    padding-bottom: var(--spacing-xl);
+
+    #hero_text{
+        background-color: rgba(255, 255, 255, var(--opacity-md));
+        padding: var(--spacing-lg);
+        border-radius: var(--border-radius-lg);
+        h1{
+            font-size: var(--font-size-xl);
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+    
+        p{
+            font-size: var(--font-size-md);
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            max-width: var(--ch-width-sm);
+        }
+    }
+
+
+    #signup_btn {
+        position: absolute;
+        bottom: var(--spacing-minus-xxl);
+        padding: var(--spacing-lg) var(--spacing-4xl);
+        border-radius: var(--border-radius-md);
+        border: var(--border-width-md) solid var(--primary-color);
+        background-color: var(--primary-color);
+        color: var(--primary-color);
+        cursor: pointer;
+    
+        &:hover {
+            background-color: var(--secondary-color);
+            opacity: var(--opacity-sm);
+            border: var(--border-width-md) solid var(--secondary-color);
+        }
+    
+        a {
+            color: var(--light-text-color);
+            text-decoration: none;
+        }
+    
+        a:hover {
+            color: var(--light-text-color);
+        }
+    }
+}
+
+#trending_books{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: var(--content-width-lg);
+    margin: 0 auto;
+    padding: 0 var(--spacing-xxl);
+    h2{
+        font-size: var(--font-size-xl);
+        margin: var(--spacing-4xl) 0 var(--spacing-lg) 0;
+        text-align: center;
+    }
+    
+    p{
+        font-size: var(--font-size-md);
+        text-align: center;
+        margin-bottom: var(--spacing-xxl);
+    }
+    #see_more_btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: var(--spacing-lg) var(--spacing-4xl);
+        margin: var(--spacing-lg) 0;
+        border-radius: var(--border-radius-md);
+        border: var(--border-width-md) solid var(--primary-color);
+        background-color: var(--light-background-color);
+        color: var(--primary-color);
+        cursor: pointer;
+    
+        &:hover {
+            background-color: var(--secondary-color);
+            opacity: var(--opacity-sm);
+            border: var(--border-width-md) solid var(--secondary-color);
+            color: var(--light-text-color);
+        }
+    
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+    
+        a:hover {
+            color: var(--light-text-color);
+        }
+    }
+}

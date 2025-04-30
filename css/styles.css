@@ -1,6 +1,5 @@
 @import "variables.css";
 @import "nav.css";
-@import "signup.css";
 
 * {
   margin: 0;
@@ -8,11 +7,20 @@
   box-sizing: border-box;
 }
 
-h1{
-  font-size:var(--font-size-xl);
-  margin-bottom:var(--spacing-lg);
-}
+body{
+  background-color: var(--light-background-color);
+  color: var(--dark-text-color);
+  font-family: poppins, sans-serif;
+  line-height: var(--standard-line-height);
 
-.hidden{
-  display: none !important;
+
+  h1{
+    font-size:var(--font-size-xl);
+    margin-bottom:var(--spacing-lg);
+  }
+  
+  .hidden{
+    display: none !important;
+  }
+
 }

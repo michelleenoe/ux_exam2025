@@ -18,7 +18,7 @@
     --font-size-sm: clamp(0.75rem, 1vw, 0.875rem);  
     --font-size-md: clamp(0.875rem, 1.2vw, 1rem);   
     --font-size-lg: clamp(1rem, 1.3vw, 1.25rem);    
-    --font-size-xl: clamp(1.25rem, 2vw, 1.5rem);    
+    --font-size-xl: clamp(1.5rem, 2vw, 1.5rem);    
     --font-size-xxl: clamp(1.75rem, 3.5vw, 2.5rem);
     --font-size-header:clamp(1.5rem, 2.5vw, 2rem);    
 
@@ -32,6 +32,7 @@
     --standard-line-height: 1.5rem;
 
     /* Spacing */
+    --spacing-minus-xxl: -1.5rem;
     --spacing-xs: 0.125rem ;  
     --spacing-sm: 0.25rem ;    
     --spacing-md: 0.5rem ;      
@@ -39,6 +40,7 @@
     --spacing-xl: 1rem ;          
     --spacing-xxl: 1.5rem;       
     --spacing-xxxl: 2rem;       
+    --spacing-4xl: 4rem;       
 
     /* Border Radius */
     --border-radius-sm: 0.25rem;
@@ -57,13 +59,18 @@
     --logo-size: 100px;
 
     /* scale */
+    --scale-sm:1.02;
     --full-scale: 100%;
-    --width-sm:250px;
-    --vh-100:100vh;
-    --vw-100:100vw;
+    --width-sm: 250px;
+    --width-md: 300px;
+    --vh-100: 100vh;
+    --vw-100: 100vw;
+    --vh-30: 30vh;
 
     /* opacity */
+    --opacity-xs: 0.1;
     --opacity-sm: 0.5;
+    --opacity-md: 0.8;
 
     /* blur */
     --blur-sm: 5px;
@@ -84,7 +91,15 @@
 
 
     /* transitions */
+    --trasnition-shorter:0.2s;
     --trasnition-short:0.3s;
+
+    /* character width */
+    --ch-width-sm: 60ch;
+
+    /* shadow pixels */
+    --shadow-px-sm: 2px;
+    --shadow-px-lg: 8px;
 }
 
 

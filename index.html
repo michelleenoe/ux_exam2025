@@ -7,7 +7,10 @@
     <title>Chapter | Your online bookstore</title>
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/book.css">
     <script type="module" src="./js/script.js"></script>
+    <script type="module" src="./js/trendingBooks.js"></script>
 </head>
 
 <body>
@@ -70,8 +73,40 @@
     </div>
     </div>
     <main>
+        <header>
+            <div id="hero_home">
+                <div id="hero_text">
+                    <h1>Access thousands of books online</h1>
+                    <p>Discover, borrow, and read instantly – for free. Create an account and start your reading journey
+                        today.</p>
+                </div>
+                <div id="signup_btn">
+                    <a href="signup.html" title="Sign up">Sign up</a>
+                </div>
+            </div>
+        </header>
+        <section id="trending_books">
+            <h2>What Everyone’s Reading Right Now</h2>
+            <p>Looking for your next great read? These top picks are grabbing attention for all the right reasons — acclaimed, addictive, and impossible to ignore. Check out the most popular books among our readers.</p>
+            <div id="trending_book_list"></div>
+            <div id="see_more_btn">
+                <a href="books.html">See More</a>
+            </div>
+        </section>
     </main>
     <footer></footer>
+
+    <template id="trending_template">
+        <article class="book_card">
+            <img class="book_cover" src="" alt="">
+            <div class="book_info">
+                <h3 class="book_title"></h3>
+                <p class="book_author"></p>
+                <p class="publishing_year"></p>
+                <p class="publishing_company"></p>
+            </div>
+        </article>
+    </template>
 
 </body>
 
