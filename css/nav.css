@@ -197,10 +197,14 @@ button {
         display: flex;
         gap: var(--spacing-md);
     }
+
+    #overlay {
+    display: none !important;
+  }
 }
 
 
-#utility_logged,
+/* #utility_logged,
 #mobile_utility_logged {
     display: none;
-}
+} */
