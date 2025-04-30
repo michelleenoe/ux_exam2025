@@ -29,8 +29,9 @@ header {
             }
         }
     }
+    
 
-    img{
+    a img{
         width: var(--logo-size);
         padding: var(--spacing-xl);
     }
