@@ -12,7 +12,7 @@ let visibleCount = 10;
 
 const fetchBooks = async () => {
   try {
-    const res = await fetch(`${BASE_URL}/books?n=1000`);
+    const res = await fetch(`${BASE_URL}/books?n=100`);
     const data = await res.json();
     allBooks = Array.isArray(data) ? data : [];
     updateBookList();
