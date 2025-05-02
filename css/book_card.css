@@ -1,0 +1,69 @@
+#trending_book_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--spacing-xxl);
+  padding: var(--spacing-xl);
+}
+
+.book_card {
+  display: flex;
+  flex-direction: column;
+  background: var(--light-background-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 var(--shadow-px-sm) var(--shadow-px-lg) rgba(0, 0, 0, var(--opacity-xs));
+  overflow: hidden;
+  transition: transform var(--trasnition-shorter) ease;
+
+  &:hover {
+    transform: scale(var(--scale-sm));
+  }
+
+  .book_cover {
+    width: var(--full-scale);
+    height: auto;
+    object-fit: cover;
+  }
+
+  .book_info {
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+
+    .book_title {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-bolder);
+      padding: var(--spacing-xl);
+    }
+
+    .book_author,
+    .publishing_year,
+    .publishing_company {
+      font-size: var(--font-size-md);
+    }
+
+
+  }
+
+  .book_card_btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+
+    div {
+      a {
+        text-decoration: none;
+        padding: var(--spacing-md) var(--spacing-xl);
+        border-radius: var(--border-radius-md);
+        border: var(--border-width-md) solid var(--primary-color);
+        color: var(--primary-color);
+
+        &:hover {
+          border: var(--border-width-md) solid var(--hover-color);
+          background-color: var(--hover-color);
+          color: var(--dark-text-color);
+        }
+      }
+    }
+  }
+}

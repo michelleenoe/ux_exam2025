@@ -28,9 +28,16 @@ const showTrendingBooks = async (numBooks = DEFAULT_BOOKS) => {
       card.querySelector(".publishing_company").innerText =
         book.publishing_company;
 
-      card.querySelectorAll("a").forEach((link) => {
-        link.href = `book.html?book_id=${book.book_id}`;
+      card.querySelectorAll("a").forEach((link, index) => {
+        if (index === 0 || index === 1) {
+          // Book Cover and Read More
+          link.href = `book.html?book_id=${book.book_id}`;
+        } else if (index === 2) {
+          // Loan button
+          link.href = `loan.html?book_id=${book.book_id}`;
+        }
       });
+
 
       fetch(`${BASE_URL}/books/${book.book_id}`)
         .then(response => response.json())

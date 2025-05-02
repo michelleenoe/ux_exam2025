@@ -4,6 +4,7 @@
     --secondary-color: #493EFF;
     --tertiary-color: #EF0000; 
     --quaternary-color: #707070;
+    --hover-color: #A49FFC;
     --input-bg: #c1e1f1;
 
     --light-background-color: #FFFFFF;
@@ -32,7 +33,7 @@
     --standard-line-height: 1.5rem;
 
     /* Spacing */
-    --spacing-minus-xxl: -1.5rem;
+    --spacing-minus-xxl: -0.8rem;
     --spacing-xs: 0.125rem ;  
     --spacing-sm: 0.25rem ;    
     --spacing-md: 0.5rem ;      
@@ -41,6 +42,7 @@
     --spacing-xxl: 1.5rem;       
     --spacing-xxxl: 2rem;       
     --spacing-4xl: 4rem;       
+    --spacing-5xl: 5rem;       
 
     /* Border Radius */
     --border-radius-sm: 0.25rem;

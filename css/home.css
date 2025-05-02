@@ -38,26 +38,20 @@
     #signup_btn {
         position: absolute;
         bottom: var(--spacing-minus-xxl);
-        padding: var(--spacing-lg) var(--spacing-4xl);
-        border-radius: var(--border-radius-md);
-        border: var(--border-width-md) solid var(--primary-color);
-        background-color: var(--primary-color);
-        color: var(--primary-color);
         cursor: pointer;
     
-        &:hover {
-            background-color: var(--secondary-color);
-            opacity: var(--opacity-sm);
-            border: var(--border-width-md) solid var(--secondary-color);
-        }
-    
-        a {
-            color: var(--light-text-color);
+        a {         
+            padding: var(--spacing-xl) var(--spacing-5xl);
+            border-radius: var(--border-radius-md);
+            border: var(--border-width-md) solid var(--primary-color);
             text-decoration: none;
-        }
-    
-        a:hover {
+            background-color: var(--primary-color);
             color: var(--light-text-color);
+            line-height: var(--standard-line-height);
+            &:hover {
+            border: var(--border-width-md) solid var(--hover-color);
+            background-color: var(--hover-color);
+            color: var(--dark-text-color);}
         }
     }
 }
@@ -85,28 +79,20 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: var(--spacing-lg) var(--spacing-4xl);
         margin: var(--spacing-lg) 0;
-        border-radius: var(--border-radius-md);
-        border: var(--border-width-md) solid var(--primary-color);
-        background-color: var(--light-background-color);
         color: var(--primary-color);
         cursor: pointer;
     
-        &:hover {
-            background-color: var(--secondary-color);
-            opacity: var(--opacity-sm);
-            border: var(--border-width-md) solid var(--secondary-color);
-            color: var(--light-text-color);
-        }
-    
         a {
-            color: var(--primary-color);
             text-decoration: none;
-        }
-    
-        a:hover {
-            color: var(--light-text-color);
+            padding: var(--spacing-xl) var(--spacing-5xl);
+            border-radius: var(--border-radius-md);
+            border: var(--border-width-md) solid var(--primary-color);
+            color: var(--primary-color);
+            &:hover {
+            border: var(--border-width-md) solid var(--hover-color);
+            background-color: var(--hover-color);
+            color: var(--dark-text-color);}
         }
     }
 }

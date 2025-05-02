@@ -1,6 +1,6 @@
 @import 'styles.css';
 
-body > header{
+body>header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,9 +28,9 @@ body > header{
             }
         }
     }
-    
 
-    a img{
+
+    a img {
         width: var(--logo-size);
         padding: var(--spacing-xl);
     }
@@ -130,7 +130,7 @@ button {
 
 
 @media (min-width: 768px) {
-    
+
 
     #burger_btn,
     #side_menu {
@@ -145,8 +145,8 @@ button {
         gap: var(--spacing-xl);
 
         #main_nav {
-        margin-left: var(--spacing-lg);
-    }
+            margin-left: var(--spacing-lg);
+        }
 
         #main_nav,
         #utility_not_logged,
@@ -163,58 +163,60 @@ button {
         }
     }
 
-    #main_nav{
+    #main_nav {
 
-        ul{
-            display: flex;
-            gap: var(--spacing-md);
-            li a{
-                        padding: var(--spacing-md) var(--spacing-xl);
-                        border-radius: var(--border-radius-md);
-                        border: var(--border-width-md) solid var(--light-text-color);
-                        color:var(--primary-color);
-                        
-                        
-                        &:hover {
-                            border: var(--border-width-md) solid var(--secondary-color);
-                            background-color: var(--secondary-color);
-                            opacity: var(--opacity-sm);
-                            color:var(--light-text-color);
-                        }
-    
-                        a {
-                            img {
-                                width: var(--logo-size);
-                                padding: var(--spacing-lg);
-                            }
-                        }
-                    }
-        }
-    }
-
-    #utility_not_logged,
-    #utility_logged {
-        margin-left: auto;
         ul {
             display: flex;
             gap: var(--spacing-md);
-            li a{
+
+            li a {
                 padding: var(--spacing-md) var(--spacing-xl);
                 border-radius: var(--border-radius-md);
-                border: var(--border-width-md) solid var(--primary-color);
-                color:var(--primary-color);
-                
+                border: var(--border-width-md) solid var(--light-background-color);
+                color: var(--primary-color);
+
                 &:hover {
-                    border: var(--border-width-md) solid var(--secondary-color);
-                        background-color: var(--secondary-color);
-                        opacity: var(--opacity-sm);
-                        color:var(--light-text-color);
-                    }
+                    border: var(--border-width-md) solid var(--hover-color);
+                    background-color: var(--hover-color);
+                    color: var(--dark-text-color);
+                }
+            }
+
+            a {
+                img {
+                    width: var(--logo-size);
+                    padding: var(--spacing-lg);
+                }
             }
         }
     }
+}
 
-    #overlay {
+#utility_not_logged,
+#utility_logged {
+    margin-left: auto;
+
+    ul {
+        display: flex;
+        gap: var(--spacing-md);
+
+        li a {
+            text-decoration: none;
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--border-radius-md);
+            border: var(--border-width-md) solid var(--primary-color);
+            color: var(--primary-color);
+            font-size: var(--font-size-lg);
+
+            &:hover {
+                border: var(--border-width-md) solid var(--hover-color);
+                background-color: var(--hover-color);
+                color: var(--dark-text-color);
+            }
+        }
+    }
+}
+
+#overlay {
     display: none !important;
-  }
 }

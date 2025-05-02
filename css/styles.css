@@ -11,7 +11,6 @@ body{
   background-color: var(--light-background-color);
   color: var(--dark-text-color);
   font-family: poppins, sans-serif;
-  line-height: var(--standard-line-height);
 
 
   h1{
@@ -21,6 +20,10 @@ body{
   
   .hidden{
     display: none !important;
+  }
+
+  p{
+    line-height: var(--standard-line-height);
   }
 
 }
