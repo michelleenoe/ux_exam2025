@@ -10,8 +10,10 @@
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-md);
     color: var(--text-color);
-    box-shadow: 0 var(--shadow-px-xs) var(--shadow-px-sm) rgba(0, 0, 0, 0.05);
-  }
+    box-shadow: 0 0 0 var(--border-width-sm) var(--quaternary-color);
+  
+    }
+
   
   #search_input::placeholder {
     color: var(--text-color-muted);
