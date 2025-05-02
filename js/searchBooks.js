@@ -2,45 +2,49 @@ import { BASE_URL } from "./info.js";
 import { FALLBACK_IMAGE } from "./info.js";
 import { handleError } from "./api.js";
 
-const DEFAULT_BOOKS = 10;
+const searchInput = document.querySelector("#search_input");
+const container = document.querySelector("#showAllBooks_book_list");
+const template = document.querySelector("#showAllBooks_template");
 
-const showAllBooks = async (numBooks = DEFAULT_BOOKS) => {
+searchInput?.addEventListener("input", async () => {
+  const query = searchInput.value.trim().toLowerCase();
+
+  if (query.length < 2) return;
+
   try {
-    const response = await fetch(`${BASE_URL}/books?n=${numBooks}`);
+    const response = await fetch(`${BASE_URL}/books`);
     const books = await response.json();
 
+    const filtered = books.filter((book) => {
+      return (
+        book.title.toLowerCase().includes(query) ||
+        book.author.toLowerCase().includes(query)
+      );
+    });
+
+    container.innerHTML = "";
     const fragment = document.createDocumentFragment();
 
-    books.forEach((book) => {
-      const card = document
-        .querySelector("#showAllBooks_template")
-        .content.cloneNode(true);
+    filtered.forEach((book) => {
+      const card = template.content.cloneNode(true);
       const img = card.querySelector(".book_cover");
 
       img.setAttribute("src", FALLBACK_IMAGE);
       img.setAttribute("alt", `Loading cover for ${book.title}...`);
 
       card.querySelector(".book_title").innerText = book.title;
-      // card.querySelector(".book_author").innerText = `by ${book.author}`;
-      // card.querySelector(
-      //   ".publishing_year"
-      // ).innerText = `Published: ${book.publishing_year}`;
-      // card.querySelector(".publishing_company").innerText =
-      //   book.publishing_company;
 
       card.querySelectorAll("a").forEach((link, index) => {
         if (index === 0 || index === 1) {
-          // Book Cover and Read More
           link.href = `book.html?book_id=${book.book_id}`;
         } else if (index === 2) {
-          // Loan button
           link.href = `loan.html?book_id=${book.book_id}`;
         }
       });
 
       fetch(`${BASE_URL}/books/${book.book_id}`)
-        .then(response => response.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
           if (data.cover) {
             img.src = data.cover;
             img.alt = `Cover of ${book.title}`;
@@ -50,10 +54,8 @@ const showAllBooks = async (numBooks = DEFAULT_BOOKS) => {
       fragment.append(card);
     });
 
-    document.querySelector("#showAllBooks_book_list").append(fragment);
+    container.append(fragment);
   } catch (error) {
     handleError(error);
   }
-};
-
-showAllBooks();
+});
