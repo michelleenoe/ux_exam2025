@@ -1,91 +1,85 @@
-import { fetchData } from "./fetchData.js";
-import { setCoverImage } from "./utils.js";
+import { BASE_URL } from "./info.js";
+import { FALLBACK_IMAGE } from "./info.js";
+import { handleError } from "./api.js";
 
-const LIMIT = 10;
-let loadedBooks = 0;
-
-const template = document.querySelector("#book_template");
-const container = document.querySelector("#all_books");
+const searchInput = document.querySelector("#search_input");
+const container = document.querySelector("#showAllBooks_book_list");
+const template = document.querySelector("#showAllBooks_template");
 const loadMoreBtn = document.querySelector("#load_more_btn");
 
-export async function fetchBooks() {
+let allBooks = [];
+let visibleCount = 10;
+
+const fetchBooks = async () => {
   try {
-    const books = await fetchData(`http://localhost:8080/books?n=${LIMIT}&offset=${loadedBooks}`);
-    renderBooks(books);
-    loadedBooks += books.length;
-  } catch (err) {
-    console.error("Error loading books:", err);
-  }
-}
-
-export function renderBooks(books) {
-  books.forEach(async (book) => {
-    const clone = template.content.cloneNode(true);
-    const cover = clone.querySelector(".book_cover");
-
-    clone.querySelector(".book_title").textContent = book.title;
-    clone.querySelector(".book_author").textContent = `by ${book.author}`;
-    const yearEl = clone.querySelector(".publishing_year");
-    yearEl.textContent = `Published: ${book.publishing_year}`;
-    yearEl.dataset.year = book.publishing_year;
-    clone.querySelector(".publishing_company").textContent = book.publishing_company;
-
-    try {
-      const details = await fetchData(`http://localhost:8080/books/${book.book_id}`);
-      setCoverImage(cover, details.cover, book.title);
-    } catch {
-      setCoverImage(cover, null, book.title);
-    }
-
-    container.appendChild(clone);
-  });
-}
-
-export async function renderBooksByAuthor(authorId = "") {
-  container.innerHTML = "";
-  loadedBooks = 0;
-  loadMoreBtn.classList.toggle("hidden", !!authorId);
-
-  const url = authorId
-    ? `http://localhost:8080/books?a=${authorId}`
-    : `http://localhost:8080/books?n=${LIMIT}&offset=${loadedBooks}`;
-
-  try {
-    const books = await fetchData(url);
-    renderBooks(books);
-    if (!authorId) loadedBooks += books.length;
-    return books;
+    const res = await fetch(`${BASE_URL}/books?n=100`);
+    const data = await res.json();
+    allBooks = Array.isArray(data) ? data : [];
+    updateBookList();
   } catch (error) {
-    console.error("Error displaying books:", error);
-    return [];
+    handleError(error);
   }
-}
+};
 
-function sortBooks(by) {
-  const books = Array.from(container.children);
-  books.sort((a, b) => {
-    let aVal, bVal;
-    if (by === "publishing_year") {
-      aVal = parseInt(a.querySelector(".publishing_year")?.dataset.year || 0);
-      bVal = parseInt(b.querySelector(".publishing_year")?.dataset.year || 0);
-      return aVal - bVal;
-    }
-    aVal = a.querySelector(`.book_${by}`)?.textContent.trim().toLowerCase() || "";
-    bVal = b.querySelector(`.book_${by}`)?.textContent.trim().toLowerCase() || "";
-    return aVal.localeCompare(bVal);
+const updateBookList = () => {
+  const query = searchInput.value.trim().toLowerCase();
+  const filtered = query.length >= 2
+    ? allBooks.filter(book =>
+        book.title.toLowerCase().includes(query) ||
+        book.author.toLowerCase().includes(query)
+      )
+    : allBooks;
+
+  const booksToShow = filtered.slice(0, visibleCount);
+  container.innerHTML = "";
+  renderBooks(booksToShow);
+
+  loadMoreBtn.classList.toggle("hidden", visibleCount >= filtered.length);
+};
+
+const renderBooks = (books) => {
+  const fragment = document.createDocumentFragment();
+
+  books.forEach((book) => {
+    const card = template.content.cloneNode(true);
+    const img = card.querySelector(".book_cover");
+
+    img.setAttribute("src", FALLBACK_IMAGE);
+    img.setAttribute("alt", `Loading cover for ${book.title}...`);
+    card.querySelector(".book_title").innerText = book.title;
+    card.querySelector(".book_author").innerText = `by ${book.author}`;
+    card.querySelector(".publishing_year").innerText = `Published: ${book.publishing_year}`;
+    card.querySelector(".publishing_company").innerText = book.publishing_company;
+
+    card.querySelectorAll("a").forEach((link, index) => {
+      link.href = index < 2
+        ? `book.html?book_id=${book.book_id}`
+        : `loan.html?book_id=${book.book_id}`;
+    });
+
+    fetch(`${BASE_URL}/books/${book.book_id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.cover) {
+          img.src = data.cover;
+          img.alt = `Cover of ${book.title}`;
+        }
+      });
+
+    fragment.append(card);
   });
-  books.forEach((el) => container.appendChild(el));
-}
 
-document.querySelector(".sort_btn")?.addEventListener("click", () =>
-  document.getElementById("sort_dropdown")?.classList.toggle("hidden")
-);
+  container.append(fragment);
+};
 
-document.getElementById("sort_dropdown")?.addEventListener("click", (e) => {
-  if (e.target.tagName === "BUTTON") {
-    sortBooks(e.target.dataset.sort);
-    e.currentTarget.classList.add("hidden");
-  }
+searchInput?.addEventListener("input", () => {
+  visibleCount = 10;
+  updateBookList();
 });
 
-loadMoreBtn?.addEventListener("click", fetchBooks);
+loadMoreBtn?.addEventListener("click", () => {
+  visibleCount += 10;
+  updateBookList();
+});
+
+fetchBooks();
