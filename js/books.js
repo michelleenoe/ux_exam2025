@@ -28,8 +28,8 @@ const renderBooks = (books) => {
 
   books.forEach((book) => {
     const card = document
-    .querySelector("#showAllBooks_template")
-    .content.cloneNode(true);
+        .querySelector("#showAllBooks_template")
+        .content.cloneNode(true);
     const img = card.querySelector(".book_cover");
 
     img.setAttribute("src", FALLBACK_IMAGE);
