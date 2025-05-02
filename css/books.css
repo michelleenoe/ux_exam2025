@@ -1,2 +1,24 @@
 @import 'styles.css';
 
+#search_input {
+    width: 100%;
+    max-width: 500px;
+    margin: var(--spacing-lg) auto var(--spacing-xl);
+    display: block;
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-size-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    color: var(--text-color);
+    box-shadow: 0 var(--shadow-px-xs) var(--shadow-px-sm) rgba(0, 0, 0, 0.05);
+  }
+  
+  #search_input::placeholder {
+    color: var(--text-color-muted);
+  }
+  
+  #search_input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-color);
+  }
