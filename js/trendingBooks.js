@@ -1,54 +1,53 @@
-import { fetchData } from "./fetchData.js";
+import { BASE_URL } from "./info.js";
+import { FALLBACK_IMAGE } from "./info.js";
+import { handleError } from "./api.js";
 
-const API_URL = "http://localhost:8080/books?n=3";
-const FALLBACK_IMAGE = "../assets/images/placeholder-cover.jpg"; // sørg for at denne fil findes
+const DEFAULT_BOOKS = 3;
 
-
-async function fetchTrendingBooks() {
+const showTrendingBooks = async (numBooks = DEFAULT_BOOKS) => {
   try {
-    const books = await fetchData(API_URL);
-    const template = document.querySelector("#trending_template");
-    const container = document.querySelector("#trending_book_list");
+    const response = await fetch(`${BASE_URL}/books?n=${numBooks}`);
+    const books = await response.json();
 
-    books.forEach(async (book) => {
-      const clone = template.content.cloneNode(true);
-      const coverImg = clone.querySelector(".book_cover");
+    const fragment = document.createDocumentFragment();
 
-      // Set fallback immediately
-      coverImg.src = FALLBACK_IMAGE;
-      coverImg.alt = `Loading cover for ${book.title}...`;
+    books.forEach((book) => {
+      const card = document
+        .querySelector("#trending_template")
+        .content.cloneNode(true);
+      const img = card.querySelector(".book_cover");
 
-      clone.querySelector(".book_title").textContent = book.title;
-      clone.querySelector(".book_author").textContent = `by ${book.author}`;
-      clone.querySelector(
+      img.setAttribute("src", FALLBACK_IMAGE);
+      img.setAttribute("alt", `Loading cover for ${book.title}...`);
+
+      card.querySelector(".book_title").innerText = book.title;
+      card.querySelector(".book_author").innerText = `by ${book.author}`;
+      card.querySelector(
         ".publishing_year"
-      ).textContent = `Published: ${book.publishing_year}`;
-      clone.querySelector(".publishing_company").textContent =
+      ).innerText = `Published: ${book.publishing_year}`;
+      card.querySelector(".publishing_company").innerText =
         book.publishing_company;
 
-      // Try to load actual cover
-      try {
-        const details = await fetchData(
-          `http://localhost:8080/books/${book.book_id}`
-        );
-        const tempImg = new Image();
-        tempImg.onload = () => {
-          coverImg.src = details.cover;
-          coverImg.alt = `Cover of ${book.title}`;
-        };
-        tempImg.onerror = () => {
-          // fallback is already set, no need to change
-        };
-        tempImg.src = details.cover;
-      } catch {
-        // fallback already applied
-      }
+      card.querySelectorAll("a").forEach((link) => {
+        link.href = `book.html?book_id=${book.book_id}`;
+      });
 
-      container.appendChild(clone);
+      fetch(`${BASE_URL}/books/${book.book_id}`)
+        .then(response => response.json())
+        .then(data =>{
+          if (data.cover) {
+            img.src = data.cover;
+            img.alt = `Cover of ${book.title}`;
+          }
+        })
+
+      fragment.append(card);
     });
-  } catch (error) {
-    console.error("Error fetching trending books:", error);
-  }
-}
 
-fetchTrendingBooks();
+    document.querySelector("#trending_book_list").append(fragment);
+  } catch (error) {
+    handleError(error);
+  }
+};
+
+showTrendingBooks();

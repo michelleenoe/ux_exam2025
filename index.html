@@ -85,6 +85,12 @@
                 </div>
             </div>
         </header>
+        <section id="error" class="hidden">
+            <header>
+                <h3>Error</h3>
+            </header>
+            <p id="errorText"></p>
+        </section>
         <section id="trending_books">
             <h2>What Everyone’s Reading Right Now</h2>
             <p>Looking for your next great read? These top picks are grabbing attention for all the right reasons — acclaimed, addictive, and impossible to ignore. Check out the most popular books among our readers.</p>
@@ -98,7 +104,9 @@
 
     <template id="trending_template">
         <article class="book_card">
-            <img class="book_cover" src="" alt="">
+            <a href="">
+                <img class="book_cover" src="" alt="">
+            </a>
             <div class="book_info">
                 <h3 class="book_title"></h3>
                 <p class="book_author"></p>
