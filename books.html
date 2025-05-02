@@ -65,3 +65,68 @@
         </div>
         <div id="overlay"></div>
     </header>
+<main>
+    <section>    
+        <div class="breadcrumb_wrapper">
+            <nav class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <a href="books.html" class="active" id="breadcrumb_current">Browse books</a>
+            </nav>
+        </div>
+    </section>
+    <section class="browse_header">
+        <h1>Lorem Ipsum</h1>
+        <div class="browse_controls">
+            <div class="sort_wrapper">
+            <button class="sort_btn">
+                Sort <img src="assets/icons/Chevron down.svg" alt="Sort icon" />
+            </button>
+            <div class="sort_dropdown hidden" id="sort_dropdown">
+                <ul>
+                <li><button data-sort="title">Title</button></li>
+                <li><button data-sort="publishing_year">Year</button></li>
+                </ul>
+            </div>
+            </div>
+            <div class="divider"></div>
+            <button class="filter_btn">
+            Filter <img src="assets/icons/filter-outline.svg" alt="Filter icon" />
+            </button>
+        </div>
+        <div id="active_filter_wrapper" class="hidden">
+            <span id="active_filter">
+            Filter: <strong id="active_filter_label"></strong>
+            <button id="clear_filter" aria-label="Remove filter">×</button>
+            </span>
+        </div>
+    </section>
+        <div id="filter_panel" class="filter_panel hidden">
+        <button id="close_filter">×</button>
+        <form id="filter_form">
+        <label for="author_select">Filter by author:</label>
+        <select id="author_select">
+            <option value="">All authors</option>
+        </select>
+        <button class="apply_filters" type="submit">Browse</button>
+        </form>
+    </div>
+    <div id="filter_overlay" class="hidden"></div>
+    <section id="all_books"></section>
+    <div class="load_more_wrapper">
+        <button id="load_more_btn">Load More</button>
+    </div>
+</main>
+
+<footer></footer>
+            <template id="book_template">
+        <article class="book">
+          <img class="book_cover" src="" alt="" />
+          <h2 class="book_title"></h2>
+          <p class="book_author"></p>
+          <p class="publishing_year"></p>
+          <p class="publishing_company"></p>
+        </article>
+      </template>
+</body>
+</html>
