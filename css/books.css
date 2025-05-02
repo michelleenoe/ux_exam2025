@@ -22,3 +22,46 @@
     border-color: var(--primary-color);
     box-shadow: 0 0 0 2px var(--primary-color);
   }
+
+
+  #browse_books{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: var(--content-width-lg);
+    margin: 0 auto;
+    padding: 0 var(--spacing-xxl);
+    h2{
+        font-size: var(--font-size-xl);
+        margin: var(--spacing-4xl) 0 var(--spacing-lg) 0;
+        text-align: center;
+    }
+    
+    p{
+        font-size: var(--font-size-md);
+        text-align: center;
+        margin-bottom: var(--spacing-xxl);
+    }
+    #load_more_btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: var(--spacing-xl) var(--spacing-5xl);
+      margin: var(--spacing-lg) 0;
+      border-radius: var(--border-radius-md);
+      border: var(--border-width-md) solid var(--primary-color);
+      background-color: var(--light-background-color);
+      color: var(--primary-color);
+      cursor: pointer;
+      font-size: var(--font-size-md);
+      font-weight: var(--font-bold);
+    
+      &:hover {
+        background-color: var(--hover-color);
+        border-color: var(--hover-color);
+        color: var(--dark-text-color);
+      }
+    }
+}
+
