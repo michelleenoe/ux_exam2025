@@ -6,6 +6,7 @@
     --quaternary-color: #707070;
     --hover-color: #A49FFC;
     --input-bg: #c1e1f1;
+    --focus-color:#007bff;
 
     --light-background-color: #FFFFFF;
     --secondary-background-color: #2B2B2B;
@@ -58,7 +59,7 @@
 
     /* Image sizes */
     --image-size-sm: 150px;
-    --logo-size: 100px;
+    --logo-size: 90px;
 
     /* scale */
     --scale-sm:1.02;

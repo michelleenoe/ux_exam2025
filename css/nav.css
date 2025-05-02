@@ -1,9 +1,10 @@
-@import 'styles.css';
+@import "styles.css";
 
 body>header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: var(--spacing-md) var(--spacing-xl);
 
     nav {
 
@@ -32,7 +33,8 @@ body>header {
 
     a img {
         width: var(--logo-size);
-        padding: var(--spacing-xl);
+        padding: var(--spacing-lg);
+        
     }
 }
 
@@ -49,6 +51,12 @@ button {
     all: unset;
     cursor: pointer;
     padding: var(--spacing-lg);
+}
+button:focus-visible {
+    outline: var(--border-width-md) solid var(--focus-color);
+    outline-offset: var(--border-width-md);
+    border-radius: var(--border-radius-md);
+    
 }
 
 #side_menu {

@@ -36,11 +36,11 @@
       /* padding: var(--spacing-xl); */
     }
 
-    /* .book_author,
+    .book_author,
     .publishing_year,
     .publishing_company {
       font-size: var(--font-size-md);
-    } */
+    }
 
 
   }
