@@ -21,12 +21,12 @@ const showTrendingBooks = async (numBooks = DEFAULT_BOOKS) => {
       img.setAttribute("alt", `Loading cover for ${book.title}...`);
 
       card.querySelector(".book_title").innerText = book.title;
-      card.querySelector(".book_author").innerText = `by ${book.author}`;
-      card.querySelector(
-        ".publishing_year"
-      ).innerText = `Published: ${book.publishing_year}`;
-      card.querySelector(".publishing_company").innerText =
-        book.publishing_company;
+      // card.querySelector(".book_author").innerText = `by ${book.author}`;
+      // card.querySelector(
+      //   ".publishing_year"
+      // ).innerText = `Published: ${book.publishing_year}`;
+      // card.querySelector(".publishing_company").innerText =
+      //   book.publishing_company;
 
       card.querySelectorAll("a").forEach((link, index) => {
         if (index === 0 || index === 1) {
