@@ -1,6 +1,8 @@
 @import "variables.css";
 @import "nav.css";
-@import "books.css";
+@import "back_to_top.css";
+@import "footer.css";
+@import "modal.css";
 
 * {
   margin: 0;

@@ -8,6 +8,7 @@
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="./css/signup.css">
+  <script type="module" src="./js/signup.js"></script>
   <script type="module" src="./js/script.js"></script>
 </head>
 
@@ -69,6 +70,12 @@
     <div id="overlay"></div>
   </header>
   <main>
+    <section id="error" class="hidden">
+            <header>
+                <h3>Error</h3>
+            </header>
+            <p id="errorText"></p>
+        </section>
     <form id="frmSignup" aria-describedby="pwHelp">
       <!-- <fieldset> -->
       <h1>Sign up</h1>
@@ -140,5 +147,6 @@
 <footer>
 
 </footer>
+ <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt=""></button>
 
 </html>

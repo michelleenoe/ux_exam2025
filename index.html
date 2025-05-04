@@ -94,13 +94,37 @@
             <h2>What Everyone’s Reading Right Now</h2>
             <p>Looking for your next great read? These top picks are grabbing attention for all the right reasons — acclaimed, addictive, and impossible to ignore. Check out the most popular books among our readers.</p>
             <div id="trending_book_list"></div>
+            <div id="loan_modal" class="modal">
+            <div class="modal_content">
+                <button id="modal_close_btn" aria-label="Close menu">
+                    <img src="assets/icons/X.svg" alt="Close menu icon">
+                </button>
+                <p class="modal_message">Thank You for Your loan. Please check Your email to recive the e-book. It will be active for 30 days.</p>
+            </div>
+            </div>
             <div id="see_more_btn">
-                <a href="books.html">See More</a>
+                <a href="books.html">Browse All</a>
             </div>
         </section>
     </main>
-    <footer></footer>
-
+    <footer>
+        <div id="social_icons">
+                    <a href="https://twitter.com" target="_blank">
+                        <img src="./assets/icons/Twitter.svg" alt="Twitter logo">
+                    </a>
+                    <a href="https://linkedin.com" target="_blank">
+                        <img src="./assets/icons/Linkedin.svg" alt="LinkedIn logo">
+                    </a>
+                    <a href="https://facebook.com" target="_blank">
+                        <img src="./assets/icons/Facebook.svg" alt="Facebook logo">
+                    </a>
+                    <a href="https://instagram.com" target="_blank">
+                        <img src="./assets/icons/Instagram.svg" alt="Instagram logo">
+                    </a>
+                </div>
+                <p id="footer-copy">&copy; 2023 KEA Development</p>
+    </footer>
+    <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt=""></button>
     <template id="trending_template">
         <article class="book_card">
             <a href="">

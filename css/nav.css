@@ -88,7 +88,6 @@ button:focus-visible {
 
         a:last-child {
             padding: var(--spacing-lg) 0;
-
         }
     }
 
@@ -113,6 +112,14 @@ button:focus-visible {
         font-weight: var(--font-bold);
     }
 
+    #mobile_main_nav{
+        ul{
+            li:first-child {
+                padding-top: var(--spacing-lg);
+            }
+        }
+    }
+
 
 }
 
@@ -122,7 +129,7 @@ button:focus-visible {
     left: 0;
     width: var(--vw-100);
     height: var(--vh-100);
-    backdrop-filter: blur(var(--blur-sm));
+    /* backdrop-filter: blur(var(--blur-sm)); */
     background-color: rgba(0, 0, 0, var(--opacity-sm));
     z-index: calc(var(--z-index-1000) - var(--z-index-1));
     display: none;
@@ -225,6 +232,7 @@ button:focus-visible {
     }
 }
 
-#overlay {
+
+/* #overlay {
     display: none !important;
-}
+} */

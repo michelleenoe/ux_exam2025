@@ -60,12 +60,14 @@
     /* Image sizes */
     --image-size-sm: 150px;
     --logo-size: 90px;
+    --social-icon-size: 30px;
 
     /* scale */
     --scale-sm:1.02;
     --full-scale: 100%;
     --width-sm: 250px;
     --width-md: 300px;
+    --width-lg: 400px;
     --vh-100: 100vh;
     --vw-100: 100vw;
     --vh-30: 30vh;

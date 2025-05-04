@@ -1,9 +1,9 @@
 import { utilityLog } from "./utilityLog.js";
 
 function logout() {
-  sessionStorage.removeItem("user_id");
-  sessionStorage.removeItem("auth_token");
-  sessionStorage.removeItem("is_admin");
+  sessionStorage.removeItem("app_user_id");
+  sessionStorage.removeItem("app_auth_token");
+  sessionStorage.removeItem("app_is_admin");
 
   // Opdater navigation
   utilityLog();

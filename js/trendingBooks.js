@@ -1,6 +1,7 @@
 import { BASE_URL } from "./info.js";
 import { FALLBACK_IMAGE } from "./info.js";
 import { handleError } from "./api.js";
+import { showLoanModal } from "./modal.js";
 
 const DEFAULT_BOOKS = 3;
 
@@ -30,13 +31,15 @@ const showTrendingBooks = async (numBooks = DEFAULT_BOOKS) => {
 
       card.querySelectorAll("a").forEach((link, index) => {
         if (index === 0 || index === 1) {
-          // Book Cover and Read More
           link.href = `book.html?book_id=${book.book_id}`;
         } else if (index === 2) {
-          // Loan button
-          link.href = `loan.html?book_id=${book.book_id}`;
+          link.addEventListener("click", (event) => {
+            event.preventDefault();
+            showLoanModal();
+          });
         }
       });
+
 
 
       fetch(`${BASE_URL}/books/${book.book_id}`)
