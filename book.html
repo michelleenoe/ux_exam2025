@@ -8,6 +8,7 @@
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <link rel="stylesheet" href="./css/styles.css">
     <script type="module" src="./js/script.js"></script>
+    <script type="module" src="./js/book.js"></script>
 </head>
 
 <body>
@@ -67,3 +68,60 @@
         </div>
         <div id="overlay"></div>
     </header>
+    <main>
+        <section id="error" class="hidden">
+            <header>
+                <h3>Error</h3>
+            </header>
+            <p id="errorText"></p>
+        </section>
+
+        <section class="book-detail">
+            <h1 id="bookTitle"></h1>
+            <img id="bookCover" src="assets/images/placeholder-cover.jpg" alt="Loading cover">
+            <div class="book-info">
+                <p id="bookAuthor"></p>
+                <p id="bookYear"></p>
+                <p id="bookPublisher"></p>
+                <button id="loanBtn">Loan Book</button>
+            </div>
+        </section>
+        <section class="related-list"></section>
+
+
+    </main>
+    <footer>
+        <div id="social_icons">
+            <a href="https://twitter.com" target="_blank">
+                <img src="./assets/icons/Twitter.svg" alt="Twitter logo">
+            </a>
+            <a href="https://linkedin.com" target="_blank">
+                <img src="./assets/icons/Linkedin.svg" alt="LinkedIn logo">
+            </a>
+            <a href="https://facebook.com" target="_blank">
+                <img src="./assets/icons/Facebook.svg" alt="Facebook logo">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="./assets/icons/Instagram.svg" alt="Instagram logo">
+            </a>
+        </div>
+        <p id="footer-copy">&copy; 2023 KEA Development</p>
+    </footer>
+
+
+    <button id="backToTop" aria-label="Back to top">
+        <img src="./assets/icons/Chevronup.svg" alt="">
+    </button>
+</body>
+<template id="related_template">
+    <div class="related-item">
+        <a href="">
+            <img class="related_cover" src="" alt="">
+            <h3 class="related_title"></h3>
+            <p class="related_author"></p>
+        </a>
+    </div>
+</template>
+
+
+</html>
