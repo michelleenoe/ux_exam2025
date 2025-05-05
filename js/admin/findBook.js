@@ -8,15 +8,16 @@ const userId = sessionStorage.getItem("app_user_id");
 export const initBookLookup = () => {
   const form = document.querySelector("#frmFindBook");
   const output = document.querySelector("#bookInfo");
+  const errorBox = document.querySelector("#error");
+  const errorText = document.querySelector("#errorText");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Clear tidligere indhold og tidligere fejlbeskeder
     output.classList.add("hidden");
     output.innerHTML = "";
-    document.querySelector("#error").classList.add("hidden");
-    document.querySelector("#errorText").innerText = "";
+    errorBox.classList.add("hidden");
+    errorText.innerText = "";
 
     const bookId = form.book_id.value.trim();
 
@@ -30,25 +31,51 @@ export const initBookLookup = () => {
       .then((book) => {
         output.classList.remove("hidden");
 
-        const loanMarkup = book.loans?.length
-          ? book.loans.map(loan => `
-              <div class="loan-row">User ID: ${loan.user_id} – ${loan.loan_date}</div>
-            `).join("")
-          : `<div class="loan-row">No loan history</div>`;
+        const img = document.createElement("img");
+        img.src = book.cover || FALLBACK_IMAGE;
+        img.alt = `Cover for ${book.title}`;
 
-        output.innerHTML = `
-        <img src="${book.cover || FALLBACK_IMAGE}" alt="Cover for ${book.title}">
-          <div class="book-details">
-            <h3>${book.title}</h3>
-            <p>Author: ${book.author}</p>
-            <p>Publisher: ${book.publishing_company}</p>
-            <p>Year: ${book.publishing_year}</p>
-            <div class="loan-history">
-              <h4>Loan History:</h4>
-              ${loanMarkup}
-            </div>
-          </div>
-        `;
+        const details = document.createElement("div");
+        details.className = "book-details";
+
+        const title = document.createElement("h3");
+        title.textContent = book.title;
+
+        const author = document.createElement("p");
+        author.textContent = `Author: ${book.author}`;
+
+        const publisher = document.createElement("p");
+        publisher.textContent = `Publisher: ${book.publishing_company}`;
+
+        const year = document.createElement("p");
+        year.textContent = `Year: ${book.publishing_year}`;
+
+        details.append(title, author, publisher, year);
+
+        const historyWrapper = document.createElement("div");
+        historyWrapper.className = "loan-history";
+
+        const historyTitle = document.createElement("h4");
+        historyTitle.textContent = "Loan History:";
+
+        historyWrapper.appendChild(historyTitle);
+
+        if (book.loans?.length) {
+          book.loans.forEach((loan) => {
+            const row = document.createElement("div");
+            row.className = "loan-row";
+            row.textContent = `User ID: ${loan.user_id} – ${loan.loan_date}`;
+            historyWrapper.appendChild(row);
+          });
+        } else {
+          const noHistory = document.createElement("div");
+          noHistory.className = "loan-row";
+          noHistory.textContent = "No loan history";
+          historyWrapper.appendChild(noHistory);
+        }
+
+        details.appendChild(historyWrapper);
+        output.append(img, details);
       })
       .catch((err) => {
         output.classList.add("hidden");
