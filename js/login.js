@@ -28,7 +28,6 @@ document.querySelector("#frmLogin").addEventListener("submit", (e) => {
           sessionStorage.setItem("app_user_id", data.user_id);
           sessionStorage.setItem("app_user_token", data.auth_token);
           sessionStorage.setItem("app_user_is_admin", data.is_admin);
-          sessionStorage.setItem("auth_token", data.auth_token);
 
           if (data.is_admin === 1) {
           window.location.href = "admin.html";
