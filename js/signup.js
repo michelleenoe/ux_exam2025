@@ -19,19 +19,20 @@ document.querySelector("#frmSignup").addEventListener("submit", (e) => {
   const phoneNumber = e.target.txtPhone.value.trim();
   const birthDate = e.target.txtBirthDate.value.trim();
 
-  const params = new URLSearchParams();
-  params.append("email", email);
-  params.append("password", password);
-  params.append("first_name", firstName);
-  params.append("last_name", lastName);
-  params.append("address", address);
-  params.append("phone_number", phoneNumber);
-  params.append("birth_date", birthDate);
-
+  const formData = new FormData();
+  formData.append("email", email);
+  formData.append("password", password);
+  formData.append("first_name", firstName);
+  formData.append("last_name", lastName);
+  formData.append("address", address);
+  formData.append("phone_number", phoneNumber);
+  formData.append("birth_date", birthDate);
+  
   fetch(`${BASE_URL}/users`, {
     method: "POST",
-    body: params,
+    body: formData,
   })
+  
     .then(handleAPIError)
     .then((data) => {
       if ("user_id" in data) {
