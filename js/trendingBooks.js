@@ -11,6 +11,7 @@ const showTrendingBooks = async (numBooks = DEFAULT_BOOKS) => {
     const books = await response.json();
 
     const fragment = document.createDocumentFragment();
+    const userId = sessionStorage.getItem("app_user_id");
 
     books.forEach((book) => {
       const card = document
@@ -22,6 +23,11 @@ const showTrendingBooks = async (numBooks = DEFAULT_BOOKS) => {
       img.setAttribute("alt", `Loading cover for ${book.title}...`);
 
       card.querySelector(".book_title").innerText = book.title;
+
+            const loanBtnWrapper = card.querySelector(".loan_btn");
+      if (!userId && loanBtnWrapper) {
+        loanBtnWrapper.classList.add("hidden");
+      }
       // card.querySelector(".book_author").innerText = `by ${book.author}`;
       // card.querySelector(
       //   ".publishing_year"

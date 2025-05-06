@@ -1,5 +1,5 @@
 import { BASE_URL } from "./info.js";
-import { handleError, handleAPIError, handleFetchCatchError } from "./api.js";
+import { handleError, handleAPIError} from "./api.js";
 
 document.querySelector("#frmSignup").addEventListener("submit", (e) => {
   e.preventDefault();
@@ -15,7 +15,7 @@ document.querySelector("#frmSignup").addEventListener("submit", (e) => {
   const firstName = e.target.txtFirstName.value.trim();
   const lastName = e.target.txtLastName.value.trim();
   const email = e.target.txtEmail.value.trim();
-  const address = e.target.txtAddress.value.trim(); // FIXED typo
+  const address = e.target.txtAddress.value.trim(); 
   const phoneNumber = e.target.txtPhone.value.trim();
   const birthDate = e.target.txtBirthDate.value.trim();
 
@@ -40,5 +40,5 @@ document.querySelector("#frmSignup").addEventListener("submit", (e) => {
         throw new Error(data.error || "Unexpected signup error.");
       }
     })
-    .catch(handleFetchCatchError);
+    .catch(handleError);
 });

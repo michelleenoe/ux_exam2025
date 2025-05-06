@@ -31,8 +31,8 @@
             </nav>
             <nav id="utility_logged">
                 <ul>
-                    <li><a href="profile.html" title="Profile">Profile</a></li>
-                    <li><a href="admin.html" title="Admin">Admin</a></li>
+                    <li id="profile_desk"><a href="profile.html" title="Profile">Profile</a></li>
+                    <li id="admin_desk"><a href="admin.html" title="Admin">Admin</a></li>
                     <li><button id="btnLogout">Logout</button></li>
                 </ul>
             </nav>
@@ -54,8 +54,8 @@
             </nav>
             <nav id="mobile_utility_logged">
                 <ul>
-                    <li><a href="profile.html">Profile</a></li>
-                    <li><a href="admin.html">Admin</a></li>
+                    <li id="profile_mob"><a href="profile.html">Profile</a></li>
+                    <li id="admin_mob"><a href="admin.html">Admin</a></li>
                     <li><button id="btnLogout">Logout</button></li>
                 </ul>
             </nav>
@@ -69,6 +69,12 @@
         <div id="overlay"></div>
     </header>
     <main>
+            <section id="error" class="hidden">
+            <header>
+                <h3>Error</h3>
+            </header>
+            <p id="errorText"></p>
+        </section>
         <header>
             <h2>Log in</h2>
         </header>
@@ -78,7 +84,7 @@
                     <header>
                         <h3>Error</h3>
                     </header>
-                    <p id="error_text"></p>
+                    <p id="errorText"></p>
                 </section>
                 <div>
                     <label for="txtEmail">E-mail</label>

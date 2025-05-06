@@ -5,18 +5,14 @@ export function utilityLog() {
   // Desktop navigation
   const desktopLogged = document.querySelector("#utility_logged");
   const desktopNotLogged = document.querySelector("#utility_not_logged");
-  const desktopAdminLink = desktopLogged?.querySelector('a[href="admin.html"]');
-  const desktopProfileLink = desktopLogged?.querySelector(
-    'a[href="profile.html"]'
-  );
+  const desktopAdminLink = desktopLogged?.querySelector("#admin_desk");
+  const desktopProfileLink = desktopLogged?.querySelector("#profile_desk");
 
   // Mobile navigation
   const mobileLogged = document.querySelector("#mobile_utility_logged");
   const mobileNotLogged = document.querySelector("#mobile_utility_not_logged");
-  const mobileAdminLink = mobileLogged?.querySelector('a[href="admin.html"]');
-  const mobileProfileLink = mobileLogged?.querySelector(
-    'a[href="profile.html"]'
-  );
+  const mobileAdminLink = mobileLogged?.querySelector("#admin_mob");
+  const mobileProfileLink = mobileLogged?.querySelector("#profile_mob");
 
   if (userId !== null) {
     // Check if the user is logged in
