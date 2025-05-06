@@ -7,6 +7,8 @@
     <title>Chapter | Your online Profile</title>
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/admin.css">
+    <script type="module" src="./js/admin/admin.js"></script>
     <script type="module" src="./js/script.js"></script>
 </head>
 
@@ -67,27 +69,83 @@
         </div>
         <div id="overlay"></div>
     </header>
-    </div>
-    </div>
-    <main>
-<h1> Admin</h1>
-    </main>
+<div>
+
+</div>
+    <main id="admin">
+        <nav id="adminMenu">
+          <button data-target="sectionBook">Add Book</button>
+          <button data-target="sectionAuthor">Add Author</button>
+          <button data-target="sectionPublisher">Add Publisher</button>
+          <button data-target="sectionFind">Find Book</button>
+        </nav>
+      
+        <section id="sectionBook" class="admin-section">
+          <h2>Add new book</h2>
+          <form id="frmAddBook">
+            <input type="text" name="title" placeholder="Title" required>
+            <select name="author_id" id="selectAuthor" required></select>
+            <select name="publisher_id" id="selectPublisher" required></select>
+            <input type="number" name="publishing_year" placeholder="Publishing Year" max="2025" required>
+            <button type="submit">Add Book</button>
+          </form>
+          <p class="success-message hidden"></p>
+        </section>
+      
+        <section id="sectionAuthor" class="admin-section hidden">
+          <h2>Add new author</h2>
+          <form id="frmAddAuthor">
+            <input type="text" name="first_name" placeholder="First name" required>
+            <input type="text" name="last_name" placeholder="Last name" required>
+            <button type="submit">Add Author</button>
+          </form>
+          <p class="success-message hidden"></p>
+        </section>
+      
+        <section id="sectionPublisher" class="admin-section hidden">
+          <h2>Add new publisher</h2>
+          <form id="frmAddPublisher">
+            <input type="text" name="name" placeholder="Publisher name" required>
+            <button type="submit">Add Publisher</button>
+          </form>
+          <p class="success-message hidden"></p>
+        </section>
+      
+        <section id="sectionFind" class="admin-section hidden">
+            <h2>Find book by ID</h2>
+            <div class="admin-grid">
+              <form id="frmFindBook">
+                <input type="number" name="book_id" placeholder="Book ID" required>
+                <button type="submit">Find Book</button>
+              </form>
+              <article id="bookInfo" class="hidden"></article>
+            </div>
+            <p class="success-message hidden"></p>
+          </section>
+          
+      
+        <section id="error" class="hidden">
+          <p id="errorText"></p>
+        </section>
+      </main>
+      
+
     <footer>
         <div id="social_icons">
-                    <a href="https://twitter.com" target="_blank">
-                        <img src="./assets/icons/Twitter.svg" alt="Twitter logo">
-                    </a>
-                    <a href="https://linkedin.com" target="_blank">
-                        <img src="./assets/icons/Linkedin.svg" alt="LinkedIn logo">
-                    </a>
-                    <a href="https://facebook.com" target="_blank">
-                        <img src="./assets/icons/Facebook.svg" alt="Facebook logo">
-                    </a>
-                    <a href="https://instagram.com" target="_blank">
-                        <img src="./assets/icons/Instagram.svg" alt="Instagram logo">
-                    </a>
-                </div>
-                <p id="footer-copy">&copy; 2023 KEA Development</p>
+            <a href="https://twitter.com" target="_blank">
+                <img src="./assets/icons/Twitter.svg" alt="Twitter logo">
+            </a>
+            <a href="https://linkedin.com" target="_blank">
+                <img src="./assets/icons/Linkedin.svg" alt="LinkedIn logo">
+            </a>
+            <a href="https://facebook.com" target="_blank">
+                <img src="./assets/icons/Facebook.svg" alt="Facebook logo">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="./assets/icons/Instagram.svg" alt="Instagram logo">
+            </a>
+        </div>
+        <p id="footer-copy">&copy; 2023 KEA Development</p>
     </footer>
     <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt=""></button>
 
