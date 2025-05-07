@@ -1,8 +1,8 @@
 import { BASE_URL, FALLBACK_IMAGE } from "./info.js";
 import { handleError } from "./api.js";
 
-const urlParams = new URLSearchParams(window.location.search);
-const bookId = urlParams.get("book_id");
+const params = new URLSearchParams(window.location.search);
+const bookId = params.get("book_id");
 const bookCover = document.querySelector("#bookCover");
 const bookTitle = document.querySelector("#bookTitle");
 const bookAuthor = document.querySelector("#bookAuthor");
@@ -10,14 +10,23 @@ const bookYear = document.querySelector("#bookYear");
 const bookPublisher = document.querySelector("#bookPublisher");
 const loanBtn = document.querySelector("#loanBtn");
 
-if (!bookId) handleError("Book ID is missing.");
+const DEFAULT_RELATED = 5;
+const relatedTpl = document.querySelector("#related_template");
+const relatedList = document.querySelector(".related-list");
 
-fetch(`${BASE_URL}/books/${bookId}`)
-  .then(response => {
+
+const showBookDetails = async () => {
+  try {
+    if (!bookId) {
+      handleError("Book ID is missing.");
+      return;
+    }
+
+    const response = await fetch(`${BASE_URL}/books/${bookId}`);
     if (!response.ok) throw new Error("Failed to load book details.");
-    return response.json();
-  })
-  .then(book => {
+
+    const book = await response.json();
+
     bookCover.src = book.cover || FALLBACK_IMAGE;
     bookCover.alt = `Cover of ${book.title}`;
     bookTitle.innerText = book.title;
@@ -27,32 +36,33 @@ fetch(`${BASE_URL}/books/${bookId}`)
     loanBtn.addEventListener("click", () => {
       window.location.href = `loan.html?book_id=${bookId}`;
     });
-  })
-  .catch(error => handleError(error.message));
 
-const DEFAULT_RELATED = 5;
-const template = document.querySelector("#related_template");
-const container = document.querySelector(".related-list");
+  } catch (error) {
+    handleError(error.message || error);
+  }
+};
 
-const showRelatedBooks = async (numBooks = DEFAULT_RELATED) => {
+const showRelatedBooks = async (count = DEFAULT_RELATED) => {
   try {
-    const res = await fetch(`${BASE_URL}/books?n=${numBooks}`);
-    if (!res.ok) throw new Error("Failed to load related books.");
-    const list = await res.json();
+    const response = await fetch(`${BASE_URL}/books?n=${count}`);
+    if (!response.ok) throw new Error("Failed to load related books.");
+
+    const list = await response.json();
     const fragment = document.createDocumentFragment();
 
-    list.forEach(book => {
-      const card = template.content.cloneNode(true);
+    list.forEach((book) => {
+      const card = relatedTpl.content.cloneNode(true);
       const img = card.querySelector(".related_cover");
 
       img.src = FALLBACK_IMAGE;
-      img.alt = `${book.title}...`;
+      img.alt = `Loading cover for ${book.title}...`;
       card.querySelector(".related_title").innerText = book.title;
       card.querySelector(".related_author").innerText = book.author;
       card.querySelector("a").href = `book.html?book_id=${book.book_id}`;
 
+
       fetch(`${BASE_URL}/books/${book.book_id}`)
-        .then(r => r.ok ? r.json() : {})
+        .then(res => res.json())
         .then(data => {
           if (data.cover) {
             img.src = data.cover;
@@ -64,10 +74,12 @@ const showRelatedBooks = async (numBooks = DEFAULT_RELATED) => {
       fragment.append(card);
     });
 
-    container.append(fragment);
+    relatedList.append(fragment);
+
   } catch (error) {
     handleError(error.message || error);
   }
 };
 
+showBookDetails();
 showRelatedBooks();
