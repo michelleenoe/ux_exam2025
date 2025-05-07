@@ -1,7 +1,17 @@
 import { BASE_URL } from "../info.js";
-import { handleError, getHeader } from "../api.js";
+import { handleError, getHeader, handleAPIError } from "../api.js";
 
 const userId = sessionStorage.getItem("app_user_id");
+
+document.querySelectorAll("input, select, textarea").forEach((field) => {
+  field.addEventListener("input", () => {
+    const errorBox = document.querySelector("#error");
+    if (!errorBox.classList.contains("hidden")) {
+      errorBox.classList.add("hidden");
+      document.querySelector("#errorText").innerText = "";
+    }
+  });
+});
 
 const showSuccess = (form, message) => {
   const msg = form.parentElement.querySelector(".success-message");
@@ -28,15 +38,12 @@ export const initBookForm = () => {
       headers: getHeader(),
       body: params,
     })
-      .then((res) => {
-        if (!res.ok) throw new Error("Book creation failed.");
-        return res.json();
-      })
+      .then(handleAPIError)
       .then(() => {
         form.reset();
         showSuccess(form, "Book added successfully.");
       })
-      .catch((err) => handleError(err.message));
+      .catch(handleError);
   });
 };
 
@@ -55,15 +62,12 @@ export const initAuthorForm = () => {
       headers: getHeader(),
       body: params,
     })
-      .then((res) => {
-        if (!res.ok) throw new Error("Author creation failed.");
-        return res.json();
-      })
+      .then(handleAPIError)
       .then(() => {
         form.reset();
         showSuccess(form, "Author added successfully.");
       })
-      .catch((err) => handleError(err.message));
+      .catch(handleError);
   });
 };
 
@@ -81,14 +85,11 @@ export const initPublisherForm = () => {
       headers: getHeader(),
       body: params,
     })
-      .then((res) => {
-        if (!res.ok) throw new Error("Publisher creation failed.");
-        return res.json();
-      })
+      .then(handleAPIError)
       .then(() => {
         form.reset();
         showSuccess(form, "Publisher added successfully.");
       })
-      .catch((err) => handleError(err.message));
+      .catch(handleError);
   });
 };
