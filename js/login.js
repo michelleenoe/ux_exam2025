@@ -1,48 +1,50 @@
 import { BASE_URL } from "./info.js";
-import { handleError } from "./api.js";
+import { handleAPIError, handleError } from "./api.js";
 
 document.querySelector("#frmLogin").addEventListener("submit", (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const email = e.target.txtEmail.value.trim();
-    const password = e.target.txtPassword.value.trim();
+  const email = e.target.txtEmail.value.trim();
+  const password = e.target.txtPassword.value.trim();
 
-    const params = new URLSearchParams();
-    params.append("email", email);
-    params.append("password", password);
+  document.querySelector("#error").classList.add("hidden");
 
-    fetch(`${BASE_URL}/auth/login`, {
-      method: "POST",
-      body: params,
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Invalid credentials or server error");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      return handleError("Please enter a valid email address.");
+    }
 
-        if (data.user_id && data.auth_token) {
-          sessionStorage.setItem("app_user_id", data.user_id);
-          sessionStorage.setItem("app_user_token", data.auth_token);
-          sessionStorage.setItem("app_user_is_admin", data.is_admin);
+    const passwordPattern =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{9,}$/;
+    if (!passwordPattern.test(password)) {
+      return handleError(
+        "Password must be at least 9 characters and include uppercase, lowercase, number, and symbol."
+      );
+    }
 
-          if (data.is_admin === 1) {
-          window.location.href = "admin.html";
-        } else {
-          window.location.href = "profile.html";
-        }
+  const params = new URLSearchParams();
+  params.append("email", email);
+  params.append("password", password);
+
+  fetch(`${BASE_URL}/auth/login`, {
+    method: "POST",
+    body: params,
+  })
+    .then(handleAPIError)
+    .then((data) => {
+      if (data.user_id && data.auth_token) {
+        sessionStorage.setItem("app_user_id", data.user_id);
+        sessionStorage.setItem("app_user_token", data.auth_token);
+        sessionStorage.setItem("app_user_is_admin", data.is_admin);
+
+        window.location.href =
+          data.is_admin === 1 ? "admin.html" : "profile.html";
       } else {
-        handleError("Login failed: Missing user ID or token.");
+        throw new Error(data.error);
       }
-      })
-      .catch((err) => {
-        handleError(err.message || "Login failed.");
-      });
-  });
-
+    })
+    .catch(handleError);
+});
 
 // const loadFavourites = (userID) => {
 

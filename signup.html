@@ -83,52 +83,50 @@
       <div class="two-col">
         <div class="field">
           <label for="txtFirstName">First name</label>
-          <input id="txtFirstName" name="txtFirstName" type="text" required autocomplete="given-name">
+          <input id="txtFirstName" name="txtFirstName" type="text" autocomplete="given-name">
         </div>
 
         <div class="field">
           <label for="txtLastName">Last name</label>
-          <input id="txtLastName" name="txtLastName" type="text" required autocomplete="family-name">
+          <input id="txtLastName" name="txtLastName" type="text" autocomplete="family-name">
         </div>
       </div>
 
       <div class="field">
         <label for="txtEmail">Email</label>
-        <input id="txtEmail" name="txtEmail" type="email" required autocomplete="email">
+        <input id="txtEmail" name="txtEmail" autocomplete="email" >
       </div>
 
       <div class="field">
         <label for="txtPassword">Password</label>
-        <input id="txtPassword" name="txtPassword" type="password"
-          pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{9,}" minlength="9" required>
-        <small id="pwHelp">Min. 9 chars incl. uppercase, lowercase, number &amp; symbol</small>
+        <input id="txtPassword" name="txtPassword" type="password">
       </div>
 
       <div class="field">
         <label for="txtRepeatPassword">Repeat password</label>
-        <input id="txtRepeatPassword" name="txtRepeatPassword" type="password" minlength="9" required>
+        <input id="txtRepeatPassword" name="txtRepeatPassword" type="password">
       </div>
 
       <div class="field">
         <label for="txtAddress">Address</label>
-        <input id="txtAddress" name="txtAddress" type="text" required autocomplete="street-address">
+        <input id="txtAddress" name="txtAddress" type="text" autocomplete="street-address">
       </div>
 
       <div class="two-col">
         <div class="field">
           <label for="txtPhone">Phone</label>
-          <input id="txtPhone" name="txtPhone" type="tel" required autocomplete="tel">
+          <input id="txtPhone" name="txtPhone" type="tel" autocomplete="tel">
         </div>
 
         <div class="field">
           <label for="txtBirthDate">Date of birth</label>
-          <input id="txtBirthDate" name="txtBirthDate" type="date" required>
+          <input id="txtBirthDate" name="txtBirthDate" type="date" >
         </div>
       </div>
 
       <fieldset class="field checkbox">
         <legend class="visually-hidden">Terms</legend>
-        <input id="chkTerms" name="chkTerms" type="checkbox" required>
+        <input id="chkTerms" name="chkTerms" type="checkbox">
         <label for="chkTerms">I accept the terms and conditions</label>
       </fieldset>
 
