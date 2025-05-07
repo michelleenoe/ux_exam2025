@@ -2,6 +2,7 @@ import { BASE_URL } from "../info.js";
 import { handleError, getHeader } from "../api.js";
 import { FALLBACK_IMAGE } from "../info.js";
 
+
 const userId = sessionStorage.getItem("app_user_id");
 
 export const initBookLookup = () => {
@@ -10,9 +11,9 @@ export const initBookLookup = () => {
   const errorBox = document.querySelector("#error");
   const errorText = document.querySelector("#errorText");
 
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    
+
     output.classList.add("hidden");
     output.innerHTML = "";
     errorBox.classList.add("hidden");
@@ -20,61 +21,66 @@ export const initBookLookup = () => {
 
     const bookId = form.book_id.value.trim();
 
-    try {
-  
-      const response = await fetch(
-        `${BASE_URL}/admin/${userId}/books/${bookId}`,
-        { headers: getHeader() }
-      );
-      if (!response.ok) throw new Error("Book not found or unauthorized.");
-      const book = await response.json();
+    fetch(`${BASE_URL}/admin/${userId}/books/${bookId}`, {
+      headers: getHeader(),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Book not found or unauthorized.");
+        return res.json();
+      })
+      .then((book) => {
+        output.classList.remove("hidden");
 
-      output.classList.remove("hidden");
+        const img = document.createElement("img");
+        img.src = book.cover || FALLBACK_IMAGE;
+        img.alt = `Cover for ${book.title}`;
 
-      const img = document.createElement("img");
-      img.src = book.cover || FALLBACK_IMAGE;
-      img.alt = `Cover for ${book.title}`;
+        const details = document.createElement("div");
+        details.className = "book-details";
 
-      const details = document.createElement("div");
-      details.className = "book-details";
+        const title = document.createElement("h3");
+        title.textContent = book.title;
 
-      const title = document.createElement("h3");
-      title.textContent = book.title;
-      const author = document.createElement("p");
-      author.textContent = `Author: ${book.author}`;
-      const publisher = document.createElement("p");
-      publisher.textContent = `Publisher: ${book.publishing_company}`;
-      const year = document.createElement("p");
-      year.textContent = `Year: ${book.publishing_year}`;
+        const author = document.createElement("p");
+        author.textContent = `Author: ${book.author}`;
 
-      details.append(title, author, publisher, year);
+        const publisher = document.createElement("p");
+        publisher.textContent = `Publisher: ${book.publishing_company}`;
 
-      const historyWrapper = document.createElement("div");
-      historyWrapper.className = "loan-history";
-      const historyTitle = document.createElement("h4");
-      historyTitle.textContent = "Loan History:";
-      historyWrapper.appendChild(historyTitle);
+        const year = document.createElement("p");
+        year.textContent = `Year: ${book.publishing_year}`;
 
-      if (book.loans?.length) {
-        book.loans.forEach((loan) => {
-          const row = document.createElement("div");
-          row.className = "loan-row";
-          row.textContent = `User ID: ${loan.user_id} – ${loan.loan_date}`;
-          historyWrapper.appendChild(row);
-        });
-      } else {
-        const noHistory = document.createElement("div");
-        noHistory.className = "loan-row";
-        noHistory.textContent = "No loan history";
-        historyWrapper.appendChild(noHistory);
-      }
+        details.append(title, author, publisher, year);
 
-      details.appendChild(historyWrapper);
-      output.append(img, details);
-    } catch (err) {
-      output.classList.add("hidden");
-      output.innerHTML = "";
-      handleError(err.message);
-    }
+        const historyWrapper = document.createElement("div");
+        historyWrapper.className = "loan-history";
+
+        const historyTitle = document.createElement("h4");
+        historyTitle.textContent = "Loan History:";
+
+        historyWrapper.appendChild(historyTitle);
+
+        if (book.loans?.length) {
+          book.loans.forEach((loan) => {
+            const row = document.createElement("div");
+            row.className = "loan-row";
+            row.textContent = `User ID: ${loan.user_id} – ${loan.loan_date}`;
+            historyWrapper.appendChild(row);
+          });
+        } else {
+          const noHistory = document.createElement("div");
+          noHistory.className = "loan-row";
+          noHistory.textContent = "No loan history";
+          historyWrapper.appendChild(noHistory);
+        }
+
+        details.appendChild(historyWrapper);
+        output.append(img, details);
+      })
+      .catch((err) => {
+        output.classList.add("hidden");
+        output.innerHTML = "";
+        handleError(err.message);
+      });
   });
 };
