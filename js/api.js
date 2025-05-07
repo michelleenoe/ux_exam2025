@@ -1,5 +1,42 @@
-export const handleError = (error) => {
-  document.querySelector("#errorText").innerText = error;
+export const handleError = (data) => {
+  let msg = "Something went wrong. Please try again.";
+
+    if (typeof data === "string") {
+      msg = data;
+    }
+
+
+  if (data?.error) {
+    const err = data.error.toLowerCase();
+
+    if (err.includes("wrong credentials")) {
+      msg = "The email or password is incorrect.";
+    } else if (err.includes("the user already exists")) {
+      msg = "This email is already registered.";
+    } else if (err.includes("incorrect password format")) {
+      msg = "Your password doesn't meet the required format.";
+    } else if (err.includes("missing authentication token")) {
+      msg = "You need to be logged in to perform this action.";
+    } else if (err.includes("invalid authentication token")) {
+      msg = "Your session has expired. Please log in again.";
+    } else if (err.includes("this user has still this book on loan")) {
+      msg = "You must return the book before borrowing it again.";
+    } else if (err.includes("the author does not exist")) {
+      msg = "Please choose a valid author.";
+    } else if (err.includes("the publishing company does not exist")) {
+      msg = "Please choose a valid publisher.";
+    } else if (err.includes("the author already exists")) {
+      msg = "That author is already in the system.";
+    } else if (err.includes("the publisher already exists")) {
+      msg = "That publisher is already in the system.";
+    } else if (err.includes("missing") || err.includes("required")) {
+      msg = "Please fill out all fields correctly.";
+    } else {
+      msg = data.error;
+    }
+  }
+
+  document.querySelector("#errorText").innerText = msg;
   document.querySelector("#error").classList.remove("hidden");
 };
 
@@ -8,13 +45,10 @@ export const getHeader = () =>
     "X-Session-Token": sessionStorage.getItem("app_user_token"),
   });
 
-export const handleAPIError = async (response) => {
-  if (response.ok) {
-    return await response.json();
+export const handleAPIError = async (res) => {
+  if (!res.ok) {
+    const errorData = await res.json().catch(() => ({}));
+    throw errorData.error ? errorData : new Error("Unexpected server error");
   }
-
-  const errorData = await response.json().catch(() => ({}));
-  const message = errorData?.error || "Unexpected API error";
-
-  throw new Error(message);  
+  return res.json();
 };

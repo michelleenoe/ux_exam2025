@@ -70,18 +70,24 @@
         <div id="overlay"></div>
     </header>
     <main>
+                    <section id="error" class="hidden">
+            <header>
+                <h3>Error</h3>
+            </header>
+            <p id="errorText"></p>
+        </section>
         
         <form id="frmLogin" aria-describedby="loginHelp">
             <h1>Log in</h1>
 
             <div class="field">
                 <label for="txtEmail">Email</label>
-                <input id="txtEmail" name="txtEmail" type="email" required autocomplete="email" />
+                <input id="txtEmail" name="txtEmail" autocomplete="email" />
             </div>
 
             <div class="field">
                 <label for="txtPassword">Password</label>
-                <input id="txtPassword" name="txtPassword" type="password" required autocomplete="current-password" />
+                <input id="txtPassword" name="txtPassword" type="password" autocomplete="current-password" />
             </div>
 
             <button class="btn-primary" type="submit">Log in</button>
