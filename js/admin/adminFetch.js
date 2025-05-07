@@ -1,9 +1,9 @@
 import { BASE_URL } from "../info.js";
-import { handleError, getHeader } from "../api.js";
+import { handleError, getHeader, handleAPIError } from "../api.js";
 
 export const loadAuthors = () => {
   fetch(`${BASE_URL}/authors`, { headers: getHeader() })
-    .then((res) => res.json())
+    .then(handleAPIError)
     .then((authors) => {
       const select = document.querySelector("#selectAuthor");
       authors.forEach((author) => {
@@ -13,12 +13,14 @@ export const loadAuthors = () => {
         select.appendChild(opt);
       });
     })
-    .catch((err) => handleError(err.message));
+    .catch(handleError);
 };
 
 export const loadPublishers = () => {
-  fetch(`${BASE_URL}/publishers`, { headers: getHeader() })
-    .then((res) => res.json())
+  fetch(`${BASE_URL}/publishers`, {
+    headers: getHeader(),
+  })
+    .then(handleAPIError)
     .then((publishers) => {
       const select = document.querySelector("#selectPublisher");
       publishers.forEach((publisher) => {
@@ -28,5 +30,5 @@ export const loadPublishers = () => {
         select.appendChild(opt);
       });
     })
-    .catch((err) => handleError(err.message));
+    .catch(handleError);
 };
