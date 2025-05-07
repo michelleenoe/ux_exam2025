@@ -74,7 +74,7 @@ export const initBookLookup = () => {
           historyWrapper.appendChild(noHistory);
         }
 
-        details.appendChild(historyWrapper);
+        details.append(historyWrapper);
         output.append(img, details);
       })
       .catch((err) => {
