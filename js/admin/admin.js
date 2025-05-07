@@ -1,7 +1,14 @@
-import "./access.js";
 import { loadAuthors, loadPublishers } from "./adminFetch.js";
 import { initBookForm, initAuthorForm, initPublisherForm } from "./adminForm.js";
 import { initBookLookup } from "./findBook.js";
+
+const userId = sessionStorage.getItem("app_user_id");
+const isAdmin = sessionStorage.getItem("app_user_is_admin");
+
+if (!userId || isAdmin !== "1") {
+  window.location.href = "index.html";
+}
+
 
 loadAuthors();
 loadPublishers();
@@ -23,4 +30,4 @@ document.querySelectorAll('#adminMenu button').forEach((btn) => {
       document.getElementById(target).classList.remove('hidden');
     });
   });
-  
+  // tab
