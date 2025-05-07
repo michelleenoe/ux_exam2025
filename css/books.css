@@ -1,5 +1,6 @@
 @import 'styles.css';
 @import 'book_card.css';
+@import "modal.css";
 
 #search_input {
     width: 100%;
