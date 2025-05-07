@@ -1,6 +1,3 @@
-export const USERS_BASE_URL = "http://localhost:8080";
-const FALLBACK_IMAGE = "../assets/images/placeholder-cover.jpg";
-
 export function checkLoginStatus(expectedUserId, redirectPage) {
     const userId = sessionStorage.getItem("userId");
     if (userId != expectedUserId) {
