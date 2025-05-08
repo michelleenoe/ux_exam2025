@@ -1,10 +1,9 @@
 export const handleError = (data) => {
   let msg = "Something went wrong. Please try again.";
 
-    if (typeof data === "string") {
-      msg = data;
-    }
-
+  if (typeof data === "string") {
+    msg = data;
+  }
 
   if (data?.error) {
     const err = data.error.toLowerCase();
@@ -29,6 +28,8 @@ export const handleError = (data) => {
       msg = "That author is already in the system.";
     } else if (err.includes("the publisher already exists")) {
       msg = "That publisher is already in the system.";
+    } else if (err.includes("book not found")) {
+      msg = "The book you're looking for does not exist.";
     } else if (err.includes("missing") || err.includes("required")) {
       msg = "Please fill out all fields correctly.";
     } else {
@@ -36,8 +37,12 @@ export const handleError = (data) => {
     }
   }
 
+  // Set error message
   document.querySelector("#errorText").innerText = msg;
+
+  // Make the error box visible
   document.querySelector("#error").classList.remove("hidden");
+
 };
 
 export const getHeader = () =>

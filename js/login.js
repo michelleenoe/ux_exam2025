@@ -45,21 +45,3 @@ document.querySelector("#frmLogin").addEventListener("submit", (e) => {
     })
     .catch(handleError);
 });
-
-// const loadFavourites = (userID) => {
-
-//     const tokenHeader = new Headers({
-//         'X-Session-Token': sessionStorage.getItem('food_repo_user_token')
-//     });
-
-//     fetch(`${USERS_BASE_URL}/users/${userID}/favourites`,
-//         {
-//             headers: tokenHeader
-//         }
-//     )
-//     .then(response => response.json())
-//     .then(data => {
-//         sessionStorage.setItem('food_repo_user_favourites', JSON.stringify(data));
-//     })
-//     .catch(handleError);
-// };

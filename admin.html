@@ -78,8 +78,10 @@
             <button type="button" data-target="sectionAuthor">Add Author</button>
             <button type="button" data-target="sectionPublisher">Add Publisher</button>
             <button type="button" data-target="sectionFind">Find Book</button>
-          </nav>          
-      
+          </nav>         
+        <section id="error" class="hidden">
+          <p id="errorText"></p>
+        </section> 
         <section id="sectionBook" class="admin-section">
           <h2>Add new book</h2>
           <form id="frmAddBook">
@@ -123,12 +125,8 @@
             <p class="success-message hidden"></p>
           </section>
           
-      
-        <section id="error" class="hidden">
-          <p id="errorText"></p>
-        </section>
       </main>
-      
+
 
     <footer>
         <div id="social_icons">
@@ -150,5 +148,21 @@
     <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt=""></button>
 
 </body>
+<template id="bookTemplate">
+    <div class="book-card">
+        <img class="book-cover" src="" alt="Book cover">
+        <div class="book-details">
+            <h3 class="book-title"></h3>
+            <p class="book-author"></p>
+            <p class="book-publisher"></p>
+            <p class="book-year"></p>
+            <div class="loan-history">
+                <h4>Loan History:</h4>
+                <div class="loan-rows"></div>
+            </div>
+        </div>
+    </div>
+</template>
+
 
 </html>

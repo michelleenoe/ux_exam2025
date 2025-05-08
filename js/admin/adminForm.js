@@ -13,6 +13,36 @@ document.querySelectorAll("input, select, textarea").forEach((field) => {
   });
 });
 
+document.addEventListener("click", (e) => {
+  const errorBox = document.querySelector("#error");
+  const inputFields = document.querySelectorAll("input, select, textarea");
+
+  if (![...inputFields].some((field) => field.contains(e.target))) {
+    if (!errorBox.classList.contains("hidden")) {
+      errorBox.classList.add("hidden");
+      document.querySelector("#errorText").innerText = "";
+    }
+  }
+});
+
+// Validation function to check if all fields are filled
+const validateForm = (form) => {
+  const inputFields = form.querySelectorAll("input, select, textarea");
+  for (let field of inputFields) {
+    if (field.required && !field.value.trim()) {
+      return false;
+    }
+  }
+  return true;
+};
+
+const showError = (message) => {
+  const errorBox = document.querySelector("#error");
+  const errorText = document.querySelector("#errorText");
+  errorBox.classList.remove("hidden");
+  errorText.innerText = message;
+};
+
 const showSuccess = (form, message) => {
   const msg = form.parentElement.querySelector(".success-message");
   if (msg) {
@@ -26,6 +56,11 @@ export const initBookForm = () => {
   const form = document.querySelector("#frmAddBook");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    if (!validateForm(form)) {
+      showError("Please fill out all fields.");
+      return;
+    }
 
     const params = new URLSearchParams();
     params.append("title", form.title.value.trim());
@@ -53,6 +88,11 @@ export const initAuthorForm = () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    if (!validateForm(form)) {
+      showError("Please fill out all fields.");
+      return;
+    }
+
     const params = new URLSearchParams();
     params.append("first_name", form.first_name.value.trim());
     params.append("last_name", form.last_name.value.trim());
@@ -76,6 +116,11 @@ export const initPublisherForm = () => {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    if (!validateForm(form)) {
+      showError("Please fill out all fields.");
+      return;
+    }
 
     const params = new URLSearchParams();
     params.append("name", form.name.value.trim());
