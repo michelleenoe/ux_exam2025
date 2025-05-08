@@ -1,6 +1,9 @@
-import { BASE_URL, FALLBACK_IMAGE } from "./info.js";
+import { BASE_URL} from "./info.js";
 import { handleError, handleAPIError } from "./api.js";
-import { showLoanModal } from "./modal.js";
+import { loadBookImage, handleLoanButton, updateBookLinks } from "./fetchBooks.js";
+
+const container = document.querySelector("#trending_book_list");
+const template = document.querySelector("#trending_template");
 
 const DEFAULT_BOOKS = 3;
 
@@ -12,46 +15,19 @@ const showTrendingBooks = (numBooks = DEFAULT_BOOKS) => {
       const userId = sessionStorage.getItem("app_user_id");
 
       books.forEach((book) => {
-        const card = document
-          .querySelector("#trending_template")
-          .content.cloneNode(true);
+        const card = template.content.cloneNode(true);
         const img = card.querySelector(".book_cover");
 
-        img.setAttribute("src", FALLBACK_IMAGE);
-        img.setAttribute("alt", `Loading cover for ${book.title}...`);
-
+        loadBookImage(img, book, book.title);
         card.querySelector(".book_title").innerText = book.title;
 
-        const loanBtnWrapper = card.querySelector(".loan_btn");
-        if (!userId && loanBtnWrapper) {
-          loanBtnWrapper.classList.add("hidden");
-        }
-
-        card.querySelectorAll("a").forEach((link, index) => {
-          if (index === 0 || index === 1) {
-            link.href = `book.html?book_id=${book.book_id}`;
-          } else if (index === 2) {
-            link.addEventListener("click", (event) => {
-              event.preventDefault();
-              showLoanModal();
-            });
-          }
-        });
-
-        fetch(`${BASE_URL}/books/${book.book_id}`)
-          .then(handleAPIError)
-          .then((data) => {
-            if (data.cover) {
-              img.src = data.cover;
-              img.alt = `Cover of ${book.title}`;
-            }
-          })
-          .catch(handleError);
+        handleLoanButton(card, userId);
+        updateBookLinks(card, book);
 
         fragment.append(card);
       });
 
-      document.querySelector("#trending_book_list").append(fragment);
+      container.append(fragment);
     })
     .catch(handleError);
 };

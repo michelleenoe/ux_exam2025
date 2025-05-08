@@ -8,6 +8,10 @@
     --input-bg: #c1e1f1;
     --focus-color:#007bff;
 
+    /* error colors */
+    --error-bg: #FFE0E0; 
+    --error-color: #B00020; 
+
     --light-background-color: #FFFFFF;
     --secondary-background-color: #2B2B2B;
 
@@ -43,7 +47,8 @@
     --spacing-xxl: 1.5rem;       
     --spacing-xxxl: 2rem;       
     --spacing-4xl: 4rem;       
-    --spacing-5xl: 5rem;       
+    --spacing-5xl: 5rem;
+    --content-width-lg: 1200px;       
 
     /* Border Radius */
     --border-radius-sm: 0.25rem;
@@ -66,6 +71,7 @@
     --scale-sm:1.02;
     --full-scale: 100%;
     --width-xs: 150px;
+    --width-s: 200px;
     --width-sm: 250px;
     --width-md: 300px;
     --width-mdd: 320px;
@@ -76,6 +82,8 @@
     --vh-30: 30vh;
     --vh-50: 50vh;
     --vh-50: 60vh;
+    --error-width:37.5rem;
+    --form-max-width: 32rem;
 
     /* opacity */
     --opacity-xs: 0.1;
@@ -110,6 +118,7 @@
 
     /* shadow pixels */
     --shadow-px-sm: 2px;
+    --shadow-px-md: 4px;
     --shadow-px-lg: 8px;
 }
 

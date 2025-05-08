@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chapter | Your online bookstore</title>
   <link rel="icon" href="assets/images/favicon.png" type="image/png">
-  <link rel="stylesheet" href="./css/signup.css">
+  <link rel="stylesheet" href="./css/form.css">
   <script type="module" src="./js/signup.js"></script>
   <script type="module" src="./js/script.js"></script>
 </head>
@@ -76,9 +76,9 @@
             <p id="errorText"></p>
         </section>
     <form id="frmSignup" aria-describedby="pwHelp">
-      <!-- <fieldset> -->
       <h1>Sign up</h1>
-
+      <fieldset> 
+      <legend class="hidden">Sign up</legend>
       <div class="two-col">
         <div class="field">
           <label for="txtFirstName">First name</label>
@@ -100,15 +100,16 @@
         <label for="txtPassword">Password</label>
         <input id="txtPassword" name="txtPassword" type="password">
       </div>
-
+      
       <div class="field">
         <label for="txtRepeatPassword">Repeat password</label>
         <input id="txtRepeatPassword" name="txtRepeatPassword" type="password">
+        <small id="pwHelp" class="form-text">Password must be at least 8 characters long and contain at least one number.</small>
       </div>
 
       <div class="field">
         <label for="txtAddress">Address</label>
-        <input id="txtAddress" name="txtAddress" type="text" autocomplete="street-address">
+        <input id="txtAddress" name="txtAddress" type="text" >
       </div>
 
       <div class="two-col">
@@ -122,9 +123,10 @@
           <input id="txtBirthDate" name="txtBirthDate" type="date" >
         </div>
       </div>
+    </fieldset> 
 
       <fieldset class="field checkbox">
-        <legend class="visually-hidden">Terms</legend>
+        <legend class="hidden">Terms</legend>
         <input id="chkTerms" name="chkTerms" type="checkbox">
         <label for="chkTerms">I accept the terms and conditions</label>
       </fieldset>
@@ -135,15 +137,28 @@
         Already have an account?
         <a href="login.html">Log in</a>
       </p>
-      <!-- </fieldset> -->
     </form>
 
   </main>
+  <footer>
+      <div id="social_icons">
+                  <a href="https://twitter.com" target="_blank">
+                      <img src="./assets/icons/Twitter.svg" alt="Twitter logo">
+                  </a>
+                  <a href="https://linkedin.com" target="_blank">
+                      <img src="./assets/icons/Linkedin.svg" alt="LinkedIn logo">
+                  </a>
+                  <a href="https://facebook.com" target="_blank">
+                      <img src="./assets/icons/Facebook.svg" alt="Facebook logo">
+                  </a>
+                  <a href="https://instagram.com" target="_blank">
+                      <img src="./assets/icons/Instagram.svg" alt="Instagram logo">
+                  </a>
+              </div>
+              <p id="footer-copy">&copy; 2023 KEA Development</p>
+  </footer>
+   <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt=""></button>
 
 </body>
-<footer>
-
-</footer>
- <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt=""></button>
 
 </html>

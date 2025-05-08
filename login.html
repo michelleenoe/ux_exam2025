@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapter | Your online bookstore</title>
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
-    <link rel="stylesheet" href="./css/signup.css">
+    <link rel="stylesheet" href="./css/form.css">
     <script type="module" src="./js/login.js"></script>
     <script type="module" src="./js/script.js"></script>
 </head>
@@ -76,26 +76,43 @@
             <p id="errorText"></p>
         </section>
         
-        <form id="frmLogin" aria-describedby="loginHelp">
+        <form id="frmLogin">
             <h1>Log in</h1>
 
             <div class="field">
                 <label for="txtEmail">Email</label>
-                <input id="txtEmail" name="txtEmail" autocomplete="email" />
+                <input id="txtEmail" name="txtEmail" autocomplete="email">
             </div>
 
             <div class="field">
                 <label for="txtPassword">Password</label>
-                <input id="txtPassword" name="txtPassword" type="password" autocomplete="current-password" />
+                <input id="txtPassword" name="txtPassword" type="password" autocomplete="current-password">
             </div>
 
             <button class="btn-primary" type="submit">Log in</button>
 
-            <p class="login-link">
+            <p class="signup-link">
                 Don't have an account? <a href="signup.html">Sign up</a>
             </p>
         </form>
     </main>
+      <footer>
+      <div id="social_icons">
+                  <a href="https://twitter.com" target="_blank">
+                      <img src="./assets/icons/Twitter.svg" alt="Twitter logo">
+                  </a>
+                  <a href="https://linkedin.com" target="_blank">
+                      <img src="./assets/icons/Linkedin.svg" alt="LinkedIn logo">
+                  </a>
+                  <a href="https://facebook.com" target="_blank">
+                      <img src="./assets/icons/Facebook.svg" alt="Facebook logo">
+                  </a>
+                  <a href="https://instagram.com" target="_blank">
+                      <img src="./assets/icons/Instagram.svg" alt="Instagram logo">
+                  </a>
+              </div>
+              <p id="footer-copy">&copy; 2023 KEA Development</p>
+  </footer>
 
     <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt=""></button>
 </body>

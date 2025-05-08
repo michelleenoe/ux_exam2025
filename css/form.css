@@ -1,13 +1,13 @@
 @import "styles.css";
 
-:root {
-  --form-max-width: 32rem;
-}
-
 main {
   padding: var(--spacing-xl);
   max-width: var(--form-max-width);
   margin-inline: auto;
+
+  h1{
+    margin-bottom: var(--spacing-xxxl);
+  }
 
   .field {
     display: flex;
@@ -16,8 +16,9 @@ main {
     margin-bottom: var(--spacing-md);
 
     label {
-      /* font-size:var(--font-size-); */
-      /* font-weight:var(--font-semibold); */
+      font-size:var(--font-size-md);
+      font-weight:var(--font-semibold);
+      margin-bottom: var(--spacing-sm);
     }
 
     input {
@@ -28,11 +29,13 @@ main {
       border-radius: var(--border-radius-sm);
       background: var(--input-bg);
       font-size: var(--font-size-md);
+      margin-bottom: var(--spacing-lg);
     }
 
     small {
       font-size: var(--font-size-sm);
       color: var(--dark-text-color);
+      margin-bottom: var(--spacing-lg);
     }
   }
 
@@ -72,15 +75,25 @@ main {
     color: var(--light-text-color);
     font-weight: var(--font-bold);
     margin-bottom: var(--spacing-lg);
+    text-align: center;
   }
 
-  .login-link {
-    font-size: var(--font-size-sm);
+  .login-link, .signup-link {
+    font-size: var(--font-size-md);
     text-align: center;
+    margin-top: var(--spacing-xl);
+
+    a{
+      color:var(--dark-text-color);
+    }
   }
 }
 input:focus,
 button:focus {
   outline: var(--border-width-md) solid var(--primary-color);
   outline-offset: var(--border-width-md);
+}
+
+fieldset{
+  border: none;
 }

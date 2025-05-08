@@ -31,3 +31,25 @@ body{
   }
 
 }
+
+#error {
+  background-color: var(--error-bg);
+  color: var(--error-color);
+  border: var(--border-width-md) solid var(--error-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xxl) var(--spacing-xxxl);
+  margin: 0 0 var(--spacing-xxl) 0;
+  max-width: var(--error-width);
+  box-shadow: 0 var(--shadow-px-md) var(--shadow-px-lg) rgba(0, 0, 0, var(--opacity-xs));
+}
+
+#error h3 {
+  margin-top: 0;
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+}
+
+#error p {
+  margin: var(--spacing-md) 0 0;
+  font-size: var(--spacing-xl);
+}
