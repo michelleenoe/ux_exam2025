@@ -9,9 +9,9 @@ export const initBookLookup = () => {
   const errorBox = document.querySelector("#error");
   const errorText = document.querySelector("#errorText");
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-
+    
     output.classList.add("hidden");
     output.innerHTML = "";
     errorBox.classList.add("hidden");
@@ -32,9 +32,15 @@ export const initBookLookup = () => {
         img.alt = `Cover for ${book.title}`;
 
         clone.querySelector(".book-title").textContent = book.title;
-        clone.querySelector(".book-author").textContent = `Author: ${book.author}`;
-        clone.querySelector(".book-publisher").textContent = `Publisher: ${book.publishing_company}`;
-        clone.querySelector(".book-year").textContent = `Year: ${book.publishing_year}`;
+        clone.querySelector(
+          ".book-author"
+        ).textContent = `Author: ${book.author}`;
+        clone.querySelector(
+          ".book-publisher"
+        ).textContent = `Publisher: ${book.publishing_company}`;
+        clone.querySelector(
+          ".book-year"
+        ).textContent = `Year: ${book.publishing_year}`;
 
         const loanRows = clone.querySelector(".loan-rows");
         if (book.loans?.length) {
