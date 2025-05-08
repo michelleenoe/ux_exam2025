@@ -65,12 +65,17 @@
     /* scale */
     --scale-sm:1.02;
     --full-scale: 100%;
+    --width-xs: 150px;
     --width-sm: 250px;
     --width-md: 300px;
+    --width-mdd: 320px;
     --width-lg: 400px;
+    --height-lg: 400px;
     --vh-100: 100vh;
     --vw-100: 100vw;
     --vh-30: 30vh;
+    --vh-50: 50vh;
+    --vh-50: 60vh;
 
     /* opacity */
     --opacity-xs: 0.1;
@@ -101,6 +106,7 @@
 
     /* character width */
     --ch-width-sm: 60ch;
+    --ch-width-md: 80ch;
 
     /* shadow pixels */
     --shadow-px-sm: 2px;

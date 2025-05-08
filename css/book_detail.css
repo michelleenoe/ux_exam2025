@@ -1,4 +1,5 @@
 @import "modal.css";
+@import "styles.css";
 
 section.book-detail {
   display: flex;

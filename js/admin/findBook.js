@@ -9,9 +9,9 @@ export const initBookLookup = () => {
   const errorBox = document.querySelector("#error");
   const errorText = document.querySelector("#errorText");
 
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    
+
     output.classList.add("hidden");
     output.innerHTML = "";
     errorBox.classList.add("hidden");

@@ -13,7 +13,7 @@ function logout() {
 }
 
 export function initLogout() {
-  document.querySelectorAll("#btnLogout").forEach((btn) => {
+  document.querySelectorAll(".btnLogout").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       logout();

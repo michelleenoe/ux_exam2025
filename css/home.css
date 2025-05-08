@@ -18,18 +18,19 @@
     background-position: center;
     padding-bottom: var(--spacing-xl);
 
-    #hero_text{
+    #hero_text {
         background-color: rgba(255, 255, 255, var(--opacity-md));
         padding: var(--spacing-lg);
         margin: var(--spacing-lg);
         border-radius: var(--border-radius-lg);
-        h1{
+
+        h1 {
             font-size: var(--font-size-xl);
             text-align: center;
             margin-bottom: var(--spacing-lg);
         }
-    
-        p{
+
+        p {
             font-size: var(--font-size-md);
             text-align: center;
             margin-bottom: var(--spacing-lg);
@@ -37,13 +38,12 @@
         }
     }
 
-
     #signup_btn {
         position: absolute;
         bottom: var(--spacing-minus-xxl);
         cursor: pointer;
-    
-        a {         
+
+        a {
             padding: var(--spacing-xl) var(--spacing-5xl);
             border-radius: var(--border-radius-md);
             border: var(--border-width-md) solid var(--primary-color);
@@ -51,51 +51,69 @@
             background-color: var(--primary-color);
             color: var(--light-text-color);
             line-height: var(--standard-line-height);
+
             &:hover {
-            border: var(--border-width-md) solid var(--hover-color);
-            background-color: var(--hover-color);
-            color: var(--dark-text-color);}
+                border: var(--border-width-md) solid var(--hover-color);
+                background-color: var(--hover-color);
+                color: var(--dark-text-color);
+            }
         }
     }
 }
 
-#trending_books{
+#trending_books {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     max-width: var(--content-width-lg);
     margin: 0 auto;
-    padding: 0 var(--spacing-xxl);
-    h2{
-        font-size: var(--font-size-xl);
-        margin: var(--spacing-4xl) 0 var(--spacing-lg) 0;
-        text-align: center;
-    }
+    padding: 0 var(--spacing-xxl) var(--spacing-4xl) var(--spacing-xxl);
+
+    #trending_copy{
+        max-width: var(--ch-width-md);
+        
+        h2 {
+            font-size: var(--font-size-xl);
+            margin: var(--spacing-5xl) 0 var(--spacing-xxl) 0;
+            text-align: center;
+        }
     
-    p{
-        font-size: var(--font-size-md);
-        text-align: center;
-        margin-bottom: var(--spacing-xxl);
+        p {
+            font-size: var(--font-size-md);
+            text-align: center;
+            margin-bottom: var(--spacing-4xl);
+        }
     }
-    #see_more_btn{
+
+
+    #see_more_btn {
         display: flex;
         justify-content: center;
         align-items: center;
         margin: var(--spacing-lg) 0;
         color: var(--primary-color);
         cursor: pointer;
-    
+
         a {
             text-decoration: none;
             padding: var(--spacing-xl) var(--spacing-5xl);
             border-radius: var(--border-radius-md);
             border: var(--border-width-md) solid var(--primary-color);
             color: var(--primary-color);
+
             &:hover {
-            border: var(--border-width-md) solid var(--hover-color);
-            background-color: var(--hover-color);
-            color: var(--dark-text-color);}
+                border: var(--border-width-md) solid var(--hover-color);
+                background-color: var(--hover-color);
+                color: var(--dark-text-color);
+            }
         }
+    }
+}
+
+@media (min-width: 768px) {
+    #hero_home {
+        background-image: url("../assets/images/abstract-blur-defocused-library-book-store-shop-interior_desk.jpg");
+        height: var(--vh-50);
     }
 }

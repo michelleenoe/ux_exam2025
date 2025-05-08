@@ -26,9 +26,10 @@ body>header {
                         color: var(--secondary-color);
                     }
                 }
-            button:hover{
-                color: var(--secondary-color);
-            }
+
+                button:hover {
+                    color: var(--secondary-color);
+                }
             }
         }
     }
@@ -37,7 +38,7 @@ body>header {
     a img {
         width: var(--logo-size);
         padding: var(--spacing-lg);
-        
+
     }
 }
 
@@ -55,11 +56,12 @@ button {
     cursor: pointer;
     padding: var(--spacing-lg);
 }
+
 button:focus-visible {
     outline: var(--border-width-md) solid var(--focus-color);
     outline-offset: var(--border-width-md);
     border-radius: var(--border-radius-md);
-    
+
 }
 
 #side_menu {
@@ -109,7 +111,7 @@ button:focus-visible {
 
     #mobile_utility_not_logged a,
     #mobile_utility_logged a,
-    #mobile_utility_logged button{
+    #mobile_utility_logged button {
         display: block;
         padding: var(--spacing-lg) 0;
         font-size: var(--font-size-lg);
@@ -117,8 +119,8 @@ button:focus-visible {
         text-align: center;
     }
 
-    #mobile_main_nav{
-        ul{
+    #mobile_main_nav {
+        ul {
             li:first-child {
                 padding-top: var(--spacing-lg);
             }
@@ -210,6 +212,10 @@ button:focus-visible {
             }
         }
     }
+
+    #overlay {
+        display: none !important;
+    }
 }
 
 #utility_not_logged,
@@ -234,10 +240,11 @@ button:focus-visible {
                 color: var(--dark-text-color);
             }
 
-            
+
         }
-        button{
-              padding: var(--spacing-md) var(--spacing-xl);
+
+        button {
+            padding: var(--spacing-md) var(--spacing-xl);
             border-radius: var(--border-radius-md);
             border: var(--border-width-md) solid var(--primary-color);
             color: var(--primary-color);
@@ -248,11 +255,6 @@ button:focus-visible {
                 background-color: var(--hover-color);
                 color: var(--dark-text-color);
             }
-            }
+        }
     }
 }
-
-
-/* #overlay {
-    display: none !important;
-} */

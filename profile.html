@@ -12,65 +12,65 @@
 </head>
 
 <body>
-        <header>
-            <a href="index.html" title="Back to homepage">
-                <img src="assets/images/logo.png" alt="Chapter Logo" class="logo">
-            </a>
-            <div id="desktop_menu">
-                <nav id="main_nav">
-                    <ul>
-                        <li><a href="index.html" title="Homepage">Home</a></li>
-                        <li><a href="books.html" title="Browse Books">Browse Books</a></li>
-                    </ul>
-                </nav>
-                <nav id="utility_not_logged">
-                    <ul>
-                        <li><a href="login.html" title="Log in">Log in</a></li>
-                        <li><a href="signup.html" title="Sign up">Sign up</a></li>
-                    </ul>
-                </nav>
-                <nav id="utility_logged">
-                    <ul>
-                        <li id="profile_desk"><a href="profile.html" title="Profile">Profile</a></li>
-                        <li id="admin_desk"><a href="admin.html" title="Admin">Admin</a></li>
-                        <li><button id="btnLogout">Logout</button></li>
-                    </ul>
-                </nav>
-            </div>
+    <header>
+        <a href="index.html" title="Back to homepage">
+            <img src="assets/images/logo.png" alt="Chapter Logo" class="logo">
+        </a>
+        <div id="desktop_menu">
+            <nav id="main_nav">
+                <ul>
+                    <li><a href="index.html" title="Homepage">Home</a></li>
+                    <li><a href="books.html" title="Browse Books">Browse Books</a></li>
+                </ul>
+            </nav>
+            <nav id="utility_not_logged">
+                <ul>
+                    <li><a href="login.html" title="Log in">Log in</a></li>
+                    <li><a href="signup.html" title="Sign up">Sign up</a></li>
+                </ul>
+            </nav>
+            <nav id="utility_logged">
+                <ul>
+                    <li id="profile_desk"><a href="profile.html" title="Profile">Profile</a></li>
+                    <li id="admin_desk"><a href="admin.html" title="Admin">Admin</a></li>
+                    <li><button class="btnLogout">Logout</button></li>
+                </ul>
+            </nav>
+        </div>
 
-            <button id="burger_btn" aria-label="Open menu">
-                <img src="assets/icons/Menu.svg" alt="Menu icon">
+        <button id="burger_btn" aria-label="Open menu">
+            <img src="assets/icons/Menu.svg" alt="Menu icon">
+        </button>
+
+        <div id="side_menu">
+            <button id="close_btn" aria-label="Close menu">
+                <img src="assets/icons/X.svg" alt="Close menu icon">
             </button>
-
-            <div id="side_menu">
-                <button id="close_btn" aria-label="Close menu">
-                    <img src="assets/icons/X.svg" alt="Close menu icon">
-                </button>
-                <nav id="mobile_utility_not_logged">
-                    <ul>
-                        <li><a href="login.html">Log in</a></li>
-                        <li><a href="signup.html">Sign up</a></li>
-                    </ul>
-                </nav>
-                <nav id="mobile_utility_logged">
-                    <ul>
-                        <li id="profile_mob"><a href="profile.html">Profile</a></li>
-                        <li id="admin_mob"><a href="admin.html">Admin</a></li>
-                        <li><button id="btnLogout">Logout</button></li>
-                    </ul>
-                </nav>
-                <nav id="mobile_main_nav">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="books.html">Browse Books</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div id="overlay"></div>
-        </header>
+            <nav id="mobile_utility_not_logged">
+                <ul>
+                    <li><a href="login.html">Log in</a></li>
+                    <li><a href="signup.html">Sign up</a></li>
+                </ul>
+            </nav>
+            <nav id="mobile_utility_logged">
+                <ul>
+                    <li id="profile_mob"><a href="profile.html">Profile</a></li>
+                    <li id="admin_mob"><a href="admin.html">Admin</a></li>
+                    <li><button class="btnLogout">Logout</button></li>
+                </ul>
+            </nav>
+            <nav id="mobile_main_nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="books.html">Browse Books</a></li>
+                </ul>
+            </nav>
         </div>
-        </div>
-        <main>
+        <div id="overlay"></div>
+    </header>
+    </div>
+    </div>
+    <main>
         <section id="error" class="hidden">
             <header>
                 <h3>Error</h3>
