@@ -69,38 +69,5 @@ const showRelatedBooks = (numBooks = DEFAULT_RELATED) => {
     .catch(handleError);
 };
 
-
-
 showBookDetail();
 showRelatedBooks();
-
-
-
-
-
-
-// const showBookDetails = async () => {
-//   try {
-//     if (!bookId) {
-//       handleError("Book ID is missing.");
-//       return;
-//     }
-
-//     const response = await fetch(`${BASE_URL}/books/${bookId}`);
-//     if (!response.ok) throw new Error("Failed to load book details.");
-
-//     const book = await response.json();
-
-//     bookCover.src = book.cover || FALLBACK_IMAGE;
-//     bookCover.alt = `Cover of ${book.title}`;
-//     bookTitle.innerText = book.title;
-//     bookAuthor.innerText = `Author: ${book.author}`;
-//     bookYear.innerText = `Published: ${book.publishing_year}`;
-//     bookPublisher.innerText = `Publisher: ${book.publishing_company}`;
-//     loanBtn.addEventListener("click", () => {
-//       window.location.href = `loan.html?book_id=${bookId}`;
-//     });
-//   } catch (error) {
-//     handleError(error.message || error);
-//   }
-// };
