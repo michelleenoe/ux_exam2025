@@ -1,85 +1,105 @@
 import { BASE_URL, FALLBACK_IMAGE } from "./info.js";
-import { handleError } from "./api.js";
+import { handleError, handleAPIError } from "./api.js";
+import {
+  loadBookImage,
+  handleLoanButton,
+  updateBookLinks,
+} from "./fetchBooks.js";
 
 const params = new URLSearchParams(window.location.search);
 const bookId = params.get("book_id");
-const bookCover = document.querySelector("#bookCover");
-const bookTitle = document.querySelector("#bookTitle");
-const bookAuthor = document.querySelector("#bookAuthor");
-const bookYear = document.querySelector("#bookYear");
-const bookPublisher = document.querySelector("#bookPublisher");
-const loanBtn = document.querySelector("#loanBtn");
+
+const relatedContainer = document.querySelector("#related_list");
+const relatedTemplate = document.querySelector("#related_template");
+const detailsContainer = document.querySelector("#single_book_detail");
+const detailsTemplate = document.querySelector("#book_details_template");
 
 const DEFAULT_RELATED = 5;
-const relatedTpl = document.querySelector("#related_template");
-const relatedList = document.querySelector(".related-list");
 
-
-const showBookDetails = async () => {
-  try {
-    if (!bookId) {
-      handleError("Book ID is missing.");
-      return;
-    }
-
-    const response = await fetch(`${BASE_URL}/books/${bookId}`);
-    if (!response.ok) throw new Error("Failed to load book details.");
-
-    const book = await response.json();
-
-    bookCover.src = book.cover || FALLBACK_IMAGE;
-    bookCover.alt = `Cover of ${book.title}`;
-    bookTitle.innerText = book.title;
-    bookAuthor.innerText = `Author: ${book.author}`;
-    bookYear.innerText = `Published: ${book.publishing_year}`;
-    bookPublisher.innerText = `Publisher: ${book.publishing_company}`;
-    loanBtn.addEventListener("click", () => {
-      window.location.href = `loan.html?book_id=${bookId}`;
-    });
-
-  } catch (error) {
-    handleError(error.message || error);
-  }
-};
-
-const showRelatedBooks = async (count = DEFAULT_RELATED) => {
-  try {
-    const response = await fetch(`${BASE_URL}/books?n=${count}`);
-    if (!response.ok) throw new Error("Failed to load related books.");
-
-    const list = await response.json();
+const showBookDetail = () =>{
+  fetch(`${BASE_URL}/books/${bookId}`)
+  .then(handleAPIError)
+  .then((book) =>{
     const fragment = document.createDocumentFragment();
+    const userId = sessionStorage.getItem("app_user_id");
 
-    list.forEach((book) => {
-      const card = relatedTpl.content.cloneNode(true);
-      const img = card.querySelector(".related_cover");
+    const card = detailsTemplate.content.cloneNode(true);
+    const img = card.querySelector(".book_cover");
 
-      img.src = FALLBACK_IMAGE;
-      img.alt = `Loading cover for ${book.title}...`;
-      card.querySelector(".related_title").innerText = book.title;
-      card.querySelector(".related_author").innerText = book.author;
-      card.querySelector("a").href = `book.html?book_id=${book.book_id}`;
+    loadBookImage(img, book, book.title);
+    card.querySelector(".book_title").innerText = book.title;
+    card.querySelector(".book_author").innerText = book.author;
+    card.querySelector(".book_year").innerText = book.publishing_year;
+    card.querySelector(".book_publisher").innerText = book.publishing_company;
 
+    handleLoanButton(card, userId);
+    updateBookLinks(card, book);
 
-      fetch(`${BASE_URL}/books/${book.book_id}`)
-        .then(res => res.json())
-        .then(data => {
-          if (data.cover) {
-            img.src = data.cover;
-            img.alt = `Cover of ${book.title}`;
-          }
-        })
-        .catch(() => { });
+    fragment.append(card);
 
-      fragment.append(card);
-    });
+    detailsContainer.append(fragment);
+  }) 
+  .catch(handleError);
 
-    relatedList.append(fragment);
-
-  } catch (error) {
-    handleError(error.message || error);
-  }
 };
 
-showBookDetails();
+const showRelatedBooks = (numBooks = DEFAULT_RELATED) => {
+  fetch(`${BASE_URL}/books?n=${numBooks}`)
+    .then(handleAPIError)
+    .then((books) => {
+      const fragment = document.createDocumentFragment();
+      const userId = sessionStorage.getItem("app_user_id");
+
+      books.forEach((book) => {
+        const card = relatedTemplate.content.cloneNode(true);
+        const img = card.querySelector(".book_cover");
+
+        loadBookImage(img, book, book.title);
+        card.querySelector(".book_title").innerText = book.title;
+
+        handleLoanButton(card, userId);
+        updateBookLinks(card, book);
+
+        fragment.append(card);
+      });
+
+      relatedContainer.append(fragment);
+    })
+    .catch(handleError);
+};
+
+
+
+showBookDetail();
 showRelatedBooks();
+
+
+
+
+
+
+// const showBookDetails = async () => {
+//   try {
+//     if (!bookId) {
+//       handleError("Book ID is missing.");
+//       return;
+//     }
+
+//     const response = await fetch(`${BASE_URL}/books/${bookId}`);
+//     if (!response.ok) throw new Error("Failed to load book details.");
+
+//     const book = await response.json();
+
+//     bookCover.src = book.cover || FALLBACK_IMAGE;
+//     bookCover.alt = `Cover of ${book.title}`;
+//     bookTitle.innerText = book.title;
+//     bookAuthor.innerText = `Author: ${book.author}`;
+//     bookYear.innerText = `Published: ${book.publishing_year}`;
+//     bookPublisher.innerText = `Publisher: ${book.publishing_company}`;
+//     loanBtn.addEventListener("click", () => {
+//       window.location.href = `loan.html?book_id=${bookId}`;
+//     });
+//   } catch (error) {
+//     handleError(error.message || error);
+//   }
+// };

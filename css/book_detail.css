@@ -1,7 +1,8 @@
 @import "modal.css";
 @import "styles.css";
+@import "book_card.css";
 
-section.book-detail {
+/* section.book-detail {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,4 +56,4 @@ section.book-detail {
   .related-list {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
-
+ */

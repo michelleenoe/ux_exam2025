@@ -12,7 +12,7 @@
 </head>
 
 <body>
-            <header>
+    <header>
         <a href="index.html" title="Back to homepage">
             <img src="assets/images/logo.png" alt="Chapter Logo" class="logo">
         </a>
@@ -77,16 +77,23 @@
         </section>
 
         <section class="book-detail">
-            <h1 id="bookTitle"></h1>
-            <img id="bookCover" src="assets/images/placeholder-cover.jpg" alt="Loading cover">
-            <div class="book-info">
-                <p id="bookAuthor"></p>
-                <p id="bookYear"></p>
-                <p id="bookPublisher"></p>
-                <button id="loanBtn">Loan Book</button>
-            </div>
+            <h1>Book Details</h1>
+            <div id="single_book_detail"></div>
+            <dialog id="loan_modal" class="modal">
+                <div class="modal_content">
+                    <button id="modal_close_btn" aria-label="Close menu">
+                        <img src="assets/icons/X.svg" alt="Close menu icon">
+                    </button>
+                    <p class="modal_message">Thank You for Your loan. Please check Your email to recive the e-book. It
+                        will be active for 30 days.</p>
+                </div>
+            </dialog>
         </section>
-        <section class="related-list"></section>
+        <section>
+            <h3>Related Books</h3>
+            <p>Explore more books in the same genre or by the same author.</p>
+            <div id="related_list"></div>
+        </section>
 
 
     </main>
@@ -113,14 +120,47 @@
         <img src="./assets/icons/Chevronup.svg" alt="">
     </button>
 </body>
-<template id="related_template">
-    <div class="related-item">
+<template id="book_details_template">
+    <article class="book_card">
         <a href="">
-            <img class="related_cover" src="" alt="">
-            <h3 class="related_title"></h3>
-            <p class="related_author"></p>
+            <img class="book_cover" src="" alt="">
         </a>
-    </div>
+        <div class="book_wrapper">
+            <div class="book_info">
+                <h2 class="book_title"></h2>
+                <p class="book_author"></p>
+                <p class="book_year"></p>
+                <p class="book_publisher"></p>
+            </div>
+            <div class="book_card_btns">
+                <div class="loan_btn">
+                    <a href="">Loan</a>
+                </div>
+            </div>
+        </div>
+    </article>
+</template>
+
+<template id="related_template">
+    <article class="book_card">
+            <a href="">
+                <img class="book_cover" src="" alt="">
+            </a>
+            <div class="book_wrapper">
+                <div class="book_info">
+                    <h3 class="book_title"></h3>
+                </div>
+                <div class="book_card_btns">
+                    <div class="readmore_btn">
+                        <a href="">Read More</a>
+                    </div>
+                    <div class="loan_btn">
+                        <a href="">Loan</a>
+                    </div>
+                </div>
+
+            </div>
+        </article>
 </template>
 
 
