@@ -1,5 +1,3 @@
-// js/profile.js
-
 import { BASE_URL } from "./info.js";
 import { handleError, handleAPIError, getHeader } from "./api.js";
 
