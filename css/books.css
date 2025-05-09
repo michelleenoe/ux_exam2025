@@ -100,6 +100,14 @@
                 color: var(--dark-text-color);
             }
         }
+        .btn-primary{
+                background-color: var(--primary-color);
+                color: var(--light-text-color);
+                padding: var(--spacing-xl) var(--spacing-5xl);
+                border-radius: var(--border-radius-sm);
+                cursor: pointer;
+              }
+        
 }
 
 @media (min-width: 768px) {
