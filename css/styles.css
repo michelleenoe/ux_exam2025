@@ -53,3 +53,23 @@ body{
   margin: var(--spacing-md) 0 0;
   font-size: var(--spacing-xl);
 }
+
+#success {
+  background-color: var(--success-bg);
+  color: var(--success-color);
+  border: var(--border-width-md) solid var(--success-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xxl) var(--spacing-xxxl);
+  margin: 0 0 var(--spacing-xxl) 0;
+  max-width: var(--error-width);
+  box-shadow: 0 var(--shadow-px-md) var(--shadow-px-lg) rgba(0, 0, 0, var(--opacity-xs));
+}
+#success h3 {
+  margin-top: 0;
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+}
+#success p {
+  margin: var(--spacing-md) 0 0;
+  font-size: var(--spacing-xl);
+}
