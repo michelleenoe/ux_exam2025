@@ -5,12 +5,9 @@ const userId = sessionStorage.getItem("app_user_id");
 if (!userId) {
   window.location.href = "index.html";
 }
-
 const errorBox = document.querySelector("#error");
-const errorText = document.querySelector("#errorText");
 const successBox = document.querySelector("#success");
 const successText = document.querySelector("#successText");
-
 document.querySelectorAll("input, select").forEach(el =>
   el.addEventListener("input", () => {
     errorBox.classList.add("hidden");
@@ -96,7 +93,6 @@ export const initAuthorForm = () => {
       .catch(handleError);
   });
 };
-
 
 export const initPublisherForm = () => {
   const form = document.querySelector("#frmAddPublisher");
