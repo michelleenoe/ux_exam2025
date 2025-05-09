@@ -7,10 +7,14 @@
     --hover-color: #A49FFC;
     --input-bg: #c1e1f1;
     --focus-color:#007bff;
-
+    
     /* error colors */
     --error-bg: #FFE0E0; 
     --error-color: #B00020; 
+
+    /* success colors */
+    --success-bg: #E0FFE0;
+    --success-color: #00B000;
 
     --light-background-color: #FFFFFF;
     --secondary-background-color: #2B2B2B;
