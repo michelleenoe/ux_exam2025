@@ -26,7 +26,6 @@ document.querySelector("#frmSignup").addEventListener("submit", (e) => {
 
   document.querySelector("#error").classList.add("hidden");
 
-  // === Custom validation ===
 
   if (
     !firstName ||
