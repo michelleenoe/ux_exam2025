@@ -1,5 +1,5 @@
 import { BASE_URL } from "./info.js";
-import { handleError, getHeader } from "./api.js";
+import { handleError, handleAPIError, getHeader } from "./api.js";
 
 const userId = sessionStorage.getItem("app_user_id");
 if (!userId) {
@@ -8,70 +8,100 @@ if (!userId) {
 
 const errorBox = document.getElementById("error");
 const errorText = document.getElementById("errorText");
+const successBox = document.getElementById("success");
+const successText = document.getElementById("successText");
 const form = document.getElementById("frmProfile");
 const btnDelete = document.getElementById("btnDelete");
-const showSuccess = (message) => {
-  errorText.innerText = message;
-  errorBox.classList.remove("hidden");
-  setTimeout(() => errorBox.classList.add("hidden"), 3000);
-};
+const birthDateInput = document.getElementById("txtBirthDate");
+
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phonePattern = /^\d+$/;
+
+const yesterday = new Date();
+yesterday.setDate(yesterday.getDate() - 1);
+const yyyy = yesterday.getFullYear();
+const mm = String(yesterday.getMonth() + 1).padStart(2, "0");
+const dd = String(yesterday.getDate()).padStart(2, "0");
+birthDateInput.max = `${yyyy}-${mm}-${dd}`;
 
 fetch(`${BASE_URL}/users/${userId}`, {
   headers: getHeader()
 })
-  .then(res => {
-    if (!res.ok) throw new Error("Failed to load profile.");
-    return res.json();
-  })
+  .then(handleAPIError)
   .then(user => {
-    form.email.value = user.email;
-    form.first_name.value = user.first_name;
-    form.last_name.value = user.last_name;
-    form.address.value = user.address;
-    form.phone_number.value = user.phone_number;
-    form.birth_date.value = user.birth_date;
+    document.getElementById("txtEmail").value = user.email;
+    document.getElementById("txtFirstName").value = user.first_name;
+    document.getElementById("txtLastName").value = user.last_name;
+    document.getElementById("txtAddress").value = user.address;
+    document.getElementById("txtPhone").value = user.phone_number;
+    document.getElementById("txtBirthDate").value = user.birth_date;
     document.getElementById("txtMemberDate").value = user.membership_date;
   })
-  .catch(err => handleError(err.message));
-
+  .catch(handleError);
+function showSuccess(message) {
+  errorBox.classList.add("hidden");
+  successText.innerText = message;
+  successBox.classList.remove("hidden");
+  setTimeout(() => {
+    successBox.classList.add("hidden");
+  }, 3000);
+}
 form.addEventListener("submit", e => {
   e.preventDefault();
-  const params = new URLSearchParams();
-  params.append("email", form.email.value.trim());
-  params.append("first_name", form.first_name.value.trim());
-  params.append("last_name", form.last_name.value.trim());
-  params.append("address", form.address.value.trim());
-  params.append("phone_number", form.phone_number.value.trim());
-  params.append("birth_date", form.birth_date.value);
+  errorBox.classList.add("hidden");
+
+  const firstName = document.getElementById("txtFirstName").value.trim();
+  const lastName = document.getElementById("txtLastName").value.trim();
+  const email = document.getElementById("txtEmail").value.trim();
+  const address = document.getElementById("txtAddress").value.trim();
+  const phone = document.getElementById("txtPhone").value.trim();
+  const birthDate = document.getElementById("txtBirthDate").value;
+
+  if (!firstName || !lastName || !email || !address || !phone || !birthDate) {
+    return handleError("Please fill out all fields correctly.");
+  }
+  if (!emailPattern.test(email)) {
+    return handleError("Please enter a valid email address.");
+  }
+  if (!phonePattern.test(phone)) {
+    return handleError("Phone number must contain digits only.");
+  }
+  if (new Date(birthDate) > new Date()) {
+    return handleError("Birth date cannot be in the future.");
+  }
+
+  const formData = new FormData();
+  formData.append("email", email);
+  formData.append("first_name", firstName);
+  formData.append("last_name", lastName);
+  formData.append("address", address);
+  formData.append("phone_number", phone);
+  formData.append("birth_date", birthDate);
 
   fetch(`${BASE_URL}/users/${userId}`, {
     method: "PUT",
     headers: getHeader(),
-    body: params
+    body: formData
   })
-    .then(res => {
-      if (!res.ok) throw new Error("Update failed.");
-      return res.json();
-    })
+    .then(handleAPIError)
     .then(() => showSuccess("Profile updated successfully."))
-    .catch(err => handleError(err.message));
+    .catch(handleError);
 });
 
-btnDelete.addEventListener("click", () => {
-  if (!confirm("Are you sure you want to delete your account? This cannot be undone.")) {
-    return;
-  }
+document.getElementById("btnDelete").addEventListener("click", () => {
+  const confirmed = confirm(
+    "This action will permanently delete your account and all your data. Are you absolutely sure?"
+  );
+  if (!confirmed) return;
+
   fetch(`${BASE_URL}/users/${userId}`, {
     method: "DELETE",
     headers: getHeader()
   })
-    .then(res => {
-      if (!res.ok) throw new Error("Deletion failed.");
-      return res.json();
-    })
+    .then(handleAPIError)
     .then(() => {
       sessionStorage.clear();
       window.location.href = "index.html";
     })
-    .catch(err => handleError(err.message));
+    .catch(handleError);
 });
