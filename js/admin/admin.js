@@ -19,15 +19,17 @@ initPublisherForm();
 
 initBookLookup();
 
-document.querySelectorAll('#adminMenu button').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const target = btn.dataset.target;
-  
-      document.querySelectorAll('.admin-section').forEach((section) => {
-        section.classList.add('hidden');
-      });
-  
-      document.getElementById(target).classList.remove('hidden');
-    });
+
+const tabs = document.querySelectorAll('#adminMenu button');
+tabs.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabs.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const target = btn.dataset.target;
+    document.querySelectorAll('.admin-section')
+      .forEach(s => s.classList.add('hidden'));
+    document.getElementById(target).classList.remove('hidden');
   });
-  // tab
+});
+
+tabs[0].classList.add('active');
