@@ -10,10 +10,11 @@ const searchInput = document.querySelector("#search_input");
 const container = document.querySelector("#showAllBooks_book_list");
 const template = document.querySelector("#showAllBooks_template");
 const loadMoreBtn = document.querySelector("#load_more_btn");
+const authorSelect = document.querySelector("#select_author");
 
 let allBooks = []; //acts like a local cache of all books for efficient filtering and rendering without repeated API calls
 let visibleCount = 9;
-const DEFAULT_BOOKS = 100;
+const DEFAULT_BOOKS = 9999;
 
 const fetchBooks = (numBooks = DEFAULT_BOOKS) => {
   fetch(`${BASE_URL}/books?n=${numBooks}`)
@@ -25,17 +26,36 @@ const fetchBooks = (numBooks = DEFAULT_BOOKS) => {
     .catch(handleError);
 };
 
+const fetchAuthors = () => {
+  fetch(`${BASE_URL}/authors`)
+    .then(handleAPIError)
+    .then((authors) => {
+      authors.forEach((a) => {
+        const opt = document.createElement("option");
+        opt.value = a.author_name;
+        opt.textContent = a.author_name;
+        authorSelect.append(opt);
+      });
+    })
+    .catch(handleError);
+};
+
 const updateBookList = () => {
   const query = searchInput.value.trim().toLowerCase();
-  const filtered =
-    query.length >= 2
-      ? allBooks.filter(
-          (book) =>
-            book.title.toLowerCase().includes(query) ||
-            book.author.toLowerCase().includes(query)
-        )
-      : allBooks;
+  const authorName = authorSelect.value;
+  let filtered = allBooks;
 
+  if (authorName !== "all") {
+    filtered = filtered.filter((book) => book.author === authorName);
+  }
+
+  if (query.length >= 2) {
+    filtered = filtered.filter(
+      (book) =>
+        book.title.toLowerCase().includes(query) ||
+        book.author.toLowerCase().includes(query)
+    );
+  }
   const booksToShow = filtered.slice(0, visibleCount);
   container.innerHTML = "";
   renderBooks(booksToShow);
@@ -63,7 +83,14 @@ const renderBooks = (books) => {
   container.append(fragment);
 };
 
-searchInput?.addEventListener("input", () => {
+document
+  .querySelector("form[role=search]")
+  .addEventListener("submit", (e) => {
+    e.preventDefault();
+    visibleCount = 9;
+    updateBookList();
+  });
+authorSelect.addEventListener("change", () => {
   visibleCount = 9;
   updateBookList();
 });
@@ -74,3 +101,4 @@ loadMoreBtn?.addEventListener("click", () => {
 });
 
 fetchBooks();
+fetchAuthors();

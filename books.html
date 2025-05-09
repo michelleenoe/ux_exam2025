@@ -84,23 +84,26 @@
     </section>
     <section id="browse_books">
         <header>
-            <h2>Browse Books</h2>
-            <form role="search" aria-label="Search books">
-                <div class="search_wrapper">
-                    <label for="search_input">Search by title or author</label>
-                    <input type="search" id="search_input" name="search">
-                </div>
-                <div class="select_wrapper">
-                    <label for="select_author">Filter by author</label>
-                    <select name="select" id="select_author">
-                        <option value="all">All</option>
-                        <option value="author1">Author 1</option>
-                        <option value="author2">Author 2</option>
-                        <option value="author3">Author 3</option>
-                    </select>
-                </div>
-            </form>
+          <h2>Browse Books</h2>
+          <form role="search" aria-label="Search books">
+            <div class="search_wrapper">
+              <label for="search_input">Search by title or author</label>
+              <input
+                type="search"
+                id="search_input"
+                name="search"
+              />
+            </div>
+            <div class="select_wrapper">
+              <label for="select_author">Filter by author</label>
+              <select id="select_author">
+                <option value="all">Alle authors</option>
+              </select>
+            </div>
+            <button id="search_btn" type="submit">Search</button>
+          </form>
         </header>
+      
 
         <div id="showAllBooks_book_list" aria-live="polite"></div>
         <dialog id="loan_modal" class="modal">
