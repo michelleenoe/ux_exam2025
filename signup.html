@@ -12,118 +12,119 @@
 </head>
 
 <body>
-    <header>
-        <a href="index.html" title="Back to homepage">
-            <img src="assets/images/logo.png" alt="Chapter Logo" class="logo">
-        </a>
-        <div id="desktop_menu">
-            <nav id="main_nav">
-                <ul>
-                    <li><a href="index.html" title="Homepage">Home</a></li>
-                    <li><a href="books.html" title="Browse Books">Browse Books</a></li>
-                </ul>
-            </nav>
-            <nav id="utility_not_logged">
-                <ul>
-                    <li><a href="login.html" title="Log in">Log in</a></li>
-                    <li><a href="signup.html" title="Sign up">Sign up</a></li>
-                </ul>
-            </nav>
-            <nav id="utility_logged">
-                <ul>
-                    <li id="profile_desk"><a href="profile.html" title="Profile">Profile</a></li>
-                    <li id="admin_desk"><a href="admin.html" title="Admin">Admin</a></li>
-                    <li><button class="btnLogout">Logout</button></li>
-                </ul>
-            </nav>
-        </div>
+  <header>
+    <a href="index.html" title="Back to homepage">
+      <img src="assets/images/logo.png" alt="Chapter Logo" class="logo">
+    </a>
+    <div id="desktop_menu">
+      <nav id="main_nav">
+        <ul>
+          <li><a href="index.html" title="Homepage">Home</a></li>
+          <li><a href="books.html" title="Browse Books">Browse Books</a></li>
+        </ul>
+      </nav>
+      <nav id="utility_not_logged">
+        <ul>
+          <li><a href="login.html" title="Log in">Log in</a></li>
+          <li><a href="signup.html" title="Sign up">Sign up</a></li>
+        </ul>
+      </nav>
+      <nav id="utility_logged">
+        <ul>
+          <li id="profile_desk"><a href="profile.html" title="Profile">Profile</a></li>
+          <li id="admin_desk"><a href="admin.html" title="Admin">Admin</a></li>
+          <li><button class="btnLogout">Logout</button></li>
+        </ul>
+      </nav>
+    </div>
 
-        <button id="burger_btn" aria-label="Open menu">
-            <img src="assets/icons/Menu.svg" alt="Menu icon">
-        </button>
+    <button id="burger_btn" aria-label="Open menu">
+      <img src="assets/icons/Menu.svg" alt="Menu icon">
+    </button>
 
-        <div id="side_menu">
-            <button id="close_btn" aria-label="Close menu">
-                <img src="assets/icons/X.svg" alt="Close menu icon">
-            </button>
-            <nav id="mobile_utility_not_logged">
-                <ul>
-                    <li><a href="login.html">Log in</a></li>
-                    <li><a href="signup.html">Sign up</a></li>
-                </ul>
-            </nav>
-            <nav id="mobile_utility_logged">
-                <ul>
-                    <li id="profile_mob"><a href="profile.html">Profile</a></li>
-                    <li id="admin_mob"><a href="admin.html">Admin</a></li>
-                    <li><button class="btnLogout">Logout</button></li>
-                </ul>
-            </nav>
-            <nav id="mobile_main_nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="books.html">Browse Books</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div id="overlay"></div>
-    </header>
+    <div id="side_menu">
+      <button id="close_btn" aria-label="Close menu">
+        <img src="assets/icons/X.svg" alt="Close menu icon">
+      </button>
+      <nav id="mobile_utility_not_logged">
+        <ul>
+          <li><a href="login.html">Log in</a></li>
+          <li><a href="signup.html">Sign up</a></li>
+        </ul>
+      </nav>
+      <nav id="mobile_utility_logged">
+        <ul>
+          <li id="profile_mob"><a href="profile.html">Profile</a></li>
+          <li id="admin_mob"><a href="admin.html">Admin</a></li>
+          <li><button class="btnLogout">Logout</button></li>
+        </ul>
+      </nav>
+      <nav id="mobile_main_nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="books.html">Browse Books</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="overlay"></div>
+  </header>
   <main>
     <section id="error" class="hidden">
-            <header>
-                <h3>Error</h3>
-            </header>
-            <p id="errorText"></p>
-        </section>
+      <header>
+        <h3>Error</h3>
+      </header>
+      <p id="errorText"></p>
+    </section>
     <form id="frmSignup" aria-describedby="pwHelp">
       <h1>Sign up</h1>
-      <fieldset> 
-      <legend class="hidden">Sign up</legend>
-      <div class="two-col">
-        <div class="field">
-          <label for="txtFirstName">First name</label>
-          <input id="txtFirstName" name="txtFirstName" type="text" autocomplete="given-name">
+      <fieldset>
+        <legend class="hidden">Sign up</legend>
+        <div class="two-col">
+          <div class="field">
+            <label for="txtFirstName">First name</label>
+            <input id="txtFirstName" name="txtFirstName" type="text" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="txtLastName">Last name</label>
+            <input id="txtLastName" name="txtLastName" type="text" autocomplete="family-name">
+          </div>
         </div>
 
         <div class="field">
-          <label for="txtLastName">Last name</label>
-          <input id="txtLastName" name="txtLastName" type="text" autocomplete="family-name">
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="txtEmail">Email</label>
-        <input id="txtEmail" name="txtEmail" autocomplete="email" >
-      </div>
-
-      <div class="field">
-        <label for="txtPassword">Password</label>
-        <input id="txtPassword" name="txtPassword" type="password">
-      </div>
-      
-      <div class="field">
-        <label for="txtRepeatPassword">Repeat password</label>
-        <input id="txtRepeatPassword" name="txtRepeatPassword" type="password">
-        <small id="pwHelp" class="form-text">Password must be at least 8 characters long and contain at least one number.</small>
-      </div>
-
-      <div class="field">
-        <label for="txtAddress">Address</label>
-        <input id="txtAddress" name="txtAddress" type="text" >
-      </div>
-
-      <div class="two-col">
-        <div class="field">
-          <label for="txtPhone">Phone</label>
-          <input id="txtPhone" name="txtPhone" type="tel" autocomplete="tel">
+          <label for="txtEmail">Email</label>
+          <input id="txtEmail" name="txtEmail" autocomplete="email">
         </div>
 
         <div class="field">
-          <label for="txtBirthDate">Date of birth</label>
-          <input id="txtBirthDate" name="txtBirthDate" type="date" >
+          <label for="txtPassword">Password</label>
+          <input id="txtPassword" name="txtPassword" type="password">
         </div>
-      </div>
-    </fieldset> 
+
+        <div class="field">
+          <label for="txtRepeatPassword">Repeat password</label>
+          <input id="txtRepeatPassword" name="txtRepeatPassword" type="password">
+          <small id="pwHelp" class="form-text">Password must be at least 8 characters long and contain at least one
+            number.</small>
+        </div>
+
+        <div class="field">
+          <label for="txtAddress">Address</label>
+          <input id="txtAddress" name="txtAddress" type="text">
+        </div>
+
+        <div class="two-col">
+          <div class="field">
+            <label for="txtPhone">Phone</label>
+            <input id="txtPhone" name="txtPhone" type="tel" autocomplete="tel">
+          </div>
+
+          <div class="field">
+            <label for="txtBirthDate">Date of birth</label>
+            <input id="txtBirthDate" name="txtBirthDate" type="date">
+          </div>
+        </div>
+      </fieldset>
 
       <fieldset class="field checkbox">
         <legend class="hidden">Terms</legend>
@@ -141,23 +142,23 @@
 
   </main>
   <footer>
-      <div id="social_icons">
-                  <a href="https://twitter.com" target="_blank">
-                      <img src="./assets/icons/Twitter.svg" alt="Twitter logo">
-                  </a>
-                  <a href="https://linkedin.com" target="_blank">
-                      <img src="./assets/icons/Linkedin.svg" alt="LinkedIn logo">
-                  </a>
-                  <a href="https://facebook.com" target="_blank">
-                      <img src="./assets/icons/Facebook.svg" alt="Facebook logo">
-                  </a>
-                  <a href="https://instagram.com" target="_blank">
-                      <img src="./assets/icons/Instagram.svg" alt="Instagram logo">
-                  </a>
-              </div>
-              <p id="footer-copy">&copy; 2023 KEA Development</p>
+    <div id="social_icons">
+      <a href="https://twitter.com" target="_blank">
+        <img src="./assets/icons/Twitter.svg" alt="Twitter logo">
+      </a>
+      <a href="https://linkedin.com" target="_blank">
+        <img src="./assets/icons/Linkedin.svg" alt="LinkedIn logo">
+      </a>
+      <a href="https://facebook.com" target="_blank">
+        <img src="./assets/icons/Facebook.svg" alt="Facebook logo">
+      </a>
+      <a href="https://instagram.com" target="_blank">
+        <img src="./assets/icons/Instagram.svg" alt="Instagram logo">
+      </a>
+    </div>
+    <p id="footer-copy">&copy; 2023 KEA Development</p>
   </footer>
-   <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt=""></button>
+  <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt=""></button>
 
 </body>
 
