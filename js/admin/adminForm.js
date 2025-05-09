@@ -72,7 +72,7 @@ export const initAuthorForm = () => {
     successBox.classList.add("hidden");
 
     const firstName = form.querySelector('input[name="first_name"]').value.trim();
-    const lastName  = form.querySelector('input[name="last_name"]').value.trim();
+    const lastName = form.querySelector('input[name="last_name"]').value.trim();
 
     if (!firstName || !lastName) {
       handleError("Please provide both a first name and a last name.");
@@ -80,7 +80,7 @@ export const initAuthorForm = () => {
     }
     const formData = new FormData();
     formData.append("first_name", firstName);
-    formData.append("last_name",  lastName);
+    formData.append("last_name", lastName);
 
     fetch(`${BASE_URL}/admin/${userId}/authors`, {
       method: "POST",
