@@ -20,6 +20,7 @@ const showBookDetail = () =>{
   fetch(`${BASE_URL}/books/${bookId}`)
   .then(handleAPIError)
   .then((book) =>{
+    book.book_id = bookId;
     const fragment = document.createDocumentFragment();
     const userId = sessionStorage.getItem("app_user_id");
 
