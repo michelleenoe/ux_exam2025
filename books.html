@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Book Collection | Browse & Borrow Online</title>
-        <link rel="icon" href="assets/images/favicon.png" type="image/png">
-         <link rel="stylesheet" href="./css/books.css">
-        <script type="module" src="./js/script.js"></script>
-        <script type="module" src="./js/books.js"></script>
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Collection | Browse & Borrow Online</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="./css/books.css">
+    <script type="module" src="./js/script.js"></script>
+    <script type="module" src="./js/books.js"></script>
+</head>
+
 <body>
-            <header>
+    <header>
         <a href="index.html" title="Back to homepage">
             <img src="assets/images/logo.png" alt="Chapter Logo" class="logo">
         </a>
@@ -66,47 +68,44 @@
         </div>
         <div id="overlay"></div>
     </header>
-<main>
-    <section id="hero_books">
-        <div id="hero_text">
-            <h1>Find Your Next Read</h1>
-            <p>Explore thousands of titles across every genre. Log in to borrow books and start reading today – it's fast, free, and easy.</p>
-        </div>
-        <div id="login_btn">
-            <a href="login.html" title="Login in">Log in</a>
-        </div>
-    </section>
-    <section id="error" class="hidden">
-        <header>
-            <h2>Error</h2>
-        </header>
-        <p id="errorText"></p>
-    </section>
-    <section id="browse_books">
-        <header>
-          <h2>Browse Books</h2>
-          <form role="search" aria-label="Search books">
-            <div class="search_wrapper">
-              <label for="search_input">Search by title or author</label>
-              <input
-                type="search"
-                id="search_input"
-                name="search"
-              />
+    <main>
+        <section id="hero_books">
+            <div id="hero_text">
+                <h1>Find Your Next Read</h1>
+                <p>Explore thousands of titles across every genre. Log in to borrow books and start reading today – it's
+                    fast, free, and easy.</p>
             </div>
-            <div class="select_wrapper">
-              <label for="select_author">Filter by author</label>
-              <select id="select_author">
-                <option value="all">Alle authors</option>
-              </select>
+            <div id="login_btn">
+                <a href="login.html" title="Login in">Log in</a>
             </div>
-            <button id="search_btn" type="submit">Search</button>
-          </form>
-        </header>
-      
+        </section>
+        <section id="error" class="hidden">
+            <header>
+                <h2>Error</h2>
+            </header>
+            <p id="errorText"></p>
+        </section>
+        <section id="browse_books">
+            <header>
+                <h2>Browse Books</h2>
+                <form role="search" aria-label="Search books">
+                    <div class="search_wrapper">
+                        <label for="search_input">Search by title or author</label>
+                        <input type="search" id="search_input" name="search" />
+                    </div>
+                    <div class="select_wrapper">
+                        <label for="select_author">Filter by author</label>
+                        <select id="select_author">
+                            <option value="all">Alle authors</option>
+                        </select>
+                    </div>
+                    <button id="search_btn" type="submit">Search</button>
+                </form>
+            </header>
 
-        <div id="showAllBooks_book_list" aria-live="polite"></div>
-        <dialog id="loan_modal" class="modal">
+
+            <div id="showAllBooks_book_list" aria-live="polite"></div>
+            <dialog id="loan_modal" class="modal">
                 <div class="modal_content">
                     <button id="modal_close_btn" aria-label="Close menu">
                         <img src="assets/icons/X.svg" alt="Close menu icon">
@@ -114,52 +113,52 @@
                     <p class="modal_message">Thank You for Your loan. Please check Your email to recive the e-book. It
                         will be active for 30 days.</p>
                 </div>
-        </dialog>
-        <div>
-            <button id="load_more_btn" type="button">Load more</button>
-        </div>  
-    </section>
+            </dialog>
+            <div>
+                <button id="load_more_btn" type="button">Load more</button>
+            </div>
+        </section>
 
-</main>
-<footer>
-    <div id="social_icons">
-                <a href="https://twitter.com" target="_blank">
-                    <img src="./assets/icons/Twitter.svg" alt="Twitter logo">
-                </a>
-                <a href="https://linkedin.com" target="_blank">
-                    <img src="./assets/icons/Linkedin.svg" alt="LinkedIn logo">
-                </a>
-                <a href="https://facebook.com" target="_blank">
-                    <img src="./assets/icons/Facebook.svg" alt="Facebook logo">
-                </a>
-                <a href="https://instagram.com" target="_blank">
-                    <img src="./assets/icons/Instagram.svg" alt="Instagram logo">
-                </a>
-            </div>
-            <p id="footer-copy">&copy; 2023 KEA Development</p>
-</footer>
-<button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt=""></button>
+    </main>
+    <footer>
+        <div id="social_icons">
+            <a href="https://twitter.com" target="_blank">
+                <img src="./assets/icons/Twitter.svg" alt="Twitter logo">
+            </a>
+            <a href="https://linkedin.com" target="_blank">
+                <img src="./assets/icons/Linkedin.svg" alt="LinkedIn logo">
+            </a>
+            <a href="https://facebook.com" target="_blank">
+                <img src="./assets/icons/Facebook.svg" alt="Facebook logo">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="./assets/icons/Instagram.svg" alt="Instagram logo">
+            </a>
+        </div>
+        <p id="footer-copy">&copy; 2023 KEA Development</p>
+    </footer>
+    <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt=""></button>
 
-<template id="showAllBooks_template">
-    <article class="book_card">
-        <a href="">
-            <img class="book_cover" src="" alt="">
-        </a>
-        <div class="book_wrapper">
-        <div class="book_info">
-            <h3 class="book_title"></h3>
-        </div>
-        <div class="book_card_btns">
-            <div class="readmore_btn">
-                <a href="">Read More</a>
+    <template id="showAllBooks_template">
+        <article class="book_card">
+            <a href="">
+                <img class="book_cover" src="" alt="">
+            </a>
+            <div class="book_wrapper">
+                <div class="book_info">
+                    <h3 class="book_title"></h3>
+                </div>
+                <div class="book_card_btns">
+                    <div class="readmore_btn">
+                        <a href="">Read More</a>
+                    </div>
+                    <div class="loan_btn">
+                        <a href="">Loan</a>
+                    </div>
+                </div>
             </div>
-            <div class="loan_btn">
-                <a href="">Loan</a>
-            </div>
-        </div>
-        </div>
-    </article>
-</template>
+        </article>
+    </template>
 
 </body>
 
