@@ -5,10 +5,8 @@ function logout() {
   sessionStorage.removeItem("app_auth_token");
   sessionStorage.removeItem("app_is_admin");
 
-  // Opdater navigation
   utilityLog();
 
-  // Gå til forsiden
   window.location.href = "index.html";
 }
 

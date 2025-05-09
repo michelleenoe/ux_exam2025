@@ -1,23 +1,25 @@
+// js/profile.js
+
 import { BASE_URL } from "./info.js";
 import { handleError, handleAPIError, getHeader } from "./api.js";
 
 const userId = sessionStorage.getItem("app_user_id");
+const errorBox = document.querySelector("#error");
+const errorText = document.querySelector("#errorText");
+const successBox = document.querySelector("#success");
+const successText = document.querySelector("#successText");
+const form = document.querySelector("#frmProfile");
+const btnDelete = document.querySelector("#btnDelete");
+const birthInput = document.querySelector("#txtBirthDate");
+
 if (!userId) {
   window.location.href = "login.html";
 }
-
-const errorBox = document.getElementById("error");
-const successBox = document.getElementById("success");
-const successText = document.getElementById("successText");
-const form = document.getElementById("frmProfile");
-const btnDelete = document.getElementById("btnDelete");
-const birthInput = document.getElementById("txtBirthDate");
-
-const yesterday = new Date();
-yesterday.setDate(yesterday.getDate() - 1);
-const yyyy = yesterday.getFullYear();
-const mm = String(yesterday.getMonth() + 1).padStart(2, "0");
-const dd = String(yesterday.getDate()).padStart(2, "0");
+const today = new Date();
+today.setDate(today.getDate() - 1);
+const yyyy = today.getFullYear();
+const mm = String(today.getMonth() + 1).padStart(2, "0");
+const dd = String(today.getDate()).padStart(2, "0");
 birthInput.max = `${yyyy}-${mm}-${dd}`;
 
 document.querySelectorAll("input, select").forEach(el =>
@@ -27,8 +29,8 @@ document.querySelectorAll("input, select").forEach(el =>
   })
 );
 document.addEventListener("click", e => {
-  const fields = document.querySelectorAll("input, select");
-  if (![...fields].some(f => f.contains(e.target))) {
+  const fields = Array.from(document.querySelectorAll("input, select"));
+  if (!fields.some(f => f.contains(e.target))) {
     errorBox.classList.add("hidden");
     successBox.classList.add("hidden");
   }
@@ -39,22 +41,22 @@ fetch(`${BASE_URL}/users/${userId}`, {
 })
   .then(handleAPIError)
   .then(user => {
-    document.getElementById("txtEmail").value = user.email;
-    document.getElementById("txtFirstName").value = user.first_name;
-    document.getElementById("txtLastName").value = user.last_name;
-    document.getElementById("txtAddress").value = user.address;
-    document.getElementById("txtPhone").value = user.phone_number;
-    document.getElementById("txtBirthDate").value = user.birth_date;
-    document.getElementById("txtMemberDate").value = user.membership_date;
+    document.querySelector("#txtEmail").value = user.email;
+    document.querySelector("#txtFirstName").value = user.first_name;
+    document.querySelector("#txtLastName").value = user.last_name;
+    document.querySelector("#txtAddress").value = user.address;
+    document.querySelector("#txtPhone").value = user.phone_number;
+    document.querySelector("#txtBirthDate").value = user.birth_date;
+    document.querySelector("#txtMemberDate").value = user.membership_date;
   })
   .catch(handleError);
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phonePattern = /^\d+$/;
 
-function showSuccess(message) {
+function showSuccess(msg) {
   errorBox.classList.add("hidden");
-  successText.innerText = message;
+  successText.innerText = msg;
   successBox.classList.remove("hidden");
   setTimeout(() => successBox.classList.add("hidden"), 3000);
 }
@@ -64,12 +66,12 @@ form.addEventListener("submit", e => {
   errorBox.classList.add("hidden");
   successBox.classList.add("hidden");
 
-  const firstName = document.getElementById("txtFirstName").value.trim();
-  const lastName = document.getElementById("txtLastName").value.trim();
-  const email = document.getElementById("txtEmail").value.trim();
-  const address = document.getElementById("txtAddress").value.trim();
-  const phone = document.getElementById("txtPhone").value.trim();
-  const birthDate = document.getElementById("txtBirthDate").value;
+  const firstName = document.querySelector("#txtFirstName").value.trim();
+  const lastName = document.querySelector("#txtLastName").value.trim();
+  const email = document.querySelector("#txtEmail").value.trim();
+  const address = document.querySelector("#txtAddress").value.trim();
+  const phone = document.querySelector("#txtPhone").value.trim();
+  const birthDate = document.querySelector("#txtBirthDate").value;
 
   if (!firstName || !lastName || !email || !address || !phone || !birthDate) {
     return handleError("Please fill out all fields correctly.");
