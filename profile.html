@@ -71,7 +71,7 @@
     <main id="profile">
         <section>
             <h1 id="welcomeMessage"></h1>
-          </section>
+        </section>
 
         <section id="error" class="hidden">
             <header>
@@ -153,6 +153,14 @@
         <p id="footer-copy">&copy; 2023 KEA Development</p>
     </footer>
     <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt=""></button>
+    <dialog id="deleteDialog" aria-modal="true" aria-labelledby="deleteDialogTitle">
+        <h3 id="deleteDialogTitle">Confirm Account Deletion</h3>
+        <p>Are you sure you want to delete your account? This action cannot be undone.</p>
+        <menu>
+            <button id="cancelDelete" type="button">Cancel</button>
+            <button id="confirmDelete" type="button" class="btn btn-danger">Delete</button>
+        </menu>
+    </dialog>
 
 </body>
 
