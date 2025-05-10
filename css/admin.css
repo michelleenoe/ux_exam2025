@@ -79,3 +79,20 @@ form {
   box-shadow: 0 0 0 3px var(--primary-color);
   border-radius: var(--border-radius-sm);
 }
+.loan-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--spacing-md);
+}
+
+.loan-history-table th,
+.loan-history-table td {
+  border: var(--border-width-sm) solid var(--quaternary-color);
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: left;
+}
+
+.loan-history-table th {
+  background: var(--secondary-background-color);
+  color: var(--light-text-color);
+}

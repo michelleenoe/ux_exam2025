@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapter | Your online Profile</title>
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
-    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/profile.css">
     <script type="module" src="./js/script.js"></script>
     <script type="module" src="./js/profile.js"></script>
 </head>
@@ -68,9 +68,11 @@
         </div>
         <div id="overlay"></div>
     </header>
-    </div>
-    </div>
-    <main>
+    <main id="profile">
+        <section>
+            <h1 id="welcomeMessage"></h1>
+        </section>
+
         <section id="error" class="hidden">
             <header>
                 <h3>Error</h3>
@@ -85,7 +87,7 @@
         </section>
 
         <section id="profileSection">
-            <h1>Edit profile</h1>
+            <h2>Edit profile</h2>
             <form id="frmProfile" aria-describedby="profileHelp">
                 <div class="field">
                     <label for="txtEmail">Email</label>
@@ -151,6 +153,14 @@
         <p id="footer-copy">&copy; 2023 KEA Development</p>
     </footer>
     <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt=""></button>
+    <dialog id="deleteDialog" aria-modal="true" aria-labelledby="deleteDialogTitle">
+        <h3 id="deleteDialogTitle">Confirm account deletion</h3>
+        <p>Are you sure you want to delete your account? This action can not be undone.</p>
+        <menu>
+            <button id="cancelDelete" type="button">Cancel</button>
+            <button id="confirmDelete" type="button" class="btn btn-danger">Delete</button>
+        </menu>
+    </dialog>
 
 </body>
 

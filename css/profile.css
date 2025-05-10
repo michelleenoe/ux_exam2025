@@ -1,0 +1,50 @@
+@import 'form.css';
+@import "styles.css";
+
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.3); //variabel?
+}
+
+#deleteDialog {
+  background: var(--light-background-color);
+  border: var(--border-width-sm) solid var(--error-color);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  width: 100%;
+  max-width: var(--width-lg);
+  margin: auto;
+}
+#deleteDialog h3 {
+  margin-bottom: var(--spacing-md);
+  color: var(--error-color);
+}
+
+#deleteDialog p {
+  margin: 0 0 var(--spacing-lg);
+  font-size: var(--font-size-md);
+}
+
+#deleteDialog menu {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+}
+
+#deleteDialog button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-md);
+  border-radius: var(--border-radius-sm);
+  border: none;
+  cursor: pointer;
+}
+
+#cancelDelete {
+  background: var(--primary-color);
+  color: var(--light-text-color);
+}
+#confirmDelete {
+  background: var(--error-color);
+  color: var(--light-text-color);
+}
+

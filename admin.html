@@ -68,10 +68,12 @@
         </div>
         <div id="overlay"></div>
     </header>
-    <div>
 
-    </div>
     <main id="admin">
+        <section>
+        <h2 id="welcomeMessage"></h2>
+      </section>
+
         <nav id="adminMenu">
             <button type="button" data-target="sectionBook">Add Book</button>
             <button type="button" data-target="sectionAuthor">Add Author</button>
@@ -103,14 +105,14 @@
                 <div class="field">
                     <label for="selectAuthor">Author</label>
                     <select id="selectAuthor" name="author_id">
-                        <option value="">Vælg forfatter</option>
+                        <option value="">Choose Author</option>
                     </select>
                 </div>
 
                 <div class="field">
                     <label for="selectPublisher">Publisher</label>
                     <select id="selectPublisher" name="publisher_id">
-                        <option value="">Vælg forlag</option>
+                        <option value="">Choose Publisher</option>
                     </select>
                 </div>
 
@@ -191,13 +193,24 @@
             <p class="book-author"></p>
             <p class="book-publisher"></p>
             <p class="book-year"></p>
+
             <div class="loan-history">
                 <h4>Loan History:</h4>
-                <div class="loan-rows"></div>
+                <table class="loan-history-table">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody class="loan-rows">
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </template>
+
 
 
 </html>
