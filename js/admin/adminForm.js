@@ -5,12 +5,10 @@ const userId = sessionStorage.getItem("app_user_id");
 if (!userId) {
   window.location.href = "index.html";
 }
-
 const errorBox = document.querySelector("#error");
 const errorText = document.querySelector("#errorText");
 const successBox = document.querySelector("#success");
 const successText = document.querySelector("#successText");
-
 document.querySelectorAll("input, select").forEach(el =>
   el.addEventListener("input", () => {
     errorBox.classList.add("hidden");
@@ -30,7 +28,6 @@ function showValidationError() {
   errorText.innerText = "Please fill out all fields correctly.";
   errorBox.classList.remove("hidden");
 }
-
 function validate(form) {
   const fields = Array.from(form.querySelectorAll("input, select")).filter(f =>
     f.type !== "submit" &&
@@ -53,14 +50,12 @@ function showSuccess(message) {
   successBox.classList.remove("hidden");
   setTimeout(() => successBox.classList.add("hidden"), 3000);
 }
-
 export const initBookForm = () => {
   const form = document.querySelector("#frmAddBook");
   form.addEventListener("submit", async e => {
     e.preventDefault();
     errorBox.classList.add("hidden");
     successBox.classList.add("hidden");
-
     if (!validate(form)) return;
 
     try {
@@ -71,7 +66,6 @@ export const initBookForm = () => {
       });
       const data = await handleAPIError(res);
       if (data.error) throw data;
-
       form.reset();
       showSuccess("Book added successfully.");
     } catch (err) {
@@ -97,7 +91,6 @@ export const initAuthorForm = () => {
       });
       const data = await handleAPIError(res);
       if (data.error) throw data;
-
       form.reset();
       showSuccess("Author added successfully.");
     } catch (err) {
@@ -112,7 +105,6 @@ export const initPublisherForm = () => {
     e.preventDefault();
     errorBox.classList.add("hidden");
     successBox.classList.add("hidden");
-
     if (!validate(form)) return;
 
     try {
@@ -123,7 +115,6 @@ export const initPublisherForm = () => {
       });
       const data = await handleAPIError(res);
       if (data.error) throw data;
-
       form.reset();
       showSuccess("Publisher added successfully.");
     } catch (err) {
