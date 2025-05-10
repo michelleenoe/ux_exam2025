@@ -5,9 +5,12 @@ const userId = sessionStorage.getItem("app_user_id");
 if (!userId) {
   window.location.href = "index.html";
 }
+
 const errorBox = document.querySelector("#error");
+const errorText = document.querySelector("#errorText");
 const successBox = document.querySelector("#success");
 const successText = document.querySelector("#successText");
+
 document.querySelectorAll("input, select").forEach(el =>
   el.addEventListener("input", () => {
     errorBox.classList.add("hidden");
@@ -22,15 +25,27 @@ document.addEventListener("click", e => {
   }
 });
 
-const validate = form => {
-  for (const field of form.querySelectorAll("input, select")) {
-    if (field.required && !field.value.trim()) {
-      handleError("Please fill out all fields correctly.");
+function showValidationError() {
+  successBox.classList.add("hidden");
+  errorText.innerText = "Please fill out all fields correctly.";
+  errorBox.classList.remove("hidden");
+}
+
+function validate(form) {
+  const fields = Array.from(form.querySelectorAll("input, select")).filter(f =>
+    f.type !== "submit" &&
+    f.type !== "button" &&
+    f.type !== "hidden"
+  );
+
+  for (const field of fields) {
+    if (!field.value.trim()) {
+      showValidationError();
       return false;
     }
   }
   return true;
-};
+}
 
 function showSuccess(message) {
   errorBox.classList.add("hidden");
@@ -38,81 +53,81 @@ function showSuccess(message) {
   successBox.classList.remove("hidden");
   setTimeout(() => successBox.classList.add("hidden"), 3000);
 }
+
 export const initBookForm = () => {
   const form = document.querySelector("#frmAddBook");
-  form.addEventListener("submit", e => {
+  form.addEventListener("submit", async e => {
     e.preventDefault();
     errorBox.classList.add("hidden");
     successBox.classList.add("hidden");
+
     if (!validate(form)) return;
 
-    fetch(`${BASE_URL}/admin/${userId}/books`, {
-      method: "POST",
-      headers: getHeader(),
-      body: new FormData(form)
-    })
-      .then(handleAPIError)
-      .then(data => {
-        if (data.error) throw data;
-        form.reset();
-        showSuccess("Book added successfully.");
-      })
-      .catch(handleError);
+    try {
+      const res = await fetch(`${BASE_URL}/admin/${userId}/books`, {
+        method: "POST",
+        headers: getHeader(),
+        body: new FormData(form),
+      });
+      const data = await handleAPIError(res);
+      if (data.error) throw data;
+
+      form.reset();
+      showSuccess("Book added successfully.");
+    } catch (err) {
+      handleError(err);
+    }
   });
 };
 
 export const initAuthorForm = () => {
   const form = document.querySelector("#frmAddAuthor");
-  form.addEventListener("submit", e => {
+  form.addEventListener("submit", async e => {
     e.preventDefault();
     errorBox.classList.add("hidden");
     successBox.classList.add("hidden");
 
-    const firstName = form.querySelector('input[name="first_name"]').value.trim();
-    const lastName = form.querySelector('input[name="last_name"]').value.trim();
+    if (!validate(form)) return;
 
-    if (!firstName || !lastName) {
-      handleError("Please provide both a first name and a last name.");
-      return;
+    try {
+      const res = await fetch(`${BASE_URL}/admin/${userId}/authors`, {
+        method: "POST",
+        headers: getHeader(),
+        body: new FormData(form),
+      });
+      const data = await handleAPIError(res);
+      if (data.error) throw data;
+
+      form.reset();
+      showSuccess("Author added successfully.");
+    } catch (err) {
+      handleError(err);
     }
-    const formData = new FormData();
-    formData.append("first_name", firstName);
-    formData.append("last_name", lastName);
-
-    fetch(`${BASE_URL}/admin/${userId}/authors`, {
-      method: "POST",
-      headers: getHeader(),
-      body: formData
-    })
-      .then(handleAPIError)
-      .then(data => {
-        if (data.error) throw data;
-        form.reset();
-        showSuccess("Author added successfully.");
-      })
-      .catch(handleError);
   });
 };
 
 export const initPublisherForm = () => {
   const form = document.querySelector("#frmAddPublisher");
-  form.addEventListener("submit", e => {
+  form.addEventListener("submit", async e => {
     e.preventDefault();
     errorBox.classList.add("hidden");
     successBox.classList.add("hidden");
+
     if (!validate(form)) return;
 
-    fetch(`${BASE_URL}/admin/${userId}/publishers`, {
-      method: "POST",
-      headers: getHeader(),
-      body: new FormData(form)
-    })
-      .then(handleAPIError)
-      .then(data => {
-        if (data.error) throw data;
-        form.reset();
-        showSuccess("Publisher added successfully.");
-      })
-      .catch(handleError);
+    try {
+      const res = await fetch(`${BASE_URL}/admin/${userId}/publishers`, {
+        method: "POST",
+        headers: getHeader(),
+        body: new FormData(form),
+      });
+      const data = await handleAPIError(res);
+      if (data.error) throw data;
+
+      form.reset();
+      showSuccess("Publisher added successfully.");
+    } catch (err) {
+      handleError(err);
+    }
   });
 };
