@@ -1,40 +1,5 @@
-#trending_book_list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--spacing-xxl);
-  padding: 0 var(--spacing-xl) var(--spacing-4xl) var(--spacing-xl);
-  width: var(--full-scale);
-  box-sizing: border-box;
-  justify-items: center;
-}
+@import "styles.css";
 
-@media(min-width: 768px){
-  #trending_book_list{
-     padding: 0 var(--spacing-5xl) var(--spacing-4xl) var(--spacing-5xl);
-  }
-}
-#showAllBooks_book_list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-xxl);
-  padding: 0 var(--spacing-xl) var(--spacing-4xl) var(--spacing-xl);
-  width: var(--full-scale);
-  box-sizing: border-box;
-  justify-items: center;
-}
-
-@media (min-width: 768px) {
-  #showAllBooks_book_list {
-    padding: 0 var(--spacing-5xl) var(--spacing-4xl) var(--spacing-5xl);
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1050px) {
-  #showAllBooks_book_list {
-    grid-template-columns: repeat(3, 1fr); 
-  }
-}
 .book_card {
   display: flex;
   flex-direction: column;
@@ -46,36 +11,49 @@
   width: var(--full-scale);
   max-width: var(--width-mdd);
 
-  .book_wrapper{
-    width: 100%;
-    height: var(--width-xs);
-  }
-    .books_wrapper{
-    width: 100%;
-    height: var(--width-s);
-  }
-
   &:hover {
     transform: scale(var(--scale-sm));
   }
 
   .book_cover {
     width: var(--full-scale);
+    aspect-ratio: var(--aspec-ratio-3) / var(--aspec-ratio-4);
     object-fit: cover;
-    height: var(--vh-60);
-    min-height: var(--height-lg);
-    max-height: var(--height-lg);
+    background-color: var(--secondary-background-color);
+  }
+
+  .book_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    flex-grow: var(--flex-grow-1);
   }
 
   .book_info {
-    padding: var(--spacing-xl);
+    flex-grow: var(--flex-grow-1);
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
 
     .book_title {
       font-size: var(--font-size-lg);
       font-weight: var(--font-bolder);
       text-align: center;
+      line-height: var(--book-title-line-height);
+
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* not able to make into a variable */
+      -webkit-box-orient: vertical;
+
+      display: box;
+      box-orient: vertical;
+      line-clamp: 2; /* not able to make into a variable */
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-height: var(--card-height);
     }
 
     .book_author,
@@ -83,31 +61,49 @@
     .publishing_company {
       font-size: var(--font-size-md);
     }
-
   }
 
   .book_card_btns {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: var(--spacing-lg);
-    padding: var(--spacing-xxxl) var(--spacing-md) var(--spacing-xl) var(--spacing-md);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-xxxl);
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-sm);
 
-    div {
-      a {
+      .loan_btn {
+        display: inline-block;
         text-decoration: none;
-        padding: var(--spacing-md) var(--spacing-xl);
+        padding: var(--touch-target) var(--spacing-lg);
         border-radius: var(--border-radius-md);
         border: var(--border-width-md) solid var(--primary-color);
         color: var(--primary-color);
-
+        font-size: var(--font-size-md);
+        transition: all var(--trasnition-shorter) ease;
+        
         &:hover {
-          border: var(--border-width-md) solid var(--hover-color);
+          border-color: var(--hover-color);
           background-color: var(--hover-color);
           color: var(--dark-text-color);
         }
       }
-    }
+      
+      .readmore_btn{
+        a {
+          display: inline-block;
+          text-decoration: underline;
+          padding: var(--touch-target) var(--spacing-lg);
+        color: var(--dark-text-color);
+        font-size: var(--font-size-md);
+        transition: all var(--trasnition-shorter) ease;
+        
+        &:hover {
+          border-radius: var(--border-radius-md);
+          border-color: var(--hover-color);
+          background-color: var(--hover-color);
+          color: var(--dark-text-color);
+        }
+      }
+      }
   }
 }
-

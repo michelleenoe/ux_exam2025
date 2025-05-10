@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter | Your online bookstore</title>
+    <title>Chapter | </title>
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <link rel="stylesheet" href="./css/book_detail.css">
     <script type="module" src="./js/script.js"></script>
@@ -76,7 +76,7 @@
             <p id="errorText"></p>
         </section>
 
-        <section class="book-detail">
+        <section id="book_detail">
             <h1>Book Details</h1>
             <div id="single_book_detail"></div>
             <dialog id="loan_modal" class="modal">
@@ -89,10 +89,13 @@
                 </div>
             </dialog>
         </section>
-        <section>
+        <section id="related_books">
             <h3>Related Books</h3>
-            <p>Explore more books in the same genre or by the same author.</p>
+            <p>Discover more captivating books within the same genre or delve deeper into the works of the same author to further explore similar themes, styles, and storytelling.</p>
             <div id="related_list"></div>
+                    <div id="see_more_btn">
+                <a href="books.html">Browse All</a>
+            </div>
         </section>
 
 
@@ -120,22 +123,20 @@
         <img src="./assets/icons/Chevronup.svg" alt="">
     </button>
 </body>
-<template id="book_details_template">
-    <article class="book_card">
-        <a href="">
-            <img class="book_cover" src="" alt="">
-        </a>
-        <div class="book_wrapper">
-            <div class="book_info">
-                <h2 class="book_title"></h2>
-                <p class="book_author"></p>
-                <p class="book_year"></p>
-                <p class="book_publisher"></p>
+<template id="book_detail_template">
+    <article class="book_detail_card">
+            <img class="book_detail_cover" src="" alt="">
+        <div class="book_detail_wrapper">
+            <div class="book_detail_info">
+                <h2 class="book_detail_title"></h2>
+                <p class="book_detail_author"></p>
+                <p class="book_detail_year"></p>
+                <p class="book_detail_publisher"></p>
             </div>
-            <div class="book_card_btns">
-                <div class="loan_btn">
-                    <a href="">Loan</a>
-                </div>
+            <div class="loan_wrapper">
+                <button class="loan_btn">
+                    Loan Book
+                </button>
             </div>
         </div>
     </article>
@@ -143,24 +144,22 @@
 
 <template id="related_template">
     <article class="book_card">
-        <a href="">
-            <img class="book_cover" src="" alt="">
-        </a>
-        <div class="book_wrapper">
-            <div class="book_info">
-                <h3 class="book_title"></h3>
-            </div>
-            <div class="book_card_btns">
-                <div class="readmore_btn">
-                    <a href="">Read More</a>
+                <img class="book_cover" src="" alt="">
+            <div class="book_wrapper">
+                <div class="book_info">
+                    <h3 class="book_title"></h3>
                 </div>
-                <div class="loan_btn">
-                    <a href="">Loan</a>
+                <div class="book_card_btns">
+                    <div class="readmore_btn">
+                        <a href="">Read More</a>
+                    </div>
+                    <button class="loan_btn">
+                        Loan Book
+                    </button>
                 </div>
-            </div>
 
-        </div>
-    </article>
+            </div>
+        </article>
 </template>
 
 

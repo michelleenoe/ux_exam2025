@@ -89,19 +89,19 @@
             <header>
                 <h2>Browse Books</h2>
                 <form role="search" aria-label="Search books">
-                    <div class="search_wrapper">
-                        <label for="search_input">Search by title or author</label>
-                        <input type="search" id="search_input" name="search">
-                    </div>
                     <div class="select_wrapper">
                         <label for="select_author">Filter by author</label>
                         <select id="select_author">
                             <option value="all">All authors</option>
                         </select>
                     </div>
-                    <button id="search_btn" type="submit" class="btn-primary">
-                        Search
-                    </button>
+                    <div class="search_wrapper">
+                        <label for="search_input">Search by title or author</label>
+                        <input type="search" id="search_input" name="search">
+                        <button id="search_btn" type="submit" class="btn-primary">
+                            Search
+                        </button>
+                    </div>
                 </form>
 
             </header>
@@ -152,11 +152,11 @@
                     <h3 class="book_title"></h3>
                 </div>
                 <div class="book_card_btns">
+                    <button class="loan_btn">
+                        Loan Book
+                    </button>
                     <div class="readmore_btn">
                         <a href="">Read More</a>
-                    </div>
-                    <div class="loan_btn">
-                        <a href="">Loan</a>
                     </div>
                 </div>
             </div>

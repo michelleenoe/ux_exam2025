@@ -1,9 +1,9 @@
-import { BASE_URL, FALLBACK_IMAGE } from "./info.js";
+import { BASE_URL } from "./info.js";
 import { handleError, handleAPIError } from "./api.js";
 import {
   loadBookImage,
   handleLoanButton,
-  updateBookLinks,
+  updateBookLinks
 } from "./fetchBooks.js";
 
 const params = new URLSearchParams(window.location.search);
@@ -12,9 +12,9 @@ const bookId = params.get("book_id");
 const relatedContainer = document.querySelector("#related_list");
 const relatedTemplate = document.querySelector("#related_template");
 const detailsContainer = document.querySelector("#single_book_detail");
-const detailsTemplate = document.querySelector("#book_details_template");
+const detailsTemplate = document.querySelector("#book_detail_template");
 
-const DEFAULT_RELATED = 5;
+const DEFAULT_RELATED = 3;
 
 const showBookDetail = () =>{
   fetch(`${BASE_URL}/books/${bookId}`)
@@ -25,16 +25,21 @@ const showBookDetail = () =>{
     const userId = sessionStorage.getItem("app_user_id");
 
     const card = detailsTemplate.content.cloneNode(true);
-    const img = card.querySelector(".book_cover");
+    const img = card.querySelector(".book_detail_cover");
 
     loadBookImage(img, book, book.title);
-    card.querySelector(".book_title").innerText = book.title;
-    card.querySelector(".book_author").innerText = book.author;
-    card.querySelector(".book_year").innerText = book.publishing_year;
-    card.querySelector(".book_publisher").innerText = book.publishing_company;
+    card.querySelector(".book_detail_title").innerText = book.title;
+    card.querySelector(
+      ".book_detail_author"
+    ).textContent = `Author: ${book.author}`;
+    card.querySelector(
+      ".book_detail_year"
+    ).textContent = `Publishing year: ${book.publishing_year}`;
+    card.querySelector(
+      ".book_detail_publisher"
+    ).textContent = `Publisher: ${book.publishing_company}`;
 
     handleLoanButton(card, userId);
-    updateBookLinks(card, book);
 
     fragment.append(card);
 

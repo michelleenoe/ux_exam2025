@@ -18,23 +18,29 @@ export const loadBookImage = (imgElement, book, title) => {
 };
 
 export const handleLoanButton = (card, userId) => {
-  const loanBtnWrapper = card.querySelector(".loan_btn");
-  if (!userId && loanBtnWrapper) {
-    loanBtnWrapper.classList.add("hidden");
-  } else {
-    loanBtnWrapper?.classList.remove("hidden");
+  const loanBtn = card.querySelector(".loan_btn");
+
+  // Always add the event listener if the button exists
+  if (loanBtn) {
+    loanBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      showLoanModal();
+    });
+
+    // Hide or show the button based on userId
+    if (!userId) {
+      loanBtn.classList.add("hidden");
+    } else {
+      loanBtn.classList.remove("hidden");
+    }
   }
 };
 
+
 export const updateBookLinks = (card, book) => {
-  card.querySelectorAll("a").forEach((link, index) => {
-    if (index === 0 || index === 1) {
-      link.href = `book.html?book_id=${book.book_id}`;
-    } else if (index === 2) {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-        showLoanModal();
-      });
-    }
+  // Update all <a> tags to point to the book detail page
+  card.querySelectorAll("a").forEach((link) => {
+    link.href = `book.html?book_id=${book.book_id}`;
   });
+
 };

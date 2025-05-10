@@ -3,13 +3,27 @@
 @import "modal.css";
 @import "hero.css";
 
+#trending_book_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--spacing-xxl);
+  padding: 0 var(--spacing-xl) var(--spacing-4xl) var(--spacing-xl);
+  width: var(--full-scale);
+  box-sizing: border-box;
+  justify-items: center;
+  @media(min-width: 768px){
+    
+       padding: 0 var(--spacing-5xl) var(--spacing-4xl) var(--spacing-5xl);
+  
+  }
+}
+
+
 #trending_books {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: var(--content-width-lg);
-    margin: 0 auto;
     padding: 0 var(--spacing-xxl) var(--spacing-4xl) var(--spacing-xxl);
 
     #trending_copy{
@@ -27,6 +41,12 @@
             margin-bottom: var(--spacing-4xl);
         }
     }
+
+        @media (min-width: 1024px) {
+        max-width: var(--max-main-width);
+        margin: auto;
+    }
+
 
 
     #see_more_btn {

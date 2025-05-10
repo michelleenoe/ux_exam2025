@@ -16,16 +16,20 @@
 }
 
 .modal_content {
-  background-color: var(--light-background-color);
-  margin: var(--spacing-xl) auto;
-  padding: var(--spacing-xxxl);
-  border-radius: var(--border-radius-md);
-  max-width: var(--width-lg);
+  background-color: var(--success-bg);
+  color: var(--dark-text-color);
+  border: var(--border-width-md) solid var(--success-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xxl) var(--spacing-xxxl);
+  margin: 0 0 var(--spacing-xxl) 0;
+  max-width: var(--error-width);
+  box-shadow: 0 var(--shadow-px-md) var(--shadow-px-lg) rgba(0, 0, 0, var(--opacity-xs));
   text-align: center;
   position: relative;
 }
 .modal_message{
-    padding-top: var(--spacing-xxxl);
+    margin: var(--spacing-4xl) var(--spacing-xxl);
+    max-width: var(--ch-width-xs);
 }
 
 #modal_close_btn {
