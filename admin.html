@@ -185,19 +185,35 @@
 </body>
 <template id="bookTemplate">
     <div class="book-card">
-        <img class="book-cover" src="" alt="Book cover">
-        <div class="book-details">
-            <h3 class="book-title"></h3>
-            <p class="book-author"></p>
-            <p class="book-publisher"></p>
-            <p class="book-year"></p>
-            <div class="loan-history">
-                <h4>Loan History:</h4>
-                <div class="loan-rows"></div>
-            </div>
+      <img class="book-cover" src="" alt="Book cover">
+      <div class="book-details">
+        <h3 class="book-title"></h3>
+        <p class="book-author"></p>
+        <p class="book-publisher"></p>
+        <p class="book-year"></p>
+  
+        <div class="loan-history">
+          <h4>Loan History:</h4>
+          <table class="loan-history-table">
+            <thead>
+              <tr>
+                <th>User ID</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody class="loan-rows">
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
-</template>
+  </template>
+  
+  <article id="bookInfo" class="hidden"></article>
+  <div id="error" class="hidden">
+    <p id="errorText"></p>
+  </div>
+  
 
 
 </html>

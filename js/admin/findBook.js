@@ -43,20 +43,32 @@ export const initBookLookup = () => {
         ).textContent = `Year: ${book.publishing_year}`;
 
         const loanRows = clone.querySelector(".loan-rows");
-        if (book.loans?.length) {
-          book.loans.forEach((loan) => {
-            const row = document.createElement("div");
-            row.className = "loan-row";
-            row.textContent = `User ID: ${loan.user_id} – ${loan.loan_date}`;
-            loanRows.appendChild(row);
+
+        const createCell = (text, colspan = 1) => {
+          const td = document.createElement("td");
+          td.textContent = text;
+          if (colspan > 1) td.colSpan = colspan;
+          return td;
+        };
+
+        const frag = document.createDocumentFragment();
+
+        if (Array.isArray(book.loans) && book.loans.length) {
+          book.loans.forEach(({ user_id, loan_date }) => {
+            const tr = document.createElement("tr");
+            tr.appendChild(createCell(user_id));
+            tr.appendChild(createCell(
+              new Intl.DateTimeFormat("da-DK").format(new Date(loan_date))
+            ));
+            frag.appendChild(tr);
           });
         } else {
-          const row = document.createElement("div");
-          row.className = "loan-row";
-          row.textContent = "No loan history";
-          loanRows.appendChild(row);
+          const tr = document.createElement("tr");
+          tr.appendChild(createCell("No loan history", 2));
+          frag.appendChild(tr);
         }
 
+        loanRows.appendChild(frag);
         output.appendChild(clone);
         output.classList.remove("hidden");
       })
