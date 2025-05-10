@@ -14,7 +14,7 @@ const authorSelect = document.querySelector("#select_author");
 
 let allBooks = []; //acts like a local cache of all books for efficient filtering and rendering without repeated API calls
 let visibleCount = 9;
-const DEFAULT_BOOKS = 9999;
+const DEFAULT_BOOKS = 2100;
 
 const fetchBooks = (numBooks = DEFAULT_BOOKS) => {
   fetch(`${BASE_URL}/books?n=${numBooks}`)
@@ -22,6 +22,7 @@ const fetchBooks = (numBooks = DEFAULT_BOOKS) => {
     .then((data) => {
       allBooks = data;
       updateBookList();
+      
     })
     .catch(handleError);
 };
