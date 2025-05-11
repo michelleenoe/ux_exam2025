@@ -5,10 +5,18 @@ const userId = sessionStorage.getItem("app_user_id");
 if (!userId) {
   window.location.href = "index.html";
 }
+
 const errorBox = document.querySelector("#error");
 const errorText = document.querySelector("#errorText");
 const successBox = document.querySelector("#success");
 const successText = document.querySelector("#successText");
+
+document.addEventListener("focusin", e => {
+  if (e.target.matches("input, select")) {
+    errorBox.classList.add("hidden");
+    successBox.classList.add("hidden");
+  }
+});
 
 document.querySelectorAll("input, select").forEach(el =>
   el.addEventListener("input", () => {
@@ -16,6 +24,7 @@ document.querySelectorAll("input, select").forEach(el =>
     successBox.classList.add("hidden");
   })
 );
+
 document.addEventListener("click", e => {
   const fields = document.querySelectorAll("input, select");
   if (![...fields].some(f => f.contains(e.target))) {
@@ -31,11 +40,8 @@ function showValidationError() {
 }
 
 function validate(form) {
-  const fields = Array.from(form.querySelectorAll("input, select")).filter(f =>
-    f.type !== "submit" &&
-    f.type !== "button" &&
-    f.type !== "hidden"
-  );
+  const fields = Array.from(form.querySelectorAll("input, select"))
+    .filter(f => !["submit", "button", "hidden"].includes(f.type));
 
   for (const field of fields) {
     if (!field.value.trim()) {
@@ -55,6 +61,7 @@ function showSuccess(message) {
 
 export const initBookForm = () => {
   const form = document.querySelector("#frmAddBook");
+
   form.addEventListener("submit", e => {
     e.preventDefault();
     errorBox.classList.add("hidden");
@@ -77,6 +84,7 @@ export const initBookForm = () => {
 
 export const initAuthorForm = () => {
   const form = document.querySelector("#frmAddAuthor");
+
   form.addEventListener("submit", e => {
     e.preventDefault();
     errorBox.classList.add("hidden");
@@ -99,6 +107,7 @@ export const initAuthorForm = () => {
 
 export const initPublisherForm = () => {
   const form = document.querySelector("#frmAddPublisher");
+
   form.addEventListener("submit", e => {
     e.preventDefault();
     errorBox.classList.add("hidden");
