@@ -24,7 +24,6 @@ const showBookDetail = () =>{
     const fragment = document.createDocumentFragment();
     const userId = sessionStorage.getItem("app_user_id");
     document.getElementById("page-title").textContent = `Chapter | ${book.title}`;
-
     const card = detailsTemplate.content.cloneNode(true);
     const img = card.querySelector(".book_detail_cover");
 
