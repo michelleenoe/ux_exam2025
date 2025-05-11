@@ -60,6 +60,7 @@ form {
 }
 #adminMenu {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: var(--spacing-xl);
   margin-bottom: var(--spacing-xxl);
