@@ -5,6 +5,11 @@
   font-size: var(--font-size-lg);
   font-weight: var(--font-bold);
   padding: var(--spacing-xl) 0 var(--spacing-xxxl) 0;
+  text-align: center;
+}
+h1{
+  text-align: center;
+  margin-top: var(--spacing-xl);
 }
 
 
@@ -73,4 +78,3 @@ menu {
         }
       
 }
-

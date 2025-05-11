@@ -78,7 +78,7 @@ export const initBookForm = () => {
         form.reset();
         showSuccess("Book added successfully.");
       })
-      .catch(err => handleError(err));
+      .catch(handleError);
   });
 };
 
@@ -101,7 +101,7 @@ export const initAuthorForm = () => {
         form.reset();
         showSuccess("Author added successfully.");
       })
-      .catch(err => handleError(err));
+      .catch(handleError);
   });
 };
 
@@ -124,6 +124,6 @@ export const initPublisherForm = () => {
         form.reset();
         showSuccess("Publisher added successfully.");
       })
-      .catch(err => handleError(err));
+      .catch(handleError);
   });
 };

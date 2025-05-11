@@ -1,9 +1,18 @@
 @import "styles.css";
 
 main {
-  padding: var(--spacing-xl);
-  max-width: var(--form-max-width);
-  margin-inline: auto;
+  padding: 0 var(--spacing-xl) var(--spacing-4xl) var(--spacing-xl);
+  width: var(--full-scale);
+  box-sizing: border-box;
+  justify-items: center;
+  @media(min-width: 768px){
+    
+       padding: 0 var(--spacing-5xl) var(--spacing-4xl) var(--spacing-5xl);
+  @media (min-width: 1024px) {
+        max-width: var(--max-main-width);
+        margin: auto;
+    }
+  }
 
   .field {
     display: flex;
@@ -119,8 +128,15 @@ fieldset{
 }
 
 form{
-  display: flex;
-  flex-direction: column;
+    margin: 0 auto;
+    padding: 0 var(--spacing-xxl) var(--spacing-4xl) var(--spacing-xxl);
+    max-width: var(--form-max-width);
+
+      @media (min-width: 1024px) {
+     
+        margin: auto;
+    }
+
 }
 
 #frmLogin, #frmSignup{

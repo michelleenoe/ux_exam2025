@@ -38,8 +38,19 @@ body{
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-xxl) var(--spacing-xxxl);
   margin: 0 0 var(--spacing-xxl) 0;
-  max-width: var(--error-width);
   box-shadow: 0 var(--shadow-px-md) var(--shadow-px-lg) rgba(0, 0, 0, var(--opacity-xs));
+  box-sizing: border-box;
+  max-width: var(--form-max-width);
+  text-align: center;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+
+  margin: 0;
+  
 }
 
 #error h3 {
@@ -62,6 +73,14 @@ body{
   margin: 0 0 var(--spacing-xxl) 0;
   max-width: var(--error-width);
   box-shadow: 0 var(--shadow-px-md) var(--shadow-px-lg) rgba(0, 0, 0, var(--opacity-xs));
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+
+  margin: 0;
 }
 #success h3 {
   margin-top: 0;
@@ -71,4 +90,18 @@ body{
 #success p {
   margin: var(--spacing-md) 0 0;
   font-size: var(--spacing-xl);
+}
+
+
+#modal_close_btn {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-xl);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-md);
+    img{
+        width: var(--social-icon-size);
+    }
 }
