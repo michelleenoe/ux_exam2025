@@ -8,70 +8,69 @@ export const initBookLookup = () => {
   const output = document.querySelector("#bookInfo");
   const errorBox = document.querySelector("#error");
   const errorText = document.querySelector("#errorText");
+  const template = document.querySelector("#bookTemplate");
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    output.classList.add("hidden");
-    output.innerHTML = "";
     errorBox.classList.add("hidden");
-    errorText.innerText = "";
+    errorText.textContent = "";
 
-    const bookId = form.book_id.value.trim();
+    output.classList.add("hidden");
+    output.replaceChildren();
 
-    fetch(`${BASE_URL}/admin/${userId}/books/${bookId}`, {
-      headers: getHeader(),
-    })
-      .then(handleAPIError)
-      .then((book) => {
-        const template = document.querySelector("#bookTemplate");
-        const clone = template.content.cloneNode(true);
+    try {
+      const bookId = form.book_id.value.trim();
+      const res = await fetch(
+        `${BASE_URL}/admin/${userId}/books/${bookId}`,
+        { headers: getHeader() }
+      );
+      const book = await handleAPIError(res);
 
-        const img = clone.querySelector(".book-cover");
-        img.src = book.cover || FALLBACK_IMAGE;
-        img.alt = `Cover for ${book.title}`;
+      const clone = template.content.cloneNode(true);
 
-        clone.querySelector(".book-title").textContent = book.title;
-        clone.querySelector(
-          ".book-author"
-        ).textContent = `Author: ${book.author}`;
-        clone.querySelector(
-          ".book-publisher"
-        ).textContent = `Publisher: ${book.publishing_company}`;
-        clone.querySelector(
-          ".book-year"
-        ).textContent = `Year: ${book.publishing_year}`;
+      const img = clone.querySelector(".book-cover");
+      img.src = book.cover || FALLBACK_IMAGE;
+      img.alt = `Cover for ${book.title}`;
+      clone.querySelector(".book-title")
+        .textContent = book.title;
+      clone.querySelector(".book-author")
+        .textContent = `Author: ${book.author}`;
+      clone.querySelector(".book-publisher")
+        .textContent = `Publisher: ${book.publishing_company}`;
+      clone.querySelector(".book-year")
+        .textContent = `Year: ${book.publishing_year}`;
 
-        const loanRows = clone.querySelector(".loan-rows");
+      const loanRows = clone.querySelector(".loan-rows");
+      loanRows.replaceChildren();
 
-        const createCell = (text, colspan = 1) => {
-          const td = document.createElement("td");
-          td.textContent = text;
-          if (colspan > 1) td.colSpan = colspan;
-          return td;
-        };
-
-        const frag = document.createDocumentFragment();
-
-        if (Array.isArray(book.loans) && book.loans.length) {
-          book.loans.forEach(({ user_id, loan_date }) => {
-            const tr = document.createElement("tr");
-            tr.appendChild(createCell(user_id));
-            tr.appendChild(createCell(
-              new Intl.DateTimeFormat("da-DK").format(new Date(loan_date))
-            ));
-            frag.appendChild(tr);
-          });
-        } else {
+      if (Array.isArray(book.loans) && book.loans.length) {
+        book.loans.forEach(({ user_id, loan_date }) => {
           const tr = document.createElement("tr");
-          tr.appendChild(createCell("No loan history", 2));
-          frag.appendChild(tr);
-        }
+          const tdUser = document.createElement("td");
+          const tdDate = document.createElement("td");
 
-        loanRows.appendChild(frag);
-        output.appendChild(clone);
-        output.classList.remove("hidden");
-      })
-      .catch(handleError);
+          tdUser.textContent = user_id;
+          tdDate.textContent = new Intl.DateTimeFormat("da-DK")
+            .format(new Date(loan_date));
+
+          tr.append(tdUser, tdDate);
+          loanRows.appendChild(tr);
+        });
+      } else {
+        const tr = document.createElement("tr");
+        const td = document.createElement("td");
+        td.colSpan = 2;
+        td.textContent = "No loan history";
+        tr.appendChild(td);
+        loanRows.appendChild(tr);
+      }
+
+      output.replaceChildren(clone);
+      output.classList.remove("hidden");
+
+    } catch (err) {
+      handleError(err);
+    }
   });
 };
