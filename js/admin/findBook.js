@@ -12,7 +12,6 @@ export const initBookLookup = () => {
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-
     errorBox.classList.add("hidden");
     errorText.textContent = "";
 
@@ -28,7 +27,6 @@ export const initBookLookup = () => {
       const book = await handleAPIError(res);
 
       const clone = template.content.cloneNode(true);
-
       const img = clone.querySelector(".book-cover");
       img.src = book.cover || FALLBACK_IMAGE;
       img.alt = `Cover for ${book.title}`;
@@ -40,12 +38,15 @@ export const initBookLookup = () => {
         .textContent = `Publisher: ${book.publishing_company}`;
       clone.querySelector(".book-year")
         .textContent = `Year: ${book.publishing_year}`;
-
       const loanRows = clone.querySelector(".loan-rows");
       loanRows.replaceChildren();
 
       if (Array.isArray(book.loans) && book.loans.length) {
-        book.loans.forEach(({ user_id, loan_date }) => {
+        const sortedLoans = book.loans
+          .slice()
+          .sort((a, b) => new Date(b.loan_date) - new Date(a.loan_date));
+
+        sortedLoans.forEach(({ user_id, loan_date }) => {
           const tr = document.createElement("tr");
           const tdUser = document.createElement("td");
           const tdDate = document.createElement("td");
@@ -65,7 +66,6 @@ export const initBookLookup = () => {
         tr.appendChild(td);
         loanRows.appendChild(tr);
       }
-
       output.replaceChildren(clone);
       output.classList.remove("hidden");
 
