@@ -66,7 +66,6 @@
                 background: var(--input-bg);
                 font-size: var(--font-size-md);
                 margin-bottom: var(--spacing-xxl);
-                cursor: pointer;
             }
 
             select {
@@ -103,6 +102,7 @@ color: var(--primary-color);
             border-radius: var(--border-radius-md);
             border: var(--border-width-md) solid var(--primary-color);
             color: var(--primary-color);
+            background-color: var(--light-background-color);
 
             &:hover {
                 border: var(--border-width-md) solid var(--hover-color);

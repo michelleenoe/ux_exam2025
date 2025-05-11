@@ -3,16 +3,18 @@
   bottom: var(--spacing-xxl);
   right: var(--spacing-xxl);
   display: none;
-  img{
   background-color: var(--light-text-color);
-  border: none;
-  cursor: pointer;
-  padding: var(--spacing-xs);
+    padding: var(--spacing-xs);
   border: var(--border-width-md) solid var(--primary-color);
   border-radius: var(--border-radius-full);
-  &:hover {
+
+    &:hover {
     background-color: var(--hover-color);
   }
+  img{
+  
+  border: none;
+  cursor: pointer;
   }
   
 }

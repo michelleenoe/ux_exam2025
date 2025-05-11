@@ -26,7 +26,7 @@ main {
       min-height: var(--touch-size);
       padding: var(--spacing-md);
       border: var(--border-width-sm) solid transparent;
-      border-radius: var(--border-radius-sm);
+      border-radius: var(--border-radius-md);
       background: var(--input-bg);
       font-size: var(--font-size-md);
       margin-bottom: var(--spacing-lg);
@@ -45,7 +45,7 @@ main {
     flex-direction: row;
 
     .field {
-      flex: 1;
+      flex: var(--flex-grow-1);
     }
   }
 

@@ -51,13 +51,13 @@ body>header {
     display: block;
 }
 
-button {
+.nav_button, .btnLogout, #close_btn, #burger_btn{
     all: unset;
     cursor: pointer;
     padding: var(--spacing-lg);
 }
 
-button:focus-visible {
+.nav_button:focus-visible, .btnLogout:focus-visible, #close_btn:focus-visible, #burger_btn:focus-visible {
     outline: var(--border-width-md) solid var(--focus-color);
     outline-offset: var(--border-width-md);
     border-radius: var(--border-radius-md);

@@ -8,7 +8,7 @@
   align-items: center;
   padding: var(--spacing-lg) 0;
   gap: var(--spacing-md);
-  padding: 0 var(--spacing-xxl) var(--spacing-4xl) var(--spacing-xxl);
+  padding: 0 var(--spacing-xxl) var(--spacing-5xl) var(--spacing-xxl);
 
 
 }
@@ -21,11 +21,11 @@ h1{
   background-color: var(--input-bg);
 }
 
-#book-detail h3 {
+/* #book-detail h3 {
   font-size: var(--font-size-header);
   color: var(--dark-text-color);
   margin-bottom: var(--spacing-md);
-}
+} */
 
 #book-detail p {
   color: var(--quaternary-color);
@@ -122,19 +122,14 @@ h1{
     margin: 0 auto;
     padding: 0 var(--spacing-xxl) var(--spacing-4xl) var(--spacing-xxl);
 
-    h3{
-  font-size: var(--font-size-xl);
-  margin: var(--spacing-xl);
-}
-
   
         p {
             font-size: var(--font-size-lg);
             text-align: center;
-            margin-bottom: var(--spacing-4xl);
+            margin: var(--spacing-xl) 0 var(--spacing-4xl) 0;
             max-width: var(--ch-width-md);
 
-        }
+        } 
 
     @media(min-width: 768px){
     

@@ -102,7 +102,7 @@
     --blur-sm: 5px;
 
     /* touch, input and checkbox*/ 
-    --touch-size:2.75rem;
+    --touch-size:3rem;
     --checkbox-size:1.25rem;
     --touch-target:0.95rem;
 
