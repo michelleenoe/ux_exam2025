@@ -12,6 +12,25 @@
 
 
 }
+.breadcrumb-nav {
+  padding: var(--spacing-xl);
+}
+.breadcrumb-list {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-lg);
+}
+.breadcrumb-item a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+.breadcrumb-item::after {
+  content: "›";
+}
+.breadcrumb-item:last-child::after {
+  content: "";
+}
+
 h1{
   margin: var(--spacing-xxxl) 0 var(--spacing-xxl) 0;
 }

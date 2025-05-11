@@ -13,6 +13,7 @@ const relatedContainer = document.querySelector("#related_list");
 const relatedTemplate = document.querySelector("#related_template");
 const detailsContainer = document.querySelector("#single_book_detail");
 const detailsTemplate = document.querySelector("#book_detail_template");
+const breadcrumbTitle = document.getElementById("breadcrumb-current");
 
 const DEFAULT_RELATED = 3;
 
@@ -20,6 +21,7 @@ const showBookDetail = () =>{
   fetch(`${BASE_URL}/books/${bookId}`)
   .then(handleAPIError)
   .then((book) =>{
+    breadcrumbTitle.textContent = book.title;
     book.book_id = bookId;
     const fragment = document.createDocumentFragment();
     const userId = sessionStorage.getItem("app_user_id");
