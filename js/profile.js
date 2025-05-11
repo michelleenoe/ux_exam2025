@@ -51,15 +51,16 @@ function HideError() {
     if (!fields.some(f => f.contains(e.target))) hideAllMessages();
   });
 }
-async function loadUserProfile() {
-  try {
-    const res = await fetch(`${BASE_URL}/users/${userId}`, { headers: getHeader() });
-    const user = await handleAPIError(res);
-    fillProfileForm(user);
-  } catch (err) {
-    handleError(err);
+function loadUserProfile() {
+  fetch(`${BASE_URL}/users/${userId}`, 
+    { headers: getHeader() })
+    .then(handleAPIError)
+    .then((user) => {
+      fillProfileForm(user);
+    })
+    .catch(handleError);
   }
-}
+
 
 function fillProfileForm({ email, first_name, last_name, address, phone_number, birth_date, membership_date }) {
   els.form.txtEmail.value = email;
@@ -155,7 +156,7 @@ async function loadWelcomeMessage() {
   try {
     const res = await fetch(`${BASE_URL}/users/${userId}`, { headers: getHeader() });
     const user = await handleAPIError(res);
-    els.welcomeEl.textContent = `Welcome ${user.first_name} ${user.last_name}!`;
+    els.welcomeEl.textContent = `Welcome ${user.first_name} ${user.last_name}! Here You can edit your personal information.`;
   } catch (err) {
     console.error(err);
   }

@@ -21,11 +21,6 @@ h1{
   background-color: var(--input-bg);
 }
 
-/* #book-detail h3 {
-  font-size: var(--font-size-header);
-  color: var(--dark-text-color);
-  margin-bottom: var(--spacing-md);
-} */
 
 #book-detail p {
   color: var(--quaternary-color);
@@ -104,6 +99,8 @@ h1{
         color: var(--primary-color);
         font-size: var(--font-size-md);
         transition: all var(--trasnition-shorter) ease;
+        background-color: var(--light-background-color);
+        cursor: pointer;
         
         &:hover {
           border-color: var(--hover-color);

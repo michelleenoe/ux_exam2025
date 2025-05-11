@@ -80,6 +80,8 @@
         color: var(--primary-color);
         font-size: var(--font-size-md);
         transition: all var(--trasnition-shorter) ease;
+        background-color: var(--light-background-color);
+        cursor: pointer;
         
         &:hover {
           border-color: var(--hover-color);
