@@ -6,26 +6,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--spacing-lg) 0;
+  padding: 0 var(--spacing-xxl) var(--spacing-5xl);
   gap: var(--spacing-md);
-  padding: 0 var(--spacing-xxl) var(--spacing-5xl) var(--spacing-xxl);
 
+  h1 {
+    margin: var(--spacing-xxxl) 0 var(--spacing-xxl);
+  }
 
-}
-h1{
-  margin: var(--spacing-xxxl) 0 var(--spacing-xxl) 0;
-}
-
-#book-detail {
-  padding: var(--spacing-4xl) var(--spacing-xxxl);
-  background-color: var(--input-bg);
-}
-
-
-#book-detail p {
-  color: var(--quaternary-color);
-  margin-bottom: var(--spacing-xxxl);
-  
 }
 
 #single_book_detail {
@@ -38,59 +25,54 @@ h1{
   flex-wrap: wrap;
   background-color: var(--light-background-color);
   border-radius: var(--border-radius-xl);
-  box-shadow: 0 var(--shadow-px-lg) 25px rgba(0, 0, 0, var(--opacity-sm));
+  box-shadow: 0 var(--shadow-px-lg) var(--shadow-px-xxl) rgba(0, 0, 0, var(--opacity-sm));
   overflow: hidden;
-  max-width: var(--content-width-lg);
-  width: 100%;
-}
+  max-width: var(--book-detail-width);
+  width: var(--full-scale);
 
-.book_detail_cover {
-  width: var(--width-md);
-  height: auto;
-  object-fit: cover;
-  display: block;
-}
+  .book_detail_cover {
+    width: var(--width-md);
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
 
-.book_detail_wrapper {
-  padding: var(--spacing-xxxl);
-  flex: var(--flex-grow-1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.book_detail_info {
-  margin-bottom: var(--spacing-xxl);
-}
-
-.book_detail_title {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-bolder);
-  margin-bottom: var(--spacing-md);
-  color: var(--dark-text-color);
-  line-height: var(--book-title-line-height);
-  padding-bottom:var(--spacing-lg);
-}
-
-.book_detail_author,
-.book_detail_year,
-.book_detail_publisher {
-  font-size: var(--font-size-lg);
-  color: var(--quaternary-color);
-  margin: var(--spacing-xs) 0;
-  padding-bottom:var(--spacing-lg);
-  font-weight: var(--font-bold);
-}
-
-
-
-.loan_wrapper{
+  .book_detail_wrapper {
+    padding: var(--spacing-xxxl);
+    flex: var(--flex-grow-1);
     display: flex;
-  justify-content: flex-end;
-  margin-top: var(--spacing-lg);
-}
-      .loan_btn {
+    flex-direction: column;
+    justify-content: space-between;
 
+    .book_detail_info {
+      margin-bottom: var(--spacing-xxl);
+
+      .book_detail_title {
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-bolder);
+        margin-bottom: var(--spacing-md);
+        color: var(--dark-text-color);
+        line-height: var(--book-title-line-height);
+        padding-bottom: var(--spacing-lg);
+      }
+
+      .book_detail_author,
+      .book_detail_year,
+      .book_detail_publisher {
+        font-size: var(--font-size-lg);
+        color: var(--quaternary-color);
+        margin: var(--spacing-xs) 0;
+        padding-bottom: var(--spacing-lg);
+        font-weight: var(--font-bold);
+      }
+    }
+
+    .loan_wrapper {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: var(--spacing-lg);
+
+      .loan_btn {
         align-self: flex-end;
         text-decoration: none;
         padding: var(--touch-target) var(--spacing-lg);
@@ -101,43 +83,39 @@ h1{
         transition: all var(--trasnition-shorter) ease;
         background-color: var(--light-background-color);
         cursor: pointer;
-        
+
         &:hover {
           border-color: var(--hover-color);
           background-color: var(--hover-color);
           color: var(--dark-text-color);
         }
       }
-
-
-
-#related_books{
-      display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    padding: 0 var(--spacing-xxl) var(--spacing-4xl) var(--spacing-xxl);
-
-  
-        p {
-            font-size: var(--font-size-lg);
-            text-align: center;
-            margin: var(--spacing-xl) 0 var(--spacing-4xl) 0;
-            max-width: var(--ch-width-md);
-
-        } 
-
-    @media(min-width: 768px){
-    
-       padding: 0 var(--spacing-5xl) var(--spacing-4xl) var(--spacing-5xl);
-  
+    }
   }
 }
 
+#related_books {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xxl) var(--spacing-4xl);
 
- #related_list {
-display: grid;
+  p {
+    font-size: var(--font-size-lg);
+    text-align: center;
+    margin: var(--spacing-xl) 0 var(--spacing-4xl);
+    max-width: var(--ch-width-md);
+  }
+
+  @media (min-width: 768px) {
+    padding: 0 var(--spacing-5xl) var(--spacing-4xl);
+  }
+}
+
+#related_list {
+  display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-xxxl);
   width: var(--full-scale);
@@ -147,37 +125,36 @@ display: grid;
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
+
   @media (min-width: 1024px) {
-      max-width: var(--max-main-width);
-      margin: auto;
+    max-width: var(--max-main-width);
+    margin: auto;
   }
-    @media (min-width: 1050px) {
-     
-        grid-template-columns: repeat(3, 1fr); 
-        padding: 0 var(--spacing-5xl) var(--spacing-4xl) var(--spacing-5xl);
-      
-    }
+
+  @media (min-width: 1050px) {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 var(--spacing-5xl) var(--spacing-4xl);
+  }
 }
 
 #see_more_btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+  cursor: pointer;
 
-        color: var(--primary-color);
-        cursor: pointer;
+  a {
+    text-decoration: none;
+    padding: var(--spacing-xl) var(--spacing-5xl);
+    border-radius: var(--border-radius-md);
+    border: var(--border-width-md) solid var(--primary-color);
+    color: var(--primary-color);
 
-        a {
-            text-decoration: none;
-            padding: var(--spacing-xl) var(--spacing-5xl);
-            border-radius: var(--border-radius-md);
-            border: var(--border-width-md) solid var(--primary-color);
-            color: var(--primary-color);
-
-            &:hover {
-                border: var(--border-width-md) solid var(--hover-color);
-                background-color: var(--hover-color);
-                color: var(--dark-text-color);
-            }
-        }
+    &:hover {
+      border-color: var(--hover-color);
+      background-color: var(--hover-color);
+      color: var(--dark-text-color);
     }
+  }
+}

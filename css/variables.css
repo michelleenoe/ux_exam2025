@@ -92,6 +92,7 @@
     --form-max-width: 34rem;
     --max-main-width: 1100px;
     --card-width: 250px;
+    --book-detail-width:800px;
 
     /* opacity */
     --opacity-xs: 0.1;
@@ -130,6 +131,7 @@
     --shadow-px-sm: 2px;
     --shadow-px-md: 4px;
     --shadow-px-lg: 8px;
+    --shadow-px-xxl: 25px;
 
     --aspec-ratio-3:3;
     --aspec-ratio-4:4;

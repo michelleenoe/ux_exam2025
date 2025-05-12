@@ -3,29 +3,27 @@
 @import "back_to_top.css";
 @import "footer.css";
 
-
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   background-color: var(--light-background-color);
   color: var(--dark-text-color);
   font-family: poppins, sans-serif;
 
 
-  h1{
-    font-size:var(--font-size-xl);
+  h1 {
+    font-size: var(--font-size-xl);
   }
-  
-  .hidden{
+
+  .hidden {
     display: none !important;
   }
 
-  p{
+  p {
     line-height: var(--standard-line-height);
   }
 
@@ -50,18 +48,17 @@ body{
   z-index: 9999;
 
   margin: 0;
-  
-}
 
-#error h3 {
-  margin-top: 0;
-  font-size: var(--font-size-xl);
-  font-weight: bold;
-}
+  h3 {
+    margin-top: 0;
+    font-size: var(--font-size-xl);
+    font-weight: bold;
+  }
 
-#error p {
-  margin: var(--spacing-md) 0 0;
-  font-size: var(--spacing-xl);
+  p {
+    margin: var(--spacing-md) 0 0;
+    font-size: var(--spacing-xl);
+  }
 }
 
 #success {
@@ -81,17 +78,18 @@ body{
   z-index: 9999;
 
   margin: 0;
-}
-#success h3 {
-  margin-top: 0;
-  font-size: var(--font-size-xl);
-  font-weight: bold;
-}
-#success p {
-  margin: var(--spacing-md) 0 0;
-  font-size: var(--spacing-xl);
-}
 
+  h3 {
+    margin-top: 0;
+    font-size: var(--font-size-xl);
+    font-weight: bold;
+  }
+
+  p {
+    margin: var(--spacing-md) 0 0;
+    font-size: var(--spacing-xl);
+  }
+}
 
 #modal_close_btn {
   position: absolute;
@@ -101,7 +99,8 @@ body{
   border: none;
   cursor: pointer;
   padding: var(--spacing-md);
-    img{
-        width: var(--social-icon-size);
-    }
+
+  img {
+    width: var(--social-icon-size);
+  }
 }

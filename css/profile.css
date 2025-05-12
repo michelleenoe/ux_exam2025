@@ -1,13 +1,14 @@
 @import 'form.css';
 @import "styles.css";
 
-#welcomeMessage{
+#welcomeMessage {
   font-size: var(--font-size-lg);
   font-weight: var(--font-bold);
   padding: var(--spacing-xl) 0 var(--spacing-xxxl) 0;
   text-align: center;
 }
-h1{
+
+h1 {
   text-align: center;
   margin-top: var(--spacing-xl);
 }
@@ -25,56 +26,58 @@ dialog::backdrop {
   width: var(--fullscale);
   max-width: var(--width-lg);
   margin: auto;
-}
-#deleteDialog h3 {
-  margin-bottom: var(--spacing-md);
-  color: var(--error-color);
+
+  h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--error-color);
+  }
+
+  p {
+    margin: 0 0 var(--spacing-lg);
+    font-size: var(--font-size-md);
+  }
+
+  menu {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xxxl);
+
+    button {
+      padding: var(--spacing-xl) var(--spacing-xxxl);
+      cursor: pointer;
+      font-size: var(--font-size-md);
+      transition: all var(--trasnition-shorter) ease;
+      border-radius: var(--border-radius-md);
+    }
+  }
 }
 
-#deleteDialog p {
-  margin: 0 0 var(--spacing-lg);
-  font-size: var(--font-size-md);
-}
-
-menu {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-xxxl);
-}
-
-#deleteDialog button {
-  padding: var(--spacing-xl) var(--spacing-xxxl);
-  cursor: pointer;
-  font-size: var(--font-size-md);
-        transition: all var(--trasnition-shorter) ease;
-        border-radius: var(--border-radius-md);
-}
 
 #cancelDelete {
-        border: var(--border-width-md) solid var(--primary-color);
-        color: var(--primary-color);
-        background-color: var(--light-background-color);
-        
-        &:hover {
-          border-color: var(--hover-color);
-          background-color: var(--hover-color);
-          color: var(--dark-text-color);
-        }
-      }
+  border: var(--border-width-md) solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: var(--light-background-color);
+
+  &:hover {
+    border-color: var(--hover-color);
+    background-color: var(--hover-color);
+    color: var(--dark-text-color);
+  }
+}
 
 
 #confirmDelete {
 
-        color: var(--light-text-color);
-        border: var(--border-width-md) solid var(--error-color);
+  color: var(--light-text-color);
+  border: var(--border-width-md) solid var(--error-color);
 
-        background-color: var(--error-color);
+  background-color: var(--error-color);
 
-        
-        &:hover {
-          border-color: var(--error-color);
-          background-color: var(--error-bg);
-          color: var(--dark-text-color);
-        }
-      
+
+  &:hover {
+    border-color: var(--error-color);
+    background-color: var(--error-bg);
+    color: var(--dark-text-color);
+  }
+
 }

@@ -5,13 +5,14 @@ main {
   width: var(--full-scale);
   box-sizing: border-box;
   justify-items: center;
-  @media(min-width: 768px){
-    
-       padding: 0 var(--spacing-5xl) var(--spacing-4xl) var(--spacing-5xl);
+
+  @media (min-width: 768px) {
+    padding: 0 var(--spacing-5xl) var(--spacing-4xl) var(--spacing-5xl);
+  }
+
   @media (min-width: 1024px) {
-        max-width: var(--max-main-width);
-        margin: auto;
-    }
+    max-width: var(--max-main-width);
+    margin: auto;
   }
 
   .field {
@@ -21,8 +22,8 @@ main {
     margin-bottom: var(--spacing-md);
 
     label {
-      font-size:var(--font-size-md);
-      font-weight:var(--font-semibold);
+      font-size: var(--font-size-md);
+      font-weight: var(--font-semibold);
       margin-bottom: var(--spacing-sm);
     }
 
@@ -37,7 +38,7 @@ main {
       margin-bottom: var(--spacing-lg);
     }
 
-    #txtBirthDate{
+    #txtBirthDate {
       cursor: pointer;
     }
 
@@ -87,60 +88,62 @@ main {
     text-align: center;
     cursor: pointer;
 
-                &:hover {
-                border: var(--border-width-md) solid var(--hover-color);
-                background-color: var(--hover-color);
-                color: var(--dark-text-color);
-            }
+    &:hover {
+      border: var(--border-width-md) solid var(--hover-color);
+      background-color: var(--hover-color);
+      color: var(--dark-text-color);
+    }
   }
 
-  .login-link, .signup-link {
+  .login-link,
+  .signup-link {
     font-size: var(--font-size-md);
     text-align: center;
     margin-top: var(--spacing-xl);
 
-    a{
-      color:var(--dark-text-color);
+    a {
+      color: var(--dark-text-color);
     }
   }
 }
+
 input:focus,
 button:focus {
   outline: var(--border-width-md) solid var(--primary-color);
   outline-offset: var(--border-width-md);
 }
 
-fieldset{
+fieldset {
   border: none;
 }
+
 .btn-danger {
-        margin: var(--spacing-lg) 0;
-        color: var(--error-color);
-        background-color:var(--light-background-color);
-        cursor: pointer;
-        padding: var(--spacing-xl) var(--spacing-xxxl);
-        border-radius: var(--border-radius-md);
-        border: var(--border-width-md) solid var(--error-color);
+  margin: var(--spacing-lg) 0;
+  color: var(--error-color);
+  background-color: var(--light-background-color);
+  cursor: pointer;
+  padding: var(--spacing-xl) var(--spacing-xxxl);
+  border-radius: var(--border-radius-md);
+  border: var(--border-width-md) solid var(--error-color);
 
-                    &:hover {
-                background-color: var(--error-bg);
-            }
+  &:hover {
+    background-color: var(--error-bg);
+  }
 }
 
-form{
-    margin: 0 auto;
-    padding: 0 var(--spacing-xxl) var(--spacing-4xl) var(--spacing-xxl);
-    max-width: var(--form-max-width);
+form {
+  margin: 0 auto;
+  padding: 0 var(--spacing-xxl) var(--spacing-4xl) var(--spacing-xxl);
+  max-width: var(--form-max-width);
 
-      @media (min-width: 1024px) {
-     
-        margin: auto;
-    }
-
+  @media (min-width: 1024px) {
+    margin: auto;
+  }
 }
 
-#frmLogin, #frmSignup{
-    h1{
+#frmLogin,
+#frmSignup {
+  h1 {
     margin-bottom: var(--spacing-xxxl);
   }
 }
