@@ -19,11 +19,13 @@ const DEFAULT_RELATED = 3;
 const showBookDetail = () =>{
   fetch(`${BASE_URL}/books/${bookId}`)
   .then(handleAPIError)
+  
   .then((book) =>{
     book.book_id = bookId;
     const fragment = document.createDocumentFragment();
     const userId = sessionStorage.getItem("app_user_id");
     document.getElementById("page-title").textContent = `Chapter | ${book.title}`;
+    document.getElementById("currentBookTitle").innerText = book.title;
     const card = detailsTemplate.content.cloneNode(true);
     const img = card.querySelector(".book_detail_cover");
 
