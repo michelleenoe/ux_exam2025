@@ -24,13 +24,19 @@ export const initBookLookup = () => {
       .then(handleAPIError)
       .then(book => {
         const clone = template.content.cloneNode(true);
-        const img = clone.querySelector(".book-cover");
+        const img = clone.querySelector(".book_detail_cover");
         img.src = book.cover || FALLBACK_IMAGE;
         img.alt = `Cover for ${book.title}`;
-        clone.querySelector(".book-title").textContent = book.title;
-        clone.querySelector(".book-author").textContent = `Author: ${book.author}`;
-        clone.querySelector(".book-publisher").textContent = `Publisher: ${book.publishing_company}`;
-        clone.querySelector(".book-year").textContent = `Year: ${book.publishing_year}`;
+        clone.querySelector(".book_detail_title").textContent = book.title;
+        clone.querySelector(
+          ".book_detail_author"
+        ).textContent = `Author: ${book.author}`;
+        clone.querySelector(
+          ".book_detail_publisher"
+        ).textContent = `Publisher: ${book.publishing_company}`;
+        clone.querySelector(
+          ".book_detail_year"
+        ).textContent = `Year: ${book.publishing_year}`;
 
         const loanRows = clone.querySelector(".loan-rows");
         loanRows.replaceChildren();
@@ -63,8 +69,6 @@ export const initBookLookup = () => {
         output.replaceChildren(clone);
         output.classList.remove("hidden");
       })
-      .catch(err => {
-        handleError(err);
-      });
+      .catch(handleError);
   });
 };

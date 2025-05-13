@@ -28,48 +28,47 @@
     justify-content: space-between;
     padding: var(--spacing-md);
     flex-grow: var(--flex-grow-1);
-  }
 
-  .book_info {
-    flex-grow: var(--flex-grow-1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--spacing-md);
+    .book_info {
+      flex-grow: var(--flex-grow-1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-md);
 
-    .book_title {
-      font-size: var(--font-size-lg);
-      font-weight: var(--font-bolder);
-      text-align: center;
-      line-height: var(--book-title-line-height);
+      .book_title {
+        font-size: var(--font-size-lg);
+        font-weight: var(--font-bolder);
+        text-align: center;
+        line-height: var(--book-title-line-height);
 
-      display: -webkit-box;
-      -webkit-line-clamp: 2; /* not able to make into a variable */
-      -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* not able to make into a variable */
+        -webkit-box-orient: vertical;
 
-      display: box;
-      box-orient: vertical;
-      line-clamp: 2; /* not able to make into a variable */
+        display: box;
+        box-orient: vertical;
+        line-clamp: 2; /* not able to make into a variable */
 
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-height: var(--card-height);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: var(--card-height);
+      }
+
+      .book_author,
+      .publishing_year,
+      .publishing_company {
+        font-size: var(--font-size-md);
+      }
     }
 
-    .book_author,
-    .publishing_year,
-    .publishing_company {
-      font-size: var(--font-size-md);
-    }
-  }
-
-  .book_card_btns {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--spacing-xxxl);
-    margin-top: var(--spacing-sm);
-    padding: var(--spacing-md) var(--spacing-sm);
+    .book_card_btns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--spacing-xxxl);
+      margin-top: var(--spacing-sm);
+      padding: var(--spacing-md) var(--spacing-sm);
 
       .loan_btn {
         display: inline-block;
@@ -82,30 +81,31 @@
         transition: all var(--trasnition-shorter) ease;
         background-color: var(--light-background-color);
         cursor: pointer;
-        
+
         &:hover {
           border-color: var(--hover-color);
           background-color: var(--hover-color);
           color: var(--dark-text-color);
         }
       }
-      
-      .readmore_btn{
+
+      .readmore_btn {
         a {
           display: inline-block;
           text-decoration: underline;
           padding: var(--touch-target) var(--spacing-lg);
-        color: var(--dark-text-color);
-        font-size: var(--font-size-md);
-        transition: all var(--trasnition-shorter) ease;
-        
-        &:hover {
-          border-radius: var(--border-radius-md);
-          border-color: var(--hover-color);
-          background-color: var(--hover-color);
           color: var(--dark-text-color);
+          font-size: var(--font-size-md);
+          transition: all var(--trasnition-shorter) ease;
+
+          &:hover {
+            border-radius: var(--border-radius-md);
+            border-color: var(--hover-color);
+            background-color: var(--hover-color);
+            color: var(--dark-text-color);
+          }
         }
       }
-      }
+    }
   }
 }

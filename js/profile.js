@@ -38,31 +38,38 @@ function setBirthDateMax() {
   const dd = String(today.getDate()).padStart(2, "0");
   els.birthInput.max = `${yyyy}-${mm}-${dd}`;
 }
+
 function hideAllMessages() {
   els.errorBox.classList.add("hidden");
   els.successBox.classList.add("hidden");
 }
+
 function HideError() {
-  document.querySelectorAll("input, select").forEach(el =>
-    el.addEventListener("input", hideAllMessages)
-  );
-  document.addEventListener("click", e => {
+  document
+    .querySelectorAll("input, select")
+    .forEach((el) => el.addEventListener("input", hideAllMessages));
+  document.addEventListener("click", (e) => {
     const fields = Array.from(document.querySelectorAll("input, select"));
-    if (!fields.some(f => f.contains(e.target))) hideAllMessages();
+    if (!fields.some((f) => f.contains(e.target))) hideAllMessages();
   });
 }
+
 function loadUserProfile() {
-  fetch(`${BASE_URL}/users/${userId}`, 
-    { headers: getHeader() })
+  fetch(`${BASE_URL}/users/${userId}`, { headers: getHeader() })
     .then(handleAPIError)
-    .then((user) => {
-      fillProfileForm(user);
-    })
+    .then((user) => fillProfileForm(user))
     .catch(handleError);
-  }
+}
 
-
-function fillProfileForm({ email, first_name, last_name, address, phone_number, birth_date, membership_date }) {
+function fillProfileForm({
+  email,
+  first_name,
+  last_name,
+  address,
+  phone_number,
+  birth_date,
+  membership_date,
+}) {
   els.form.txtEmail.value = email;
   els.form.txtFirstName.value = first_name;
   els.form.txtLastName.value = last_name;
@@ -79,55 +86,64 @@ function showSuccess(msg) {
   setTimeout(() => els.successBox.classList.add("hidden"), 3000);
 }
 
-function validateProfileForm() {
-  const { txtFirstName, txtLastName, txtEmail, txtAddress, txtPhone, txtBirthDate } = els.form;
-  if (![txtFirstName, txtLastName, txtEmail, txtAddress, txtPhone, txtBirthDate]
-    .every(f => f.value.trim())) {
-    handleError("Please fill out all fields correctly.");
-    return false;
-  }
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(txtEmail.value.trim())) {
-    handleError("Please enter a valid email address.");
-    return false;
-  }
-  if (!/^\d+$/.test(txtPhone.value.trim())) {
-    handleError("Phone number must contain digits only.");
-    return false;
-  }
-  if (new Date(txtBirthDate.value) > new Date()) {
-    handleError("Birth date cannot be in the future.");
-    return false;
-  }
-  return true;
-}
-
 function bindFormSubmit() {
-  els.form.addEventListener("submit", async e => {
+  els.form.addEventListener("submit", (e) => {
     e.preventDefault();
     hideAllMessages();
-    if (!validateProfileForm()) return;
 
-    try {
-      const res = await fetch(`${BASE_URL}/users/${userId}`, {
-        method: "PUT",
-        headers: getHeader(),
-        body: new FormData(els.form)
-      });
-      const data = await handleAPIError(res);
-      if (data.error) throw data;
-      showSuccess("Profile updated successfully.");
-    } catch (err) {
-      handleError(err);
+    const firstName = els.form.txtFirstName.value.trim();
+    const lastName = els.form.txtLastName.value.trim();
+    const email = els.form.txtEmail.value.trim();
+    const address = els.form.txtAddress.value.trim();
+    const phone = els.form.txtPhone.value.trim();
+    const birthDate = els.form.txtBirthDate.value.trim();
+
+    if (!firstName || !lastName || !email || !address || !phone || !birthDate) {
+      return handleError("Please fill out all fields correctly.");
     }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      return handleError("Please enter a valid email address.");
+    }
+
+    const phonePattern = /^\d+$/;
+    if (!phonePattern.test(phone)) {
+      return handleError("Phone number must contain digits only.");
+    }
+
+    const selectedDate = new Date(birthDate);
+    const today = new Date();
+    if (selectedDate > today) {
+      return handleError("Birth date cannot be in the future.");
+    }
+
+    const formData = new FormData(els.form);
+
+    fetch(`${BASE_URL}/users/${userId}`, {
+      method: "PUT",
+      headers: getHeader(),
+      body: formData,
+    })
+      .then(handleAPIError)
+      .then((data) => {
+        if (data.error) throw data;
+        showSuccess("Profile updated successfully.");
+      })
+      .catch(handleError);
   });
 }
+
 
 function bindDeleteDialog() {
   els.btnDelete.addEventListener("click", () => {
     if (typeof els.dialog.showModal === "function") {
       els.dialog.showModal();
-    } else if (confirm("Are you sure you want to delete your account? This cannot be undone?")) {
+    } else if (
+      confirm(
+        "Are you sure you want to delete your account? This cannot be undone?"
+      )
+    ) {
       doDelete();
     }
   });
@@ -138,28 +154,26 @@ function bindDeleteDialog() {
   });
 }
 
-async function doDelete() {
-  try {
-    const res = await fetch(`${BASE_URL}/users/${userId}`, {
-      method: "DELETE",
-      headers: getHeader()
-    });
-    await handleAPIError(res);
-    sessionStorage.clear();
-    window.location.href = "index.html";
-  } catch (err) {
-    handleError(err);
-  }
+function doDelete() {
+  fetch(`${BASE_URL}/users/${userId}`, {
+    method: "DELETE",
+    headers: getHeader(),
+  })
+    .then(handleAPIError)
+    .then(() => {
+      sessionStorage.clear();
+      window.location.href = "index.html";
+    })
+    .catch(handleError);
 }
 
-async function loadWelcomeMessage() {
-  try {
-    const res = await fetch(`${BASE_URL}/users/${userId}`, { headers: getHeader() });
-    const user = await handleAPIError(res);
-    els.welcomeEl.textContent = `Welcome ${user.first_name} ${user.last_name}! Here You can edit your personal information.`;
-  } catch (err) {
-    console.error(err);
-  }
+function loadWelcomeMessage() {
+  fetch(`${BASE_URL}/users/${userId}`, { headers: getHeader() })
+    .then(handleAPIError)
+    .then((user) => {
+      els.welcomeEl.textContent = `Welcome ${user.first_name} ${user.last_name}! Here You can edit your personal information.`;
+    })
+    .catch(console.error);
 }
 
 initProfilePage();

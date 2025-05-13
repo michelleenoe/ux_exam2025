@@ -3,29 +3,27 @@
 @import "back_to_top.css";
 @import "footer.css";
 
-
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   background-color: var(--light-background-color);
   color: var(--dark-text-color);
   font-family: poppins, sans-serif;
 
 
-  h1{
-    font-size:var(--font-size-xl);
+  h1 {
+    font-size: var(--font-size-xl);
   }
-  
-  .hidden{
+
+  .hidden {
     display: none !important;
   }
 
-  p{
+  p {
     line-height: var(--standard-line-height);
   }
 
@@ -38,19 +36,29 @@ body{
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-xxl) var(--spacing-xxxl);
   margin: 0 0 var(--spacing-xxl) 0;
-  max-width: var(--error-width);
   box-shadow: 0 var(--shadow-px-md) var(--shadow-px-lg) rgba(0, 0, 0, var(--opacity-xs));
-}
+  box-sizing: border-box;
+  max-width: var(--form-max-width);
+  text-align: center;
 
-#error h3 {
-  margin-top: 0;
-  font-size: var(--font-size-xl);
-  font-weight: bold;
-}
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
 
-#error p {
-  margin: var(--spacing-md) 0 0;
-  font-size: var(--spacing-xl);
+  margin: 0;
+
+  h3 {
+    margin-top: 0;
+    font-size: var(--font-size-xl);
+    font-weight: bold;
+  }
+
+  p {
+    margin: var(--spacing-md) 0 0;
+    font-size: var(--spacing-xl);
+  }
 }
 
 #success {
@@ -62,13 +70,37 @@ body{
   margin: 0 0 var(--spacing-xxl) 0;
   max-width: var(--error-width);
   box-shadow: 0 var(--shadow-px-md) var(--shadow-px-lg) rgba(0, 0, 0, var(--opacity-xs));
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+
+  margin: 0;
+
+  h3 {
+    margin-top: 0;
+    font-size: var(--font-size-xl);
+    font-weight: bold;
+  }
+
+  p {
+    margin: var(--spacing-md) 0 0;
+    font-size: var(--spacing-xl);
+  }
 }
-#success h3 {
-  margin-top: 0;
-  font-size: var(--font-size-xl);
-  font-weight: bold;
-}
-#success p {
-  margin: var(--spacing-md) 0 0;
-  font-size: var(--spacing-xl);
+
+#modal_close_btn {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-xl);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-md);
+
+  img {
+    width: var(--social-icon-size);
+  }
 }

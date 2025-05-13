@@ -71,8 +71,9 @@
 
     <main id="admin">
         <section>
-        <h2 id="welcomeMessage"></h2>
-      </section>
+            <h1>Admin Dashboard</h1>
+            <!-- <p id="welcomeMessage"></p> -->
+        </section>
 
         <nav id="adminMenu">
             <button type="button" data-target="sectionBook">Add Book</button>
@@ -81,12 +82,12 @@
             <button type="button" data-target="sectionFind">Find Book</button>
         </nav>
 
-        <section id="error" class="hidden">
-            <header>
-                <h3>Error</h3>
-            </header>
-            <p id="errorText"></p>
-        </section>
+    <section id="error" class="hidden">
+      <header>
+        <h3>Error</h3>
+      </header>
+      <p id="errorText"></p>
+    </section>
 
         <section id="success" class="hidden">
             <header>
@@ -95,7 +96,7 @@
             <p id="successText"></p>
         </section>
         <section id="sectionBook" class="admin-section">
-            <h2>Add new book</h2>
+            <h2 class="add_btn">Add new book</h2>
             <form id="frmAddBook">
                 <div class="field">
                     <label for="title">Title</label>
@@ -127,7 +128,7 @@
 
 
         <section id="sectionAuthor" class="admin-section hidden">
-            <h2>Add new author</h2>
+            <h2 class="add_btn">Add new author</h2>
             <form id="frmAddAuthor">
                 <div class="field">
                     <label for="first_name">First name</label>
@@ -142,7 +143,7 @@
         </section>
 
         <section id="sectionPublisher" class="admin-section hidden">
-            <h2>Add new publisher</h2>
+            <h2 class="add_btn">Add new publisher</h2>
             <form id="frmAddPublisher">
                 <div class="field">
                     <label for="name">Publisher name</label>
@@ -153,7 +154,7 @@
         </section>
 
         <section id="sectionFind" class="admin-section hidden">
-            <h2>Find book by ID</h2>
+            <h2 class="add_btn">Find book by ID</h2>
             <form id="frmFindBook">
                 <div class="field">
                     <label for="book_id">Book ID</label>
@@ -161,7 +162,7 @@
                 </div>
                 <button type="submit" class="btn-primary">Find Book</button>
             </form>
-            <article id="bookInfo" class="hidden"></article>
+            <div id="bookInfo" class="hidden"></div>
         </section>
     </main>
 
@@ -186,14 +187,15 @@
 
 </body>
 <template id="bookTemplate">
-    <div class="book-card">
-        <img class="book-cover" src="" alt="Book cover">
-        <div class="book-details">
-            <h3 class="book-title"></h3>
-            <p class="book-author"></p>
-            <p class="book-publisher"></p>
-            <p class="book-year"></p>
-
+    <article class="book_detail_card">
+        <img class="book_detail_cover" src="" alt="">
+        <div class="book_detail_wrapper">
+            <div class="book_detail_info">
+                <h2 class="book_detail_title"></h2>
+                <p class="book_detail_author"></p>
+                <p class="book_detail_year"></p>
+                <p class="book_detail_publisher"></p>
+            </div>
             <div class="loan-history">
                 <h4>Loan History:</h4>
                 <table class="loan-history-table">
@@ -206,9 +208,9 @@
                     <tbody class="loan-rows">
                     </tbody>
                 </table>
-            </div>
+            </div>           
         </div>
-    </div>
+    </article>
 </template>
 
 

@@ -1,131 +1,117 @@
 @import "styles.css";
-@import 'book_card.css';
+@import "book_card.css";
 @import "modal.css";
 @import "hero.css";
 
-
 #browse_books {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    padding: 0 var(--spacing-xxl) var(--spacing-4xl) var(--spacing-xxl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xxl) var(--spacing-4xl) var(--spacing-xxl);
 
-
-    header {
-        width: var(--full-scale);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: var(--spacing-xl) var(--spacing-lg);
-        margin-bottom: var(--spacing-4xl);
-        border-bottom: var(--border-width-sm) solid var(--quaternary-color);
-
-        h2 {
-            font-size: var(--font-size-xl);
-            margin: var(--spacing-4xl) 0 var(--spacing-xxl) 0;
-            text-align: center;
-        }
-
-        p {
-            font-size: var(--font-size-md);
-        }
-
-        form {
-            gap: var(--spacing-xl);
-            align-items: center;
-            width: var(--full-scale);
-            max-width: var(--content-width-lg);
-            display: flex;
-            flex-wrap: wrap;
-
-            .select_wrapper,
-            .search_wrapper {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                margin-right: var(--spacing-lg);
-                width: var(--full-scale);
-            }
-
-            label {
-                font-size: var(--font-size-md);
-                font-weight: var(--font-semibold);
-                margin-bottom: var(--spacing-lg);
-            }
-
-
-            input[type="search"] {
-                width: var(--full-scale);
-                min-width: var(--width-s);
-                min-height: var(--touch-size);
-                padding: var(--touch-target);
-                border: var(--border-width-sm) solid transparent;
-                border-radius: var(--border-radius-md);
-                background: var(--input-bg);
-                font-size: var(--font-size-md);
-                margin-bottom: var(--spacing-xxl);
-            }
-
-            select {
-                width: var(--full-scale);
-                min-width: var(--width-s);
-                min-height: var(--touch-size);
-                padding: var(--touch-target);
-                border: var(--border-width-sm) solid transparent;
-                border-radius: var(--border-radius-md);
-                background: var(--input-bg);
-                font-size: var(--font-size-md);
-                margin-bottom: var(--spacing-xxl);
-                cursor: pointer;
-            }
-
-            #search_btn{
-                margin-left: auto;
-            }
-        }
-
-          @media(min-width: 768px){
-    
-       padding: 0 var(--spacing-5xl) var(--spacing-4xl) var(--spacing-5xl);
-  
+  @media (min-width: 1024px) {
+    max-width: var(--max-main-width);
+    margin: auto;
   }
 
+  header {
+    width: var(--full-scale);
+    max-width: var(--book-detail-width);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    margin-bottom: var(--spacing-4xl);
+    border-bottom: var(--border-width-sm) solid var(--quaternary-color);
+
+    h2 {
+      font-size: var(--font-size-xl);
+      margin: var(--spacing-4xl) 0 var(--spacing-xxl) 0;
+      text-align: center;
     }
 
-    #load_more_btn, #search_btn{
-color: var(--primary-color);
-            cursor: pointer;
-            text-decoration: none;
-            padding: var(--touch-target) var(--spacing-5xl);
-            border-radius: var(--border-radius-md);
-            border: var(--border-width-md) solid var(--primary-color);
-            color: var(--primary-color);
-            background-color: var(--light-background-color);
-
-            &:hover {
-                border: var(--border-width-md) solid var(--hover-color);
-                background-color: var(--hover-color);
-                color: var(--dark-text-color);
-            }
-    }
-        #load_more_btn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-                @media (min-width: 1024px) {
-        max-width: var(--max-main-width);
-        margin: auto;
+    p {
+      font-size: var(--font-size-md);
     }
 
-            @media (min-width: 1024px) {
-        max-width: var(--max-main-width);
-        margin: auto;
-    }
+    form {
+      gap: var(--spacing-xl);
+      align-items: center;
+      width: var(--full-scale);
+      max-width: var(--content-width-lg);
+      display: flex;
+      flex-wrap: wrap;
 
+      .select_wrapper,
+      .search_wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: var(--spacing-lg);
+        width: var(--full-scale);
+      }
+
+      label {
+        font-size: var(--font-size-md);
+        font-weight: var(--font-semibold);
+        margin-bottom: var(--spacing-lg);
+      }
+
+      input[type="search"],
+      select {
+        width: var(--full-scale);
+        min-width: var(--width-s);
+        min-height: var(--touch-size);
+        padding: var(--touch-target);
+        border: var(--border-width-sm) solid transparent;
+        border-radius: var(--border-radius-md);
+        background: var(--input-bg);
+        font-size: var(--font-size-md);
+        margin-bottom: var(--spacing-xxl);
+      }
+
+      select {
+        cursor: pointer;
+      }
+
+      #search_btn {
+        margin-left: auto;
+      }
+
+      @media (min-width: 768px) {
+        display: flex;
+      }
+    }
+  }
+
+  #load_more_btn,
+  #search_btn {
+    color: var(--primary-color);
+    cursor: pointer;
+    text-decoration: none;
+    padding: var(--touch-target) var(--spacing-5xl);
+    border-radius: var(--border-radius-md);
+    border: var(--border-width-md) solid var(--primary-color);
+    background-color: var(--light-background-color);
+
+    &:hover {
+      border: var(--border-width-md) solid var(--hover-color);
+      background-color: var(--hover-color);
+      color: var(--dark-text-color);
+    }
+  }
+
+  #load_more_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #search_btn{
+    margin-bottom: var(--spacing-xxl);
+  }
 }
 
 #showAllBooks_book_list {
@@ -135,27 +121,14 @@ color: var(--primary-color);
   width: var(--full-scale);
   box-sizing: border-box;
   justify-items: center;
-  padding: 0 var(--spacing-xxl) var(--spacing-4xl) var(--spacing-xxl);
-
+  padding: 0 var(--spacing-xl) var(--spacing-4xl) var(--spacing-xl);
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
     padding: 0 var(--spacing-5xl) var(--spacing-4xl) var(--spacing-5xl);
   }
-  @media (min-width: 1024px) {
-      max-width: var(--max-main-width);
-      margin: auto;
-  }
-    @media (min-width: 1050px) {
-     
-        grid-template-columns: repeat(3, 1fr); 
-      
-    }
-  }
 
-@media (min-width: 768px) {
-
-    form {
-        display: flex;
-    }
+  @media (min-width: 1050px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

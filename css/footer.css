@@ -1,6 +1,4 @@
-
 footer {
-  /* max-width: var(--content-width-lg); */
   margin: 0 auto;
   padding: var(--spacing-xl) var(--spacing-xl);
   color: var(--light-text-color);
@@ -25,14 +23,15 @@ footer {
       &:hover {
         background-color: var(--hover-color);
         border-radius: var(--border-radius-full);
+      }
+
+      img {
+        width: var(--social-icon-size);
+      }
     }
 
-    img{
-      width: var(--social-icon-size);
-    }
   }
 
-}
   #footer-copy {
     color: var(--light-text-color);
     font-size: var(--font-size-md);
