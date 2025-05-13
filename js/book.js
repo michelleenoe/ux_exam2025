@@ -25,12 +25,12 @@ const showBookDetail = () =>{
     book.book_id = bookId;
     const fragment = document.createDocumentFragment();
     const userId = sessionStorage.getItem("app_user_id");
-    document.getElementById("page-title").textContent = `Chapter | ${book.title}`;
     const card = detailsTemplate.content.cloneNode(true);
     const img = card.querySelector(".book_detail_cover");
 
     loadBookImage(img, book, book.title);
     card.querySelector(".book_detail_title").innerText = book.title;
+    document.getElementById("page-title").textContent = `Chapter | ${book.title}`;
     card.querySelector(
       ".book_detail_author"
     ).textContent = `Author: ${book.author}`;
