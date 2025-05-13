@@ -104,6 +104,16 @@ body {
     width: var(--social-icon-size);
   }
 }
+.breadcrumb {
+  font-size: var(--font-size-sm);
+  margin: var(--spacing-md) 0 var(--spacing-lg);
+  padding-left: var(--spacing-md);
+}
+
+.breadcrumb a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
 
 .breadcrumb ol {
   list-style: none;
