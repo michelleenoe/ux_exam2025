@@ -1,6 +1,7 @@
 @import "modal.css";
 @import "styles.css";
 @import "book_card.css";
+@import "breadcrumb.css";
 
 #book_detail {
   display: flex;
@@ -159,38 +160,3 @@
   }
 }
 
-.breadcrumb {
-  font-size: var(--font-size-sm);
-  margin: var(--spacing-md) 0 var(--spacing-lg);
-  padding-left: var(--spacing-md);
-
-  ol {
-    list-style: none;
-    display: flex;
-    gap: var(--spacing-md);
-    flex-wrap: wrap;
-    padding-left: var(--spacing-xxl);
-
-    li {
-      &::after {
-        content: "›";
-        margin: 0 var(--spacing-md);
-        color: var(--quaternary-color);
-      }
-
-      &:last-child::after {
-        content: "";
-      }
-
-      &[aria-current="page"] {
-        font-weight: bold;
-        color: var(--dark-text-color);
-      }
-    }
-  }
-
-  a {
-    color: var(--primary-color);
-    text-decoration: none;
-  }
-}

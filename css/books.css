@@ -2,6 +2,7 @@
 @import "book_card.css";
 @import "modal.css";
 @import "hero.css";
+@import "breadcrumb.css";
 
 #browse_books {
   display: flex;
