@@ -75,6 +75,8 @@
     --social-icon-size: 30px;
 
     /* scale */
+    --scale-minus-mini:-1px;
+    --scale-mini:1px;
     --scale-sm:1.02;
     --full-scale: 100%;
     --width-xs: 150px;

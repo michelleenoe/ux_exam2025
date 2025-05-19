@@ -173,7 +173,7 @@ function loadWelcomeMessage() {
     .then((user) => {
       els.welcomeEl.textContent = `Welcome ${user.first_name} ${user.last_name}! Here You can edit your personal information.`;
     })
-    .catch(console.error);
+    .catch(handleError);
 }
 
 initProfilePage();
