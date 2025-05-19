@@ -70,23 +70,21 @@
     </header>
     <nav aria-label="Breadcrumb" class="breadcrumb">
         <ol>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="books.html">Browse Books</a></li>
-          <li aria-current="page" id="currentBookTitle">Book</li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Browse Books</a></li>
+            <li aria-current="page" id="currentBookTitle">Book</li>
         </ol>
-      </nav>
+    </nav>
     <main>
-          
-        <section id="error" class="hidden">
-            <header>
-                <h3>Error</h3>
-            </header>
-            <p id="errorText"></p>
-        </section>
-
         <section id="book_detail">
             <h1>Book Details</h1>
             <div id="single_book_detail"></div>
+            <section id="error" class="hidden">
+                <header>
+                    <h2>Error</h2>
+                </header>
+                <p id="errorText"></p>
+            </section>
             <dialog id="loan_modal" class="modal">
                 <div class="modal_content">
                     <button id="modal_close_btn" aria-label="Close menu">
@@ -99,9 +97,16 @@
         </section>
         <section id="related_books">
             <h3>Related Books</h3>
-            <p>Discover more captivating books within the same genre or delve deeper into the works of the same author to further explore similar themes, styles, and storytelling.</p>
+            <p>Discover more captivating books within the same genre or delve deeper into the works of the same author
+                to further explore similar themes, styles, and storytelling.</p>
             <div id="related_list"></div>
-                    <div id="see_more_btn">
+            <section id="error_related" class="hidden">
+                <header>
+                    <h3>Error</h3>
+                </header>
+                <p id="errorText_related"></p>
+            </section>
+            <div id="see_more_btn">
                 <a href="books.html">Browse All</a>
             </div>
         </section>
@@ -133,7 +138,7 @@
 </body>
 <template id="book_detail_template">
     <article class="book_detail_card">
-            <img class="book_detail_cover" src="" alt="">
+        <img class="book_detail_cover" src="" alt="">
         <div class="book_detail_wrapper">
             <div class="book_detail_info">
                 <h2 class="book_detail_title"></h2>
@@ -152,22 +157,22 @@
 
 <template id="related_template">
     <article class="book_card">
-                <img class="book_cover" src="" alt="">
-            <div class="book_wrapper">
-                <div class="book_info">
-                    <h3 class="book_title"></h3>
-                </div>
-                <div class="book_card_btns">
-                    <div class="readmore_btn">
-                        <a href="">Read More</a>
-                    </div>
-                    <button class="loan_btn">
-                        Loan Book
-                    </button>
-                </div>
-
+        <img class="book_cover" src="" alt="">
+        <div class="book_wrapper">
+            <div class="book_info">
+                <h3 class="book_title"></h3>
             </div>
-        </article>
+            <div class="book_card_btns">
+                <div class="readmore_btn">
+                    <a href="">Read More</a>
+                </div>
+                <button class="loan_btn">
+                    Loan Book
+                </button>
+            </div>
+
+        </div>
+    </article>
 </template>
 
 

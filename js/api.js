@@ -40,10 +40,29 @@ export const handleError = (data) => {
   // Set error message
   document.querySelector("#errorText").innerText = msg;
 
+
   // Make the error box visible
   document.querySelector("#error").classList.remove("hidden");
 
+  const seeMoreBtn = document.querySelector("#see_more_btn");
+  if (seeMoreBtn) {
+    seeMoreBtn.classList.add("hidden");
+  }
 };
+
+export const handleRelatedError = () => {
+  const msg = "Something went wrong. Please try again.";
+
+  document.querySelector("#errorText_related").innerText = msg;
+  document.querySelector("#error_related").classList.remove("hidden");
+
+  const seeMoreBtn = document.querySelector("#see_more_btn");
+  if (seeMoreBtn) {
+    seeMoreBtn.classList.add("hidden");
+  }
+};
+
+
 
 export const getHeader = () =>
   new Headers({

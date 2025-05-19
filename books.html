@@ -69,32 +69,17 @@
         <div id="overlay"></div>
     </header>
     <main>
-        <section id="hero_books">
-            <div id="hero_text">
+        <nav aria-label="Breadcrumb" class="breadcrumb">
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li aria-current="page" id="currentBrowseBooks">Browse Books</li>
+            </ol>
+        </nav>
+        <section id="browse_books">
+            <header id="browse_books_header">
                 <h1>Find Your Next Read</h1>
                 <p>Explore thousands of titles across every genre. Log in to borrow books and start reading today – it's
                     fast, free, and easy.</p>
-            </div>
-            <div id="login_btn">
-                <a href="login.html" title="Login in">Log in</a>
-            </div>
-        </section>
-        
-        <section id="error" class="hidden">
-            <header>
-                <h2>Error</h2>
-            </header>
-            <p id="errorText"></p>
-        </section>
-        <section id="browse_books">
-            <header>
-                <h2>Browse Books</h2>
-                <nav aria-label="Breadcrumb" class="breadcrumb">
-                    <ol>
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="books.html">Browse Books</a></li>
-                    </ol>
-                  </nav>
                 <form role="search" aria-label="Search books">
                     <div class="select_wrapper">
                         <label for="select_author">Filter by author</label>
@@ -110,9 +95,14 @@
                         </button>
                     </div>
                 </form>
-
             </header>
 
+            <section id="error" class="hidden">
+                <header>
+                    <h2>Error</h2>
+                </header>
+                <p id="errorText"></p>
+            </section>
 
             <div id="showAllBooks_book_list" aria-live="polite"></div>
             <dialog id="loan_modal" class="modal">

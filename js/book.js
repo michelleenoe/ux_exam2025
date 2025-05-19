@@ -1,5 +1,5 @@
 import { BASE_URL } from "./info.js";
-import { handleError, handleAPIError } from "./api.js";
+import { handleError, handleRelatedError, handleAPIError } from "./api.js";
 import {
   loadBookImage,
   handleLoanButton,
@@ -73,7 +73,7 @@ const showRelatedBooks = (numBooks = DEFAULT_RELATED) => {
 
       relatedContainer.append(fragment);
     })
-    .catch(handleError);
+    .catch(handleRelatedError);
 };
 
 showBookDetail();

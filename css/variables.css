@@ -41,9 +41,10 @@
     /* Line Height */
     --standard-line-height: 1.5rem;
     --book-title-line-height:1.4;
+    --a-lineheight:1;
 
     /* Spacing */
-    --spacing-minus-xxl: -0.8rem;
+    --spacing-minus-xxl: -2rem;
     --spacing-xs: 0.125rem ;  
     --spacing-sm: 0.25rem ;    
     --spacing-md: 0.5rem ;      
@@ -106,6 +107,7 @@
     --touch-size:3rem;
     --checkbox-size:1.25rem;
     --touch-target:0.95rem;
+    --new-touch-target:48px;
 
     /* side_menu */
     --right-side-menu:-250px;

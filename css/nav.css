@@ -38,6 +38,13 @@ body > header {
   }
 }
 
+#admin_mob{
+  a{
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 #desktop_menu {
   display: none;
 }
@@ -47,19 +54,22 @@ body > header {
   display: block;
 }
 
-.nav_button, .btnLogout, #close_btn, #burger_btn {
-  all: unset;
+.btnLogout, #close_btn, #burger_btn {
   cursor: pointer;
-  padding: var(--spacing-lg);
 }
 
-.nav_button:focus-visible,
 .btnLogout:focus-visible,
 #close_btn:focus-visible,
 #burger_btn:focus-visible {
   outline: var(--border-width-md) solid var(--focus-color);
   outline-offset: var(--border-width-md);
   border-radius: var(--border-radius-md);
+}
+
+#close_btn, #burger_btn, .btnLogout{
+  background: none;
+  border: none;
+
 }
 
 #side_menu {
@@ -108,10 +118,9 @@ body > header {
   #mobile_utility_not_logged a,
   #mobile_utility_logged a,
   #mobile_utility_logged button {
-    display: block;
     padding: var(--spacing-lg) 0;
     font-size: var(--font-size-lg);
-    font-weight: var(--font-bold);
+    font-weight: var(--font-semibold);
     text-align: center;
   }
 

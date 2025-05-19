@@ -1,4 +1,4 @@
-#hero_books, #hero_home {
+#hero_home {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -33,7 +33,9 @@
         }
     }
 
-    #login_btn, #signup_btn {
+    #signup_btn,
+    #profile_btn,
+    #admin_btn {
         position: absolute;
         bottom: var(--spacing-minus-xxl);
         cursor: pointer;
@@ -57,7 +59,7 @@
 }
 
 @media (min-width: 768px) {
-    #hero_books, #hero_home {
+    #hero_home {
         background-image: url("../assets/images/abstract-blur-defocused-library-book-store-shop-interior_desk.jpg");
         height: var(--vh-50);
     }
