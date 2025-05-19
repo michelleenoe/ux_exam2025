@@ -38,12 +38,12 @@
             </nav>
         </div>
 
-        <button id="burger_btn" aria-label="Open menu">
+        <button id="burger_btn" aria-label="Open menu" aria-controls="side_menu" aria-expanded="false">
             <img src="assets/icons/Menu.svg" alt="Menu icon">
         </button>
 
-        <div id="side_menu">
-            <button id="close_btn" aria-label="Close menu">
+        <div id="side_menu" aria-hidden="true">
+            <button id="close_btn" aria-label="Close menu" aria-controls="side_menu" aria-expanded="true">
                 <img src="assets/icons/X.svg" alt="Close menu icon">
             </button>
             <nav id="mobile_utility_not_logged" aria-label="Mobile utility navigation for guests">
@@ -66,7 +66,7 @@
                 </ul>
             </nav>
         </div>
-        <div id="overlay"></div>
+        <div id="overlay" aria-hidden="true"></div>
     </header>
     <main>
         <section id="hero_home">
