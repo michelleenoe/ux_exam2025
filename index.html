@@ -13,111 +13,98 @@
 
 <body>
     <header>
-
-        <a href="index.html" aria-label="Go to homepage">
-            <img src="assets/images/logo.webp" alt="Chapter Logo">
+        <a href="index.html" title="Back to homepage" aria-label="Go to homepage">
+            <img src="assets/images/logo.webp" alt="Chapter Logo" class="logo">
         </a>
-
         <div id="desktop_menu">
-
-            <nav id="main_nav" aria-label="Main navigation">
+            <nav id="main_nav" aria-label="Primary navigation">
                 <ul>
-                    <li><a href="index.html" aria-current="page">Home</a></li>
-                    <li><a href="books.html">Browse Books</a></li>
+                    <li><a href="index.html" title="Homepage">Home</a></li>
+                    <li><a href="books.html" title="Browse Books">Browse Books</a></li>
                 </ul>
             </nav>
+            <nav id="utility_not_logged" aria-label="Utility navigation for guests">
+                <ul>
+                    <li><a href="login.html" title="Log in">Log in</a></li>
+                    <li><a href="signup.html" title="Sign up">Sign up</a></li>
+                </ul>
+            </nav>
+            <nav id="utility_logged" aria-label="Utility navigation for authenticated users">
+                <ul>
+                    <li id="profile_desk"><a href="profile.html" title="Profile">Profile</a></li>
+                    <li id="admin_desk"><a href="admin.html" title="Admin">Admin</a></li>
+                    <li><button class="btnLogout" aria-label="Log out">Logout</button></li>
+                </ul>
+            </nav>
+        </div>
 
-            <nav id="utility_not_logged" aria-label="User actions, not logged in">
+        <button id="burger_btn" aria-label="Open menu">
+            <img src="assets/icons/Menu.svg" alt="Menu icon">
+        </button>
+
+        <div id="side_menu">
+            <button id="close_btn" aria-label="Close menu">
+                <img src="assets/icons/X.svg" alt="Close menu icon">
+            </button>
+            <nav id="mobile_utility_not_logged" aria-label="Mobile utility navigation for guests">
                 <ul>
                     <li><a href="login.html">Log in</a></li>
                     <li><a href="signup.html">Sign up</a></li>
                 </ul>
             </nav>
-
-            <nav id="utility_logged" aria-label="User actions, logged in">
+            <nav id="mobile_utility_logged" aria-label="Mobile utility navigation for authenticated users">
                 <ul>
-                    <li id="profile_desk"><a href="profile.html">Profile</a></li>
-                    <li id="admin_desk"><a href="admin.html">Admin</a></li>
-                    <li>
-                        <button class="btnLogout" aria-label="Log out">Logout</button>
-                    </li>
+                    <li id="profile_mob"><a href="profile.html">Profile</a></li>
+                    <li id="admin_mob"><a href="admin.html">Admin</a></li>
+                    <li><button class="btnLogout" aria-label="Log out">Logout</button></li>
                 </ul>
             </nav>
-        </div>
-
-        <button id="burger_btn" aria-label="Open mobile menu" aria-controls="side_menu" aria-expanded="false">
-            <img src="assets/icons/Menu.svg" alt="" aria-hidden="true">
-        </button>
-        <div id="side_menu" aria-hidden="true">
-            <button id="close_btn" aria-label="Close mobile menu">
-                <img src="assets/icons/X.svg" alt="" aria-hidden="true">
-            </button>
-
-            <nav id="mobile_main_nav" aria-label="Mobile main navigation">
+            <nav id="mobile_main_nav" aria-label="Mobile primary navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="books.html">Browse Books</a></li>
                 </ul>
             </nav>
-            <nav id="mobile_utility_not_logged" aria-label="Mobile user actions, not logged in">
-                <ul>
-                    <li><a href="login.html">Log in</a></li>
-                    <li><a href="signup.html">Sign up</a></li>
-                </ul>
-            </nav>
-
-            <nav id="mobile_utility_logged" aria-label="Mobile user actions, logged in">
-                <ul>
-                    <li id="profile_mob"><a href="profile.html">Profile</a></li>
-                    <li id="admin_mob"><a href="admin.html">Admin</a></li>
-                    <li>
-                        <button class="btnLogout" aria-label="Log out">Logout</button>
-                    </li>
-                </ul>
-            </nav>
-
         </div>
-
-        <div id="overlay" aria-hidden="true"></div>
+        <div id="overlay"></div>
     </header>
-
     <main>
-        <section id="hero_home" aria-labelledby="hero_heading">
+        <section id="hero_home">
             <div id="hero_text">
-                <h1 id="hero_heading">Access thousands of books online</h1>
-                <p>Discover, borrow, and read instantly - for free. Create an account and start your reading journey
+                <h1>Access thousands of books online</h1>
+                <p>Discover, borrow, and read instantly – for free. Create an account and start your reading journey
                     today.</p>
             </div>
             <div id="signup_btn">
-                <a href="signup.html" aria-label="Sign up for a new account">Sign up</a>
+                <a href="signup.html" title="Sign up" aria-label="Sign up for an account">Sign up</a>
             </div>
-            <div id="profile_btn" aria-hidden="true">
-                <a href="profile.html" aria-label="Go to your profile">Profile</a>
+            <div id="profile_btn">
+                <a href="profile.html" title="Profile" aria-label="Go to your profile">Profile</a>
             </div>
-            <div id="admin_btn" aria-hidden="true">
-                <a href="admin.html" aria-label="Go to admin dashboard">Admin</a>
+            <div id="admin_btn">
+                <a href="admin.html" title="Admin" aria-label="Go to admin panel">Admin</a>
             </div>
         </section>
-
-        <section id="trending_books" aria-labelledby="trending_heading">
+        <section id="trending_books" aria-label="Trending books section">
             <div id="trending_copy">
-                <h2 id="trending_heading">What Everyone’s Reading Right Now</h2>
+                <h2>What Everyone’s Reading Right Now</h2>
                 <p>Looking for your next great read? These top picks are grabbing attention for all the right reasons —
                     acclaimed, addictive, and impossible to ignore. Check out the most popular books among our readers.
                 </p>
             </div>
-            <section id="error" role="alert" aria-live="assertive" aria-labelledby="error_heading" class="hidden">
-                <h2 id="error_heading">Error</h2>
+            <section id="error" class="hidden" aria-live="assertive" aria-label="Error message">
+                <header>
+                    <h2>Error</h2>
+                </header>
                 <p id="errorText"></p>
             </section>
-
-            <div id="trending_book_list" role="region" aria-live="polite"></div>
-            <dialog id="loan_modal" class="modal">
+            <div id="trending_book_list"></div>
+            <dialog id="loan_modal" class="modal" aria-label="Loan confirmation dialog">
                 <div class="modal_content">
-                    <button id="modal_close_btn" aria-label="Close menu">
-                        <img src="assets/icons/X.svg" alt="Close menu icon" aria-hidden="true">
+                    <button id="modal_close_btn" aria-label="Close dialog">
+                        <img src="assets/icons/X.svg" alt="Close dialog icon">
                     </button>
-                    <p class="modal_message">Thank You for Your loan. Please check Your email to recive the e-book. It
+                    <p class="modal_message">Thank You for Your loan. Please check Your email to receive the e-book. It
                         will be active for 30 days.</p>
                 </div>
             </dialog>
@@ -128,41 +115,45 @@
     </main>
     <footer>
         <div id="social_icons">
-            <a href="https://twitter.com" target="_blank">
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
                 <img src="./assets/icons/Twitter.svg" alt="Twitter logo" height="30" width="30">
             </a>
-            <a href="https://linkedin.com" target="_blank">
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
                 <img src="./assets/icons/Linkedin.svg" alt="LinkedIn logo" height="30" width="30">
             </a>
-            <a href="https://facebook.com" target="_blank">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
                 <img src="./assets/icons/Facebook.svg" alt="Facebook logo" height="30" width="30">
             </a>
-            <a href="https://instagram.com" target="_blank">
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
                 <img src="./assets/icons/Instagram.svg" alt="Instagram logo" height="30" width="30">
             </a>
         </div>
         <p id="footer-copy">&copy; 2025 KEA Development</p>
     </footer>
-    <button id="backToTop" aria-label="Back to top" aria-hidden="true"><img src="./assets/icons/Chevronup.svg" alt=""></button>
+    <button id="backToTop" aria-label="Back to top">
+        <img src="./assets/icons/Chevronup.svg" alt="Back to top icon">
+    </button>
     <template id="trending_template">
-        <article class="book_card" role="group" aria-labelledby="card_title">
-            <a href="" aria-label="View details for this book">
+        <article class="book_card">
+            <a href="" aria-label="Book details">
                 <img class="book_cover" src="" alt="Book cover">
             </a>
             <div class="book_wrapper">
                 <div class="book_info">
-                    <h3 id="card_title" class="book_title"></h3>
+                    <h3 class="book_title"></h3>
                 </div>
                 <div class="book_card_btns">
-                    <button class="loan_btn" aria-label="Loan this book">Loan Book</button>
+                    <button class="loan_btn" aria-label="Loan this book">
+                        Loan Book
+                    </button>
                     <div class="readmore_btn">
-                        <a href="" aria-label="Read more about this book">Read More</a>
+                        <a href="">Read More</a>
                     </div>
                 </div>
+
             </div>
         </article>
     </template>
-
 
 </body>
 
