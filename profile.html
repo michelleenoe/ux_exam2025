@@ -72,10 +72,13 @@
         <section id="profileSection">
             <h1>Edit profile</h1>
             <p id="welcomeMessage"></p>
+            <p id="profileHelp" class="sr-only">
+                Use this form to update your profile information.
+            </p>
             <form id="frmProfile" aria-describedby="profileHelp">
                 <div class="field">
                     <label for="txtEmail">Email</label>
-                    <input id="txtEmail" name="email" >
+                    <input id="txtEmail" name="email">
                 </div>
 
                 <div class="two-col">
@@ -114,12 +117,12 @@
                     Delete My Account
                 </button>
             </form>
-    <section id="error" class="hidden">
-      <header>
-        <h3>Error</h3>
-      </header>
-      <p id="errorText"></p>
-    </section>
+            <section id="error" class="hidden">
+                <header>
+                    <h3>Error</h3>
+                </header>
+                <p id="errorText"></p>
+            </section>
             <section id="success" class="hidden">
                 <header>
                     <h3>Success</h3>
@@ -127,6 +130,14 @@
                 <p id="successText"></p>
             </section>
         </section>
+        <dialog id="deleteDialog">
+            <h3 id="deleteDialogTitle">Confirm account deletion</h3>
+            <p>Are you sure you want to delete your account? This action can not be undone.</p>
+            <div id="dialog-buttons">
+                <button id="cancelDelete" type="button">Cancel</button>
+                <button id="confirmDelete" type="button">Delete</button>
+            </div>
+        </dialog>
     </main>
 
 
@@ -148,14 +159,6 @@
         <p id="footer-copy">&copy; 2025 KEA Development</p>
     </footer>
     <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt=""></button>
-    <dialog id="deleteDialog" aria-modal="true" aria-labelledby="deleteDialogTitle">
-        <h3 id="deleteDialogTitle">Confirm account deletion</h3>
-        <p>Are you sure you want to delete your account? This action can not be undone.</p>
-        <menu>
-            <button id="cancelDelete" type="button">Cancel</button>
-            <button id="confirmDelete" type="button">Delete</button>
-        </menu>
-    </dialog>
 
 </body>
 

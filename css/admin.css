@@ -8,6 +8,10 @@ body {
   }
 
   main#admin {
+  width: var(--full-scale);
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
     section {
       h2.add_btn {
         font-size: var(--font-size-lg);
@@ -17,25 +21,9 @@ body {
       }
     }
 
-    #bookInfo {
-      padding: 0 var(--spacing-xl) var(--spacing-4xl) var(--spacing-xl);
-      width: var(--full-scale);
-      box-sizing: border-box;
-      justify-items: center;
-
-      @media (min-width: 768px) {
-        padding: 0 var(--spacing-5xl) var(--spacing-4xl) var(--spacing-5xl);
-      }
-
-      @media (min-width: 1024px) {
-        max-width: var(--max-main-width);
-        margin: auto;
-      }
-    }
-
     #adminMenu {
       display: grid;
-      grid-template-columns: var(--card-width);
+      grid-template-columns: 1fr 1fr;
       padding: var(--spacing-sm) var(--spacing-md);
       font-size: var(--font-size-sm);
       border-width: var(--border-width-sm);
@@ -46,7 +34,8 @@ body {
       
 
       button {
-        background: none;
+        background-color:var(--light-background-color);
+        justify-content: center;
         border: var(--border-width-md) solid var(--primary-color);
         border-radius: var(--border-radius-md);
         padding: var(--spacing-md) var(--spacing-xl);
@@ -94,6 +83,7 @@ body {
     }
 
     form {
+      min-width: var(--width-md);
 
       select {
         min-height: var(--touch-size);
@@ -105,6 +95,11 @@ body {
         margin-bottom: var(--spacing-xxl);
         cursor: pointer;
       }
+    
+    @media (min-width: 500px) {
+      min-width: var(--width-lg);
+
+}
     }
   }
 }
@@ -112,7 +107,7 @@ body {
   display: none;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 768px) {
   body {
     & main#admin {
       & #adminMenu {
@@ -121,7 +116,8 @@ body {
 }
 button {
   flex: 1;
-  min-width: 0; 
+  min-width: 0;
+  white-space: nowrap; 
 }
 }
 }

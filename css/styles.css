@@ -13,6 +13,7 @@ body {
   background-color: var(--light-background-color);
   color: var(--dark-text-color);
   font-family: poppins, sans-serif;
+  min-height: 100vh;
 
 
   h1 {
@@ -40,14 +41,10 @@ body {
   box-sizing: border-box;
   max-width: var(--form-max-width);
   text-align: center;
+  justify-content: center;
+  align-items: center;
 
-  /* position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999; */
-
-  margin: 0;
+  margin: 0 auto;
 
   h3 {
     margin-top: 0;
@@ -71,13 +68,7 @@ body {
   max-width: var(--error-width);
   box-shadow: 0 var(--shadow-px-md) var(--shadow-px-lg) rgba(0, 0, 0, var(--opacity-xs));
 
-  /* position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999; */
-
-  margin: 0;
+  margin: 0 auto;
 
   h3 {
     margin-top: 0;
