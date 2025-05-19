@@ -13,61 +13,77 @@
 
 <body>
     <header>
-        <a href="index.html" title="Back to homepage">
-            <img src="assets/images/logo.webp" alt="Chapter Logo" class="logo">
+
+        <a href="index.html" aria-label="Go to homepage">
+          <img src="assets/images/logo.webp" alt="Chapter Logo">
         </a>
+      
         <div id="desktop_menu">
-            <nav id="main_nav">
-                <ul>
-                    <li><a href="index.html" title="Homepage">Home</a></li>
-                    <li><a href="books.html" title="Browse Books">Browse Books</a></li>
-                </ul>
-            </nav>
-            <nav id="utility_not_logged">
-                <ul>
-                    <li><a href="login.html" title="Log in">Log in</a></li>
-                    <li><a href="signup.html" title="Sign up">Sign up</a></li>
-                </ul>
-            </nav>
-            <nav id="utility_logged">
-                <ul>
-                    <li id="profile_desk"><a href="profile.html" title="Profile">Profile</a></li>
-                    <li id="admin_desk"><a href="admin.html" title="Admin">Admin</a></li>
-                    <li><button class="btnLogout">Logout</button></li>
-                </ul>
-            </nav>
-        </div>
 
-        <button id="burger_btn" aria-label="Open menu">
-            <img src="assets/icons/Menu.svg" alt="Menu icon">
+          <nav id="main_nav" aria-label="Main navigation">
+            <ul>
+              <li><a href="index.html" aria-current="page">Home</a></li>
+              <li><a href="books.html">Browse Books</a></li>
+            </ul>
+          </nav>
+      
+          <nav id="utility_not_logged" aria-label="User actions, not logged in">
+            <ul>
+              <li><a href="login.html">Log in</a></li>
+              <li><a href="signup.html">Sign up</a></li>
+            </ul>
+          </nav>
+          
+          <nav id="utility_logged" aria-label="User actions, logged in">
+            <ul>
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="admin.html">Admin</a></li>
+              <li>
+                <button class="btnLogout" aria-label="Log out">Logout</button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      
+        <button
+          id="burger_btn"
+          aria-label="Open mobile menu"
+          aria-controls="side_menu"
+          aria-expanded="false">
+          <img src="assets/icons/Menu.svg" alt="" aria-hidden="true">
         </button>
-
-        <div id="side_menu">
-            <button id="close_btn" aria-label="Close menu">
-                <img src="assets/icons/X.svg" alt="Close menu icon">
-            </button>
-            <nav id="mobile_utility_not_logged">
-                <ul>
-                    <li><a href="login.html">Log in</a></li>
-                    <li><a href="signup.html">Sign up</a></li>
-                </ul>
-            </nav>
-            <nav id="mobile_utility_logged">
-                <ul>
-                    <li id="profile_mob"><a href="profile.html">Profile</a></li>
-                    <li id="admin_mob"><a href="admin.html">Admin</a></li>
-                    <li><button class="btnLogout">Logout</button></li>
-                </ul>
-            </nav>
-            <nav id="mobile_main_nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="books.html">Browse Books</a></li>
-                </ul>
-            </nav>
+        <div id="side_menu" aria-hidden="true">
+          <button id="close_btn" aria-label="Close mobile menu">
+            <img src="assets/icons/X.svg" alt="" aria-hidden="true">
+          </button>
+      
+          <nav id="mobile_main_nav" aria-label="Mobile main navigation">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="books.html">Browse Books</a></li>
+            </ul>
+          </nav>
+          <nav id="mobile_utility_not_logged" aria-label="Mobile user actions, not logged in">
+            <ul>
+              <li><a href="login.html">Log in</a></li>
+              <li><a href="signup.html">Sign up</a></li>
+            </ul>
+          </nav>
+      
+          <nav id="mobile_utility_logged" aria-label="Mobile user actions, logged in">
+            <ul>
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="admin.html">Admin</a></li>
+              <li>
+                <button class="btnLogout" aria-label="Log out">Logout</button>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <div id="overlay"></div>
-    </header>
+      
+        <div id="overlay" aria-hidden="true"></div>
+      </header>
+      
     <main>
         <section id="hero_home">
             <div id="hero_text">
