@@ -21,15 +21,22 @@ initBookLookup();
 
 
 const tabs = document.querySelectorAll('#adminMenu button');
-tabs.forEach(btn => {
-  btn.addEventListener('click', () => {
-    tabs.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const target = btn.dataset.target;
-    document.querySelectorAll('.admin-section')
-      .forEach(s => s.classList.add('hidden'));
-    document.getElementById(target).classList.remove('hidden');
-  });
-});
+const sections = document.querySelectorAll('.admin-section');
 
 tabs[0].classList.add('active');
+
+tabs.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // 1) Opdater active-klasse på knapper
+    tabs.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    sections.forEach(sec => {
+      sec.classList.add('hidden');
+      sec.setAttribute('aria-hidden', 'true');
+    });
+    const target = document.getElementById(btn.dataset.target);
+    target.classList.remove('hidden');
+    target.setAttribute('aria-hidden', 'false');
+  });
+});
