@@ -72,7 +72,6 @@
     <main id="admin">
         <section>
             <h1>Admin Dashboard</h1>
-            <!-- <p id="welcomeMessage"></p> -->
         </section>
 
         <nav id="adminMenu">
@@ -82,12 +81,12 @@
             <button type="button" data-target="sectionFind">Find Book</button>
         </nav>
 
-    <section id="error" class="hidden">
-      <header>
-        <h3>Error</h3>
-      </header>
-      <p id="errorText"></p>
-    </section>
+        <section id="error" class="hidden">
+            <header>
+                <h3>Error</h3>
+            </header>
+            <p id="errorText"></p>
+        </section>
 
         <section id="success" class="hidden">
             <header>
@@ -101,7 +100,7 @@
             <form id="frmAddBook">
                 <div class="field">
                     <label for="title">Title</label>
-                    <input id="title" name="title" type="text" />
+                    <input id="title" name="title" type="text">
                 </div>
 
                 <div class="field">
@@ -120,7 +119,7 @@
 
                 <div class="field">
                     <label for="publishing_year">Publishing Year</label>
-                    <input id="publishing_year" name="publishing_year" type="number" max="2025" />
+                    <input id="publishing_year" name="publishing_year" type="number" max="2025">
                 </div>
 
                 <button type="submit" class="btn-primary">Add Book</button>
@@ -133,10 +132,10 @@
             <form id="frmAddAuthor">
                 <div class="field">
                     <label for="first_name">First name</label>
-                    <input id="first_name" name="first_name" type="text" />
+                    <input id="first_name" name="first_name" type="text">
                     <div class="field">
                         <label for="last_name">Last name</label>
-                        <input id="last_name" name="last_name" type="text" />
+                        <input id="last_name" name="last_name" type="text">
                     </div>
                 </div>
                 <button type="submit" class="btn-primary">Add Author</button>
@@ -148,7 +147,7 @@
             <form id="frmAddPublisher">
                 <div class="field">
                     <label for="name">Publisher name</label>
-                    <input id="name" name="name" type="text" />
+                    <input id="name" name="name" type="text">
                 </div>
                 <button type="submit" class="btn-primary">Add Publisher</button>
             </form>
@@ -159,7 +158,7 @@
             <form id="frmFindBook">
                 <div class="field">
                     <label for="book_id">Book ID</label>
-                    <input id="book_id" name="book_id" type="number" />
+                    <input id="book_id" name="book_id" type="number">
                 </div>
                 <button type="submit" class="btn-primary">Find Book</button>
             </form>
@@ -186,34 +185,33 @@
     </footer>
     <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt=""></button>
 
-</body>
-<template id="bookTemplate">
-    <article class="book_detail_card">
-        <img class="book_detail_cover" src="" alt="">
-        <div class="book_detail_wrapper">
-            <div class="book_detail_info">
-                <h2 class="book_detail_title"></h2>
-                <p class="book_detail_author"></p>
-                <p class="book_detail_year"></p>
-                <p class="book_detail_publisher"></p>
+    <template id="bookTemplate">
+        <article class="book_detail_card">
+            <img class="book_detail_cover" src="" alt="">
+            <div class="book_detail_wrapper">
+                <div class="book_detail_info">
+                    <h2 class="book_detail_title"></h2>
+                    <p class="book_detail_author"></p>
+                    <p class="book_detail_year"></p>
+                    <p class="book_detail_publisher"></p>
+                </div>
+                <div class="loan-history">
+                    <h4>Loan History:</h4>
+                    <table class="loan-history-table">
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="loan-rows">
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="loan-history">
-                <h4>Loan History:</h4>
-                <table class="loan-history-table">
-                    <thead>
-                        <tr>
-                            <th>User ID</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody class="loan-rows">
-                    </tbody>
-                </table>
-            </div>           
-        </div>
-    </article>
-</template>
-
+        </article>
+    </template>
+</body>
 
 
 </html>

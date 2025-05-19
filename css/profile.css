@@ -37,7 +37,7 @@ dialog::backdrop {
     font-size: var(--font-size-md);
   }
 
-  menu {
+  #dialog-buttons {
     display: flex;
     justify-content: center;
     gap: var(--spacing-xxxl);

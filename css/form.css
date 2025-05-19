@@ -1,10 +1,6 @@
 @import "styles.css";
 
 main {
-  padding: 0 var(--spacing-xl) var(--spacing-4xl) var(--spacing-xl);
-  width: var(--full-scale);
-  box-sizing: border-box;
-  justify-items: center;
 
   h1{
       font-size: var(--font-size-xl);
@@ -82,7 +78,7 @@ main {
   }
 
   .btn-primary {
-    width: 100%;
+    width: var(--full-scale);
     min-height: var(--touch-size);
     padding: var(--spacing-md);
     border: none;
@@ -125,6 +121,8 @@ fieldset {
 }
 
 .btn-danger {
+  width: var(--full-scale);
+  justify-content: center;
   margin: var(--spacing-lg) 0;
   color: var(--error-color);
   background-color: var(--light-background-color);
@@ -145,6 +143,7 @@ form {
 
   @media (min-width: 1024px) {
     margin: auto;
+    width: var(--form-max-width);
   }
 }
 

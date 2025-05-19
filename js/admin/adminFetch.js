@@ -34,19 +34,5 @@ export const loadPublishers = () => {
     .catch(handleError);
 };
 
-// const welcomeEl = document.getElementById("welcomeMessage");
-
-// export async function loadWelcomeMessage() {
-//   try {
-//     const res = await fetch(`${BASE_URL}/users/${userId}`, {
-//       headers: getHeader(),
-//     });
-//     const user = await handleAPIError(res);
-//     welcomeEl.textContent = `Welcome ${user.first_name} ${user.last_name}!`;
-//   } catch (err) {
-//     console.error("Failed to load user profile:", err);
-//   }
-// }
-// loadWelcomeMessage();
 loadAuthors();
 loadPublishers();
