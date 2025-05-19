@@ -14,60 +14,60 @@
 
 <body>
     <header>
-        <a href="index.html" title="Back to homepage" aria-label="Go to homepage">
-            <img src="assets/images/logo.webp" alt="Chapter Logo" class="logo">
+        <a href="index.html" title="Back to homepage">
+            <img src="assets/images/logo.webp" alt="Chapter Logo" class="logo" height="92" width="92">
         </a>
         <div id="desktop_menu">
-            <nav id="main_nav" aria-label="Primary navigation">
+            <nav id="main_nav">
                 <ul>
                     <li><a href="index.html" title="Homepage">Home</a></li>
                     <li><a href="books.html" title="Browse Books">Browse Books</a></li>
                 </ul>
             </nav>
-            <nav id="utility_not_logged" aria-label="Utility navigation for guests">
+            <nav id="utility_not_logged">
                 <ul>
                     <li><a href="login.html" title="Log in">Log in</a></li>
                     <li><a href="signup.html" title="Sign up">Sign up</a></li>
                 </ul>
             </nav>
-            <nav id="utility_logged" aria-label="Utility navigation for authenticated users">
+            <nav id="utility_logged">
                 <ul>
                     <li id="profile_desk"><a href="profile.html" title="Profile">Profile</a></li>
                     <li id="admin_desk"><a href="admin.html" title="Admin">Admin</a></li>
-                    <li><button class="btnLogout" aria-label="Log out">Logout</button></li>
+                    <li><button class="btnLogout">Logout</button></li>
                 </ul>
             </nav>
         </div>
 
-        <button id="burger_btn" aria-label="Open menu" aria-controls="side_menu" aria-expanded="false">
-            <img src="assets/icons/Menu.svg" alt="Menu icon">
+        <button id="burger_btn" aria-label="Open menu">
+            <img src="assets/icons/Menu.svg" alt="Menu icon" height="48" width="48">
         </button>
 
-        <div id="side_menu" aria-hidden="true">
-            <button id="close_btn" aria-label="Close menu" aria-controls="side_menu" aria-expanded="true">
-                <img src="assets/icons/X.svg" alt="Close menu icon">
+        <div id="side_menu">
+            <button id="close_btn" aria-label="Close menu">
+                <img src="assets/icons/X.svg" alt="Close menu icon" height="48" width="48">
             </button>
-            <nav id="mobile_utility_not_logged" aria-label="Mobile utility navigation for guests">
+            <nav id="mobile_utility_not_logged">
                 <ul>
                     <li><a href="login.html">Log in</a></li>
                     <li><a href="signup.html">Sign up</a></li>
                 </ul>
             </nav>
-            <nav id="mobile_utility_logged" aria-label="Mobile utility navigation for authenticated users">
+            <nav id="mobile_utility_logged">
                 <ul>
                     <li id="profile_mob"><a href="profile.html">Profile</a></li>
                     <li id="admin_mob"><a href="admin.html">Admin</a></li>
-                    <li><button class="btnLogout" aria-label="Log out">Logout</button></li>
+                    <li><button class="btnLogout">Logout</button></li>
                 </ul>
             </nav>
-            <nav id="mobile_main_nav" aria-label="Mobile primary navigation">
+            <nav id="mobile_main_nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="books.html">Browse Books</a></li>
                 </ul>
             </nav>
         </div>
-        <div id="overlay" aria-hidden="true"></div>
+        <div id="overlay"></div>
     </header>
     <main>
             <nav aria-label="Breadcrumb" class="breadcrumb">
