@@ -60,6 +60,18 @@ export const handleRelatedError = () => {
   document.querySelector("#errorText_related").innerText = msg;
   document.querySelector("#error_related").classList.remove("hidden");
 
+    const errorBox = document.querySelector("#error_related");
+    const errorText = document.querySelector("#errorText_related");
+    document.querySelector("#errorText_related").innerText = msg;
+    errorBox.classList.remove("hidden");
+    errorBox.scrollIntoView({ behavior: "smooth", block: "start" });
+    const hideError = () => {
+      errorBox.classList.add("hidden");
+      errorText.innerText = "";
+      document.removeEventListener("click", hideError);
+    };
+    document.addEventListener("click", hideError);
+
   const seeMoreBtn = document.querySelector("#see_more_btn");
   if (seeMoreBtn) {
     seeMoreBtn.classList.add("hidden");
