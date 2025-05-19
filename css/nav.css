@@ -34,6 +34,7 @@ body > header {
 
   a img {
     width: var(--logo-size);
+    height: auto;
     padding: var(--spacing-lg);
   }
 }

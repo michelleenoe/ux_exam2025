@@ -38,9 +38,18 @@ export const handleLoanButton = (card, userId) => {
 
 
 export const updateBookLinks = (card, book) => {
-  // Update all <a> tags to point to the book detail page
-  card.querySelectorAll("a").forEach((link) => {
-    link.href = `book.html?book_id=${book.book_id}`;
-  });
+  // Update the image link (first <a> tag)
+  const imageLink = card.querySelector("a.book_image_link");
+  if (imageLink) {
+    imageLink.href = `book.html?book_id=${book.book_id}`;
+    imageLink.setAttribute("aria-label", `Cover image of ${book.title}`);
+  }
 
+  // Update the "Read More" link
+  const readMoreLink = card.querySelector("a.readmore_link");
+  if (readMoreLink) {
+    readMoreLink.href = `book.html?book_id=${book.book_id}`;
+    readMoreLink.innerHTML = `Read More<span class="sr-only"> about ${book.title}</span>`;
+    readMoreLink.setAttribute("aria-label", `Read more about ${book.title}`);
+  }
 };

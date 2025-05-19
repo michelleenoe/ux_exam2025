@@ -4,10 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Access thousands of books online. Discover, borrow, and read instantly — for free. Start your digital library journey today.">
+    <meta name="description"
+        content="Access thousands of books online. Discover, borrow, and read instantly — for free. Start your digital library journey today.">
     <title>Chapter | Your online library</title>
     <link rel="icon" href="assets/images/favicon.webp" type="image/png">
     <link rel="stylesheet" href="./css/home.css">
+    <link rel="preload" as="image"
+        href="assets/images/abstract-blur-defocused-library-book-store-shop-interior_mob.webp"
+        media="(max-width: 767px)">
+    <link rel="preload" as="image"
+        href="assets/images/abstract-blur-defocused-library-book-store-shop-interior_desk.jpg"
+        media="(min-width: 768px)">
     <script type="module" src="./js/script.js" defer></script>
     <script type="module" src="./js/trendingBooks.js" defer></script>
 </head>
@@ -116,18 +123,14 @@
     </main>
     <footer>
         <div id="social_icons">
-            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-                <img src="./assets/icons/Twitter.svg" alt="Twitter logo" height="30" width="30">
-            </a>
-            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-                <img src="./assets/icons/Linkedin.svg" alt="LinkedIn logo" height="30" width="30">
-            </a>
-            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-                <img src="./assets/icons/Facebook.svg" alt="Facebook logo" height="30" width="30">
-            </a>
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-                <img src="./assets/icons/Instagram.svg" alt="Instagram logo" height="30" width="30">
-            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><img src="./assets/icons/Twitter.svg"
+                    alt="Twitter logo" height="30" width="30"></a>
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><img src="./assets/icons/Linkedin.svg"
+                    alt="LinkedIn logo" height="30" width="30"></a>
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><img src="./assets/icons/Facebook.svg"
+                    alt="Facebook logo" height="30" width="30"></a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><img
+                    src="./assets/icons/Instagram.svg" alt="Instagram logo" height="30" width="30"></a>
         </div>
         <p id="footer-copy">&copy; 2025 KEA Development</p>
     </footer>
@@ -136,22 +139,21 @@
     </button>
     <template id="trending_template">
         <article class="book_card">
-            <a href="" aria-label="Book details">
-                <img class="book_cover" src="" alt="Book cover">
+            <a href="" class="book_image_link" aria-label="Book details">
+                <img class="book_cover" src="" alt="" loading="lazy">
             </a>
             <div class="book_wrapper">
                 <div class="book_info">
-                    <h3 class="book_title"></h3>
+                    <h2 class="book_title"></h2>
                 </div>
                 <div class="book_card_btns">
                     <button class="loan_btn" aria-label="Loan this book">
                         Loan Book
                     </button>
                     <div class="readmore_btn">
-                        <a href="">Read More</a>
+                        <a href="" class="readmore_link" aria-label="">Read More</a>
                     </div>
                 </div>
-
             </div>
         </article>
     </template>

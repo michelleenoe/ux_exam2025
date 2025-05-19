@@ -7,9 +7,9 @@
     <meta name="description" content="Browse our extensive online collection of books by category, author, or title. Find your next great read.">
     <title>Book Collection | Browse & Borrow Online</title>
     <link rel="icon" href="assets/images/favicon.webp" type="image/png">
-    <link rel="stylesheet" href="./css/books.css">
-    <script type="module" src="./js/script.js"></script>
-    <script type="module" src="./js/books.js"></script>
+    <link rel="stylesheet" href="./css/books.css" defer>
+    <script type="module" src="./js/script.js" defer></script>
+    <script type="module" src="./js/books.js" defer></script>
 </head>
 
 <body>
@@ -121,13 +121,13 @@
     <footer>
         <div id="social_icons">
             <a href="https://twitter.com" target="_blank" aria-label="Twitter"><img src="./assets/icons/Twitter.svg"
-                    alt="Twitter logo" height="30" width="30"></a>
+                    alt="Twitter logo" height="30" width="30" loading="lazy"></a>
             <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><img src="./assets/icons/Linkedin.svg"
-                    alt="LinkedIn logo" height="30" width="30"></a>
+                    alt="LinkedIn logo" height="30" width="30" loading="lazy"></a>
             <a href="https://facebook.com" target="_blank" aria-label="Facebook"><img src="./assets/icons/Facebook.svg"
-                    alt="Facebook logo" height="30" width="30"></a>
+                    alt="Facebook logo" height="30" width="30" loading="lazy"></a>
             <a href="https://instagram.com" target="_blank" aria-label="Instagram"><img
-                    src="./assets/icons/Instagram.svg" alt="Instagram logo" height="30" width="30"></a>
+                    src="./assets/icons/Instagram.svg" alt="Instagram logo" height="30" width="30" loading="lazy"></a>
         </div>
         <p id="footer-copy">&copy; 2025 KEA Development</p>
     </footer>
@@ -137,14 +137,20 @@
 
     <template id="showAllBooks_template">
         <article class="book_card">
-            <a href="" aria-label="Book details"><img class="book_cover" src="" alt="Book cover"></a>
+            <a href="" class="book_image_link" aria-label="Book details">
+                <img class="book_cover" src="" alt="" loading="lazy">
+            </a>
             <div class="book_wrapper">
                 <div class="book_info">
-                    <h3 class="book_title"></h3>
+                    <h2 class="book_title"></h2>
                 </div>
                 <div class="book_card_btns">
-                    <button class="loan_btn" aria-label="Loan this book">Loan Book</button>
-                    <div class="readmore_btn"><a href="" aria-label="Read more about this book">Read More</a></div>
+                    <button class="loan_btn" aria-label="Loan this book">
+                        Loan Book
+                    </button>
+                    <div class="readmore_btn">
+                        <a href="" class="readmore_link" aria-label="">Read More</a>
+                    </div>
                 </div>
             </div>
         </article>

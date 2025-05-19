@@ -8,4 +8,12 @@ window.addEventListener("DOMContentLoaded", () => {
   utilityLog();
   initLogout();
   backToTop();
+
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(() => {
+        backToTop();
+      });
+    } else {
+      setTimeout(() => backToTop(), 200);
+    }
 });
