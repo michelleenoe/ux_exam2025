@@ -27,7 +27,6 @@ tabs[0].classList.add('active');
 
 tabs.forEach(btn => {
   btn.addEventListener('click', () => {
-    // 1) Opdater active-klasse på knapper
     tabs.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
