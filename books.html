@@ -69,13 +69,13 @@
         <div id="overlay" aria-hidden="true"></div>
     </header>
     <main>
-        <nav aria-label="Breadcrumb" class="breadcrumb">
-            <ol>
-                <li><a href="index.html">Home</a></li>
-                <li aria-current="page" id="currentBrowseBooks">Browse Books</li>
-            </ol>
-        </nav>
-        <section id="browse_books">
+            <nav aria-label="Breadcrumb" class="breadcrumb">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li aria-current="page" id="currentBrowseBooks">Browse Books</li>
+                </ol>
+            </nav>
+        <section id="browse_books" aria-label="Browse books section">
             <header id="browse_books_header">
                 <h1>Find Your Next Read</h1>
                 <p>Explore thousands of titles across every genre. Log in to borrow books and start reading today – it's
@@ -83,16 +83,15 @@
                 <form role="search" aria-label="Search books">
                     <div class="select_wrapper">
                         <label for="select_author">Filter by author</label>
-                        <select id="select_author">
+                        <select id="select_author" aria-label="Filter by author">
                             <option value="all">All authors</option>
                         </select>
                     </div>
                     <div class="search_wrapper">
                         <label for="search_input">Search by title or author</label>
                         <input type="search" id="search_input" name="search" aria-label="Search by title or author">
-                        <button id="search_btn" type="submit" class="btn-primary" aria-label="Search books">
-                            Search
-                        </button>
+                        <button id="search_btn" type="submit" class="btn-primary"
+                            aria-label="Search books">Search</button>
                     </div>
                 </form>
             </header>
@@ -104,59 +103,48 @@
                 <p id="errorText"></p>
             </section>
 
-            <div id="showAllBooks_book_list"></div>
+            <div id="showAllBooks_book_list" aria-live="polite" aria-label="Book list"></div>
             <dialog id="loan_modal" class="modal" aria-label="Loan confirmation dialog">
                 <div class="modal_content">
                     <button id="modal_close_btn" aria-label="Close dialog">
                         <img src="assets/icons/X.svg" alt="Close dialog icon">
                     </button>
-                    <p class="modal_message">Thank You for Your loan. Please check Your email to receive the e-book. It
+                    <p class="modal_message">Thank you for your loan. Please check your email to receive the e-book. It
                         will be active for 30 days.</p>
                 </div>
             </dialog>
-            <div>
-                <button id="load_more_btn" type="button" aria-label="Load more books">Load more</button>
-            </div>
+            <div><button id="load_more_btn" type="button" aria-label="Load more books">Load more</button></div>
         </section>
-
     </main>
+
     <footer>
         <div id="social_icons">
-            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-                <img src="./assets/icons/Twitter.svg" alt="Twitter logo" height="30" width="30">
-            </a>
-            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-                <img src="./assets/icons/Linkedin.svg" alt="LinkedIn logo" height="30" width="30">
-            </a>
-            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-                <img src="./assets/icons/Facebook.svg" alt="Facebook logo" height="30" width="30">
-            </a>
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-                <img src="./assets/icons/Instagram.svg" alt="Instagram logo" height="30" width="30">
-            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><img src="./assets/icons/Twitter.svg"
+                    alt="Twitter logo" height="30" width="30"></a>
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><img src="./assets/icons/Linkedin.svg"
+                    alt="LinkedIn logo" height="30" width="30"></a>
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><img src="./assets/icons/Facebook.svg"
+                    alt="Facebook logo" height="30" width="30"></a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><img
+                    src="./assets/icons/Instagram.svg" alt="Instagram logo" height="30" width="30"></a>
         </div>
         <p id="footer-copy">&copy; 2025 KEA Development</p>
     </footer>
-    <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt="Back to top icon"></button>
+
+    <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg"
+            alt="Back to top icon"></button>
 
     <template id="showAllBooks_template">
         <article class="book_card">
-            <a href="" aria-label="Book details">
-                <img class="book_cover" src="" alt="Book cover">
-            </a>
+            <a href="" aria-label="Book details"><img class="book_cover" src="" alt="Book cover"></a>
             <div class="book_wrapper">
                 <div class="book_info">
                     <h3 class="book_title"></h3>
                 </div>
                 <div class="book_card_btns">
-                    <button class="loan_btn" aria-label="Loan this book">
-                        Loan Book
-                    </button>
-                    <div class="readmore_btn">
-                        <a href="" aria-label="Read more about this book">Read More</a>
-                    </div>
+                    <button class="loan_btn" aria-label="Loan this book">Loan Book</button>
+                    <div class="readmore_btn"><a href="" aria-label="Read more about this book">Read More</a></div>
                 </div>
-
             </div>
         </article>
     </template>
