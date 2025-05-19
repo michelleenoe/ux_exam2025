@@ -6,6 +6,12 @@ main {
   box-sizing: border-box;
   justify-items: center;
 
+  h1{
+      font-size: var(--font-size-xl);
+      margin: var(--spacing-xxxl) 0 var(--spacing-xxl);
+      text-align: center;
+  }
+
   @media (min-width: 768px) {
     padding: 0 var(--spacing-5xl) var(--spacing-4xl) var(--spacing-5xl);
   }
@@ -86,6 +92,7 @@ main {
     font-weight: var(--font-bold);
     margin-bottom: var(--spacing-lg);
     text-align: center;
+    justify-content: center;
     cursor: pointer;
 
     &:hover {
