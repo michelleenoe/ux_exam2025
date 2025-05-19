@@ -13,27 +13,27 @@
 
 <body>
     <header>
-        <a href="index.html" title="Back to homepage">
+        <a href="index.html" title="Back to homepage" aria-label="Go to homepage">
             <img src="assets/images/logo.webp" alt="Chapter Logo" class="logo">
         </a>
         <div id="desktop_menu">
-            <nav id="main_nav">
+            <nav id="main_nav" aria-label="Primary navigation">
                 <ul>
                     <li><a href="index.html" title="Homepage">Home</a></li>
                     <li><a href="books.html" title="Browse Books">Browse Books</a></li>
                 </ul>
             </nav>
-            <nav id="utility_not_logged">
+            <nav id="utility_not_logged" aria-label="Utility navigation for guests">
                 <ul>
                     <li><a href="login.html" title="Log in">Log in</a></li>
                     <li><a href="signup.html" title="Sign up">Sign up</a></li>
                 </ul>
             </nav>
-            <nav id="utility_logged">
+            <nav id="utility_logged" aria-label="Utility navigation for authenticated users">
                 <ul>
                     <li id="profile_desk"><a href="profile.html" title="Profile">Profile</a></li>
                     <li id="admin_desk"><a href="admin.html" title="Admin">Admin</a></li>
-                    <li><button class="btnLogout">Logout</button></li>
+                    <li><button class="btnLogout" aria-label="Log out">Logout</button></li>
                 </ul>
             </nav>
         </div>
@@ -46,20 +46,20 @@
             <button id="close_btn" aria-label="Close menu">
                 <img src="assets/icons/X.svg" alt="Close menu icon">
             </button>
-            <nav id="mobile_utility_not_logged">
+            <nav id="mobile_utility_not_logged" aria-label="Mobile utility navigation for guests">
                 <ul>
                     <li><a href="login.html">Log in</a></li>
                     <li><a href="signup.html">Sign up</a></li>
                 </ul>
             </nav>
-            <nav id="mobile_utility_logged">
+            <nav id="mobile_utility_logged" aria-label="Mobile utility navigation for authenticated users">
                 <ul>
                     <li id="profile_mob"><a href="profile.html">Profile</a></li>
                     <li id="admin_mob"><a href="admin.html">Admin</a></li>
-                    <li><button class="btnLogout">Logout</button></li>
+                    <li><button class="btnLogout" aria-label="Log out">Logout</button></li>
                 </ul>
             </nav>
-            <nav id="mobile_main_nav">
+            <nav id="mobile_main_nav" aria-label="Mobile primary navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="books.html">Browse Books</a></li>
@@ -89,73 +89,74 @@
                     </div>
                     <div class="search_wrapper">
                         <label for="search_input">Search by title or author</label>
-                        <input type="search" id="search_input" name="search">
-                        <button id="search_btn" type="submit" class="btn-primary">
+                        <input type="search" id="search_input" name="search" aria-label="Search by title or author">
+                        <button id="search_btn" type="submit" class="btn-primary" aria-label="Search books">
                             Search
                         </button>
                     </div>
                 </form>
             </header>
 
-            <section id="error" class="hidden">
+            <section id="error" class="hidden" aria-live="assertive" aria-label="Error message">
                 <header>
                     <h2>Error</h2>
                 </header>
                 <p id="errorText"></p>
             </section>
 
-            <div id="showAllBooks_book_list" aria-live="polite"></div>
-            <dialog id="loan_modal" class="modal">
+            <div id="showAllBooks_book_list"></div>
+            <dialog id="loan_modal" class="modal" aria-label="Loan confirmation dialog">
                 <div class="modal_content">
-                    <button id="modal_close_btn" aria-label="Close menu">
-                        <img src="assets/icons/X.svg" alt="Close menu icon">
+                    <button id="modal_close_btn" aria-label="Close dialog">
+                        <img src="assets/icons/X.svg" alt="Close dialog icon">
                     </button>
-                    <p class="modal_message">Thank You for Your loan. Please check Your email to recive the e-book. It
+                    <p class="modal_message">Thank You for Your loan. Please check Your email to receive the e-book. It
                         will be active for 30 days.</p>
                 </div>
             </dialog>
             <div>
-                <button id="load_more_btn" type="button">Load more</button>
+                <button id="load_more_btn" type="button" aria-label="Load more books">Load more</button>
             </div>
         </section>
 
     </main>
     <footer>
         <div id="social_icons">
-            <a href="https://twitter.com" target="_blank">
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
                 <img src="./assets/icons/Twitter.svg" alt="Twitter logo" height="30" width="30">
             </a>
-            <a href="https://linkedin.com" target="_blank">
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
                 <img src="./assets/icons/Linkedin.svg" alt="LinkedIn logo" height="30" width="30">
             </a>
-            <a href="https://facebook.com" target="_blank">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
                 <img src="./assets/icons/Facebook.svg" alt="Facebook logo" height="30" width="30">
             </a>
-            <a href="https://instagram.com" target="_blank">
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
                 <img src="./assets/icons/Instagram.svg" alt="Instagram logo" height="30" width="30">
             </a>
         </div>
         <p id="footer-copy">&copy; 2025 KEA Development</p>
     </footer>
-    <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt=""></button>
+    <button id="backToTop" aria-label="Back to top"><img src="./assets/icons/Chevronup.svg" alt="Back to top icon"></button>
 
     <template id="showAllBooks_template">
         <article class="book_card">
-            <a href="">
-                <img class="book_cover" src="" alt="">
+            <a href="" aria-label="Book details">
+                <img class="book_cover" src="" alt="Book cover">
             </a>
             <div class="book_wrapper">
                 <div class="book_info">
                     <h3 class="book_title"></h3>
                 </div>
                 <div class="book_card_btns">
-                    <button class="loan_btn">
+                    <button class="loan_btn" aria-label="Loan this book">
                         Loan Book
                     </button>
                     <div class="readmore_btn">
-                        <a href="">Read More</a>
+                        <a href="" aria-label="Read more about this book">Read More</a>
                     </div>
                 </div>
+
             </div>
         </article>
     </template>
