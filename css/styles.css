@@ -116,3 +116,4 @@ input[type="search"] {
   line-height: var(--a-lineheight);
 
 }
+[aria-hidden="true"] { display: none; }
