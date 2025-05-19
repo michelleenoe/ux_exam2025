@@ -7,6 +7,7 @@ body {
     text-align: center;
   }
 
+  
   main#admin {
     section {
       h2.add_btn {
@@ -32,6 +33,7 @@ body {
         margin: auto;
       }
     }
+    
 
     #adminMenu {
       display: flex;
@@ -112,4 +114,7 @@ body {
       }
     }
   }
+}
+.admin-section[aria-hidden="true"] {
+  display: none;
 }
