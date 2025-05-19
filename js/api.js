@@ -37,12 +37,17 @@ export const handleError = (data) => {
     }
   }
 
-  // Set error message
+  const errorBox  = document.querySelector("#error");
+  const errorText = document.querySelector("#errorText");
   document.querySelector("#errorText").innerText = msg;
-
-  // Make the error box visible
-  document.querySelector("#error").classList.remove("hidden");
-
+  errorBox.classList.remove("hidden");
+  errorBox.scrollIntoView({ behavior: "smooth", block: "start" });
+  const hideError = () => {
+    errorBox.classList.add("hidden");
+    errorText.innerText = "";
+    document.removeEventListener("click", hideError);
+  };
+  document.addEventListener("click", hideError);
 };
 
 export const getHeader = () =>
