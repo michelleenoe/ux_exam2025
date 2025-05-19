@@ -21,15 +21,21 @@ initBookLookup();
 
 
 const tabs = document.querySelectorAll('#adminMenu button');
+const sections = document.querySelectorAll('.admin-section');
+
+tabs[0].classList.add('active');
+
 tabs.forEach(btn => {
   btn.addEventListener('click', () => {
     tabs.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    const target = btn.dataset.target;
-    document.querySelectorAll('.admin-section')
-      .forEach(s => s.classList.add('hidden'));
-    document.getElementById(target).classList.remove('hidden');
+
+    sections.forEach(sec => {
+      sec.classList.add('hidden');
+      sec.setAttribute('aria-hidden', 'true');
+    });
+    const target = document.getElementById(btn.dataset.target);
+    target.classList.remove('hidden');
+    target.setAttribute('aria-hidden', 'false');
   });
 });
-
-tabs[0].classList.add('active');
