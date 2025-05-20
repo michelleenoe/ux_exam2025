@@ -8,6 +8,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+[aria-hidden="true"] {
+  display: none;
+  visibility: hidden;
+}
+[aria-hidden="false"] {
+  display: flex;
+}
 
 body {
   background-color: var(--light-background-color);
