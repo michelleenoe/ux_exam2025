@@ -20,22 +20,22 @@ initPublisherForm();
 initBookLookup();
 
 
-const tabs = document.querySelectorAll('#adminMenu button');
-const sections = document.querySelectorAll('.admin-section');
+const tabs = document.querySelectorAll("#adminMenu button");
+const sections = document.querySelectorAll(".admin-section");
 
-tabs[0].classList.add('active');
+tabs[0].classList.add("active");
 
 tabs.forEach(btn => {
-  btn.addEventListener('click', () => {
-    tabs.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+  btn.addEventListener("click", () => {
+    tabs.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
 
     sections.forEach(sec => {
-      sec.classList.add('hidden');
-      sec.setAttribute('aria-hidden', 'true');
+      sec.classList.add("hidden");
+      sec.setAttribute("aria-hidden", "true");
     });
     const target = document.getElementById(btn.dataset.target);
-    target.classList.remove('hidden');
-    target.setAttribute('aria-hidden', 'false');
+    target.classList.remove("hidden");
+    target.setAttribute("aria-hidden", "false");
   });
 });
