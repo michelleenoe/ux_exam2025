@@ -1,5 +1,5 @@
 import { BASE_URL, FALLBACK_IMAGE } from "./info.js";
-import { handleError, handleAPIError } from "./api.js";
+import { handleError, handleAPIError, getHeader } from "./api.js";
 import { showLoanModal } from "./modal.js";
 
 export const loadBookImage = (imgElement, book, title) => {
@@ -17,23 +17,36 @@ export const loadBookImage = (imgElement, book, title) => {
     .catch(handleError);
 };
 
-export const handleLoanButton = (card, userId) => {
+
+export const handleLoanButton = (card, userId, bookId) => {
   const loanBtn = card.querySelector(".loan_btn");
 
   if (loanBtn) {
-    loanBtn.addEventListener("click", (event) => {
-      event.preventDefault();
-      showLoanModal();
-    });
-
-
     if (!userId) {
       loanBtn.classList.add("hidden");
+      return;
     } else {
       loanBtn.classList.remove("hidden");
     }
+
+    loanBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      fetch(`${BASE_URL}/users/${userId}/books/${bookId}`, {
+        method: "POST",
+        headers: getHeader(),
+      })
+        .then(handleAPIError)
+        .then((data) => {
+          showLoanModal();
+        })
+        .catch(handleError);
+    });
   }
 };
+
+
+
 
 
 export const updateBookLinks = (card, book) => {

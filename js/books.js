@@ -82,7 +82,7 @@ const renderBooks = (books) => {
     loadBookImage(img, book, book.title);
     card.querySelector(".book_title").innerText = book.title;
 
-    handleLoanButton(card, userId);
+    handleLoanButton(card, userId, book.book_id);
     updateBookLinks(card, book);
 
     fragment.append(card);
