@@ -20,14 +20,13 @@ export const loadBookImage = (imgElement, book, title) => {
 export const handleLoanButton = (card, userId) => {
   const loanBtn = card.querySelector(".loan_btn");
 
-  // Always add the event listener if the button exists
   if (loanBtn) {
     loanBtn.addEventListener("click", (event) => {
       event.preventDefault();
       showLoanModal();
     });
 
-    // Hide or show the button based on userId
+
     if (!userId) {
       loanBtn.classList.add("hidden");
     } else {
@@ -38,14 +37,12 @@ export const handleLoanButton = (card, userId) => {
 
 
 export const updateBookLinks = (card, book) => {
-  // Update the image link (first <a> tag)
   const imageLink = card.querySelector("a.book_image_link");
   if (imageLink) {
     imageLink.href = `book.html?book_id=${book.book_id}`;
     imageLink.setAttribute("aria-label", `Cover image of ${book.title}`);
   }
 
-  // Update the "Read More" link
   const readMoreLink = card.querySelector("a.readmore_link");
   if (readMoreLink) {
     readMoreLink.href = `book.html?book_id=${book.book_id}`;
