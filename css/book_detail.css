@@ -19,6 +19,7 @@
 #single_book_detail {
   display: flex;
   justify-content: center;
+  min-height: var(--height-lg) ;
 }
 
 .book_detail_card {
