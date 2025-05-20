@@ -3,9 +3,10 @@ import { utilityLog } from "./utilityLog.js";
 import { initLogout } from "./logout.js";
 import { backToTop } from "./backToTop.js";
 
+utilityLog();
+
 window.addEventListener("DOMContentLoaded", () => {
   burgerMenu();
-  utilityLog();
   initLogout();
   backToTop();
 
