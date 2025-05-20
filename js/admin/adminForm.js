@@ -56,7 +56,9 @@ function showSuccess(message) {
   errorBox.classList.add("hidden");
   successText.innerText = message;
   successBox.classList.remove("hidden");
+  successBox.setAttribute("aria-hidden", "false");
   setTimeout(() => successBox.classList.add("hidden"), 3000);
+  setTimeout(() => successBox.setAttribute("aria-hidden", "true"), 3000);
 }
 
 export const initBookForm = () => {

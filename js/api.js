@@ -41,9 +41,11 @@ export const handleError = (data) => {
   const errorText = document.querySelector("#errorText");
   document.querySelector("#errorText").innerText = msg;
   errorBox.classList.remove("hidden");
+  errorBox.setAttribute("aria-hidden", "false"); 
   errorBox.scrollIntoView({ behavior: "smooth", block: "start" });
   const hideError = () => {
     errorBox.classList.add("hidden");
+    errorBox.setAttribute("aria-hidden", "true");
     errorText.innerText = "";
     document.removeEventListener("click", hideError);
   };
@@ -63,11 +65,13 @@ export const handleRelatedError = () => {
     const errorBox = document.querySelector("#error_related");
     const errorText = document.querySelector("#errorText_related");
     document.querySelector("#errorText_related").innerText = msg;
+    errorBox.setAttribute("aria-hidden", "false");
     errorBox.classList.remove("hidden");
     errorBox.scrollIntoView({ behavior: "smooth", block: "start" });
     const hideError = () => {
       errorBox.classList.add("hidden");
       errorText.innerText = "";
+      errorBox.setAttribute("aria-hidden", "true");
       document.removeEventListener("click", hideError);
     };
     document.addEventListener("click", hideError);
