@@ -33,8 +33,9 @@
   width: var(--full-scale);
 
   .book_detail_cover {
-    width: var(--width-md);
     height: auto;
+    width: var(--full-scale);
+    max-width: var(--width-md);
     object-fit: cover;
     display: block;
   }
