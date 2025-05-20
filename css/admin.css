@@ -64,6 +64,10 @@ body {
       }
     }
 
+    #bookInfo{
+      padding: 0 var(--spacing-xxl);
+    }
+
     .loan-history-table {
       width: var(--full-scale);
       border-collapse: collapse;
@@ -83,7 +87,8 @@ body {
     }
 
     form {
-      min-width: var(--width-md);
+      width: var(--full-scale);
+      max-width: var(--width-md);
 
       select {
         min-height: var(--touch-size);
@@ -95,6 +100,10 @@ body {
         margin-bottom: var(--spacing-xxl);
         cursor: pointer;
       }
+
+    @media (min-width: 200px){
+      max-width: var(--width-md);
+    }
     
     @media (min-width: 500px) {
       min-width: var(--width-lg);
