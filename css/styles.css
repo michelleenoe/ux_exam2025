@@ -8,10 +8,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 [aria-hidden="true"] {
   display: none;
   visibility: hidden;
 }
+
 [aria-hidden="false"] {
   display: block;
 }
@@ -27,7 +29,16 @@ body {
     font-family: var(--font-head);
   }
 
-  h2, h3, h4, p, a, label, small, th, tbody, li{
+  h2,
+  h3,
+  h4,
+  p,
+  a,
+  label,
+  small,
+  th,
+  tbody,
+  li {
     font-family: var(--font-main);
   }
 
@@ -41,7 +52,8 @@ body {
 
 }
 
-#error, #error_related {
+#error,
+#error_related {
   background-color: var(--error-bg);
   color: var(--error-color);
   border: var(--border-width-md) solid var(--error-color);
@@ -117,7 +129,10 @@ input[type="search"] {
   line-height: var(--a-lineheight);
 
 }
-[aria-hidden="true"] { display: none; }
+
+[aria-hidden="true"] {
+  display: none;
+}
 
 
 .sr-only {

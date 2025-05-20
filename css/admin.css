@@ -8,10 +8,11 @@ body {
   }
 
   main#admin {
-  width: var(--full-scale);
-  justify-items: center;
-  justify-content: center;
-  align-items: center;
+    width: var(--full-scale);
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+
     section {
       h2.add_btn {
         font-size: var(--font-size-lg);
@@ -31,10 +32,10 @@ body {
       gap: var(--spacing-xl);
       margin-top: var(--spacing-xxl);
       margin-bottom: var(--spacing-xxl);
-      
+
 
       button {
-        background-color:var(--light-background-color);
+        background-color: var(--light-background-color);
         justify-content: center;
         border: var(--border-width-md) solid var(--primary-color);
         border-radius: var(--border-radius-md);
@@ -64,7 +65,7 @@ body {
       }
     }
 
-    #bookInfo{
+    #bookInfo {
       padding: 0 var(--spacing-xxl);
     }
 
@@ -101,17 +102,18 @@ body {
         cursor: pointer;
       }
 
-    @media (min-width: 200px){
-      max-width: var(--width-md);
-    }
-    
-    @media (min-width: 500px) {
-      min-width: var(--width-lg);
+      @media (min-width: 200px) {
+        max-width: var(--width-md);
+      }
 
-}
+      @media (min-width: 500px) {
+        min-width: var(--width-lg);
+
+      }
     }
   }
 }
+
 .admin-section[aria-hidden="true"] {
   display: none;
 }
@@ -120,14 +122,15 @@ body {
   body {
     & main#admin {
       & #adminMenu {
-        display:flex;
+        display: flex;
 
-}
-button {
-  flex: 1;
-  min-width: 0;
-  white-space: nowrap; 
-}
-}
-}
+      }
+
+      button {
+        flex: 1;
+        min-width: 0;
+        white-space: nowrap;
+      }
+    }
+  }
 }

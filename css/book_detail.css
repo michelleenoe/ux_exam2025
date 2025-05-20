@@ -19,7 +19,7 @@
 #single_book_detail {
   display: flex;
   justify-content: center;
-  min-height: var(--height-lg) ;
+  min-height: var(--height-lg);
 }
 
 .book_detail_card {
@@ -147,8 +147,8 @@
   align-items: center;
   color: var(--primary-color);
   cursor: pointer;
-  margin-top:var(--spacing-4xl);
-  
+  margin-top: var(--spacing-4xl);
+
 
   a {
     text-decoration: none;
@@ -164,4 +164,3 @@
     }
   }
 }
-

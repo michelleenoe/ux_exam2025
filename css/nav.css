@@ -1,6 +1,6 @@
 @import "styles.css";
 
-body > header {
+body>header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,8 +39,8 @@ body > header {
   }
 }
 
-#admin_mob{
-  a{
+#admin_mob {
+  a {
     justify-content: center;
     text-align: center;
   }
@@ -55,7 +55,9 @@ body > header {
   display: block;
 }
 
-.btnLogout, #close_btn, #burger_btn {
+.btnLogout,
+#close_btn,
+#burger_btn {
   cursor: pointer;
 }
 
@@ -67,7 +69,9 @@ body > header {
   border-radius: var(--border-radius-md);
 }
 
-#close_btn, #burger_btn, .btnLogout{
+#close_btn,
+#burger_btn,
+.btnLogout {
   background: none;
   border: none;
 
@@ -149,11 +153,12 @@ body > header {
   right: 0;
 }
 
-#side_menu.open ~ #overlay {
+#side_menu.open~#overlay {
   display: block;
 }
 
 @media (min-width: 768px) {
+
   #burger_btn,
   #side_menu {
     display: none;
@@ -255,5 +260,3 @@ body > header {
     }
   }
 }
-
-

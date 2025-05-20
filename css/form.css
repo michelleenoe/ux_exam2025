@@ -2,10 +2,10 @@
 
 main {
 
-  h1{
-      font-size: var(--font-size-xl);
-      margin: var(--spacing-xxxl) 0 var(--spacing-xxl);
-      text-align: center;
+  h1 {
+    font-size: var(--font-size-xl);
+    margin: var(--spacing-xxxl) 0 var(--spacing-xxl);
+    text-align: center;
   }
 
   @media (min-width: 768px) {
@@ -77,16 +77,16 @@ main {
     label {
       margin-left: var(--spacing-sm);
       font-size: var(--font-size-sm);
-      height:  var(--new-touch-target);
+      height: var(--new-touch-target);
       align-content: center
     }
-    
+
   }
 
   .field.checkbox:has(input:focus-visible) {
-  outline: var(--border-width-md) solid var(--focus-color, var(--primary-color));
-  border-radius: var(--border-radius-sm);
-}
+    outline: var(--border-width-md) solid var(--focus-color, var(--primary-color));
+    border-radius: var(--border-radius-sm);
+  }
 
 
   .btn-primary {

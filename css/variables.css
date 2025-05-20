@@ -9,11 +9,11 @@
     --tertiary-color: #707070;
     --hover-color: #A49FFC;
     --input-bg: #c1e1f1;
-    --focus-color:#007bff;
-    
+    --focus-color: #007bff;
+
     /* error colors */
-    --error-bg: #FFE0E0; 
-    --error-color: #B00020; 
+    --error-bg: #FFE0E0;
+    --error-color: #B00020;
 
     /* success colors */
     --success-bg: #E0FFE0;
@@ -22,51 +22,51 @@
     --light-background-color: #FFFFFF;
     --secondary-background-color: #2B2B2B;
 
-    --dark-text-color: #2B2B2B; 
-    --light-text-color: #FFFFFF; 
+    --dark-text-color: #2B2B2B;
+    --light-text-color: #FFFFFF;
 
     /* Typography */
     --font-head: "Open Sans", sans-serif;
-    --font-main:"Inter", sans-serif;
+    --font-main: "Inter", sans-serif;
 
     /* Font Sizes */
-    --font-size-sm: clamp(0.75rem, 1vw, 0.875rem);  
-    --font-size-md: clamp(0.875rem, 1.2vw, 1rem);   
-    --font-size-lg: clamp(1.1rem, 1.3vw, 1.25rem);    
-    --font-size-xl: clamp(1.5rem, 2vw, 1.5rem);    
+    --font-size-sm: clamp(0.75rem, 1vw, 0.875rem);
+    --font-size-md: clamp(0.875rem, 1.2vw, 1rem);
+    --font-size-lg: clamp(1.1rem, 1.3vw, 1.25rem);
+    --font-size-xl: clamp(1.5rem, 2vw, 1.5rem);
     --font-size-xxl: clamp(1.75rem, 3.5vw, 2.5rem);
-    --font-size-header:clamp(1.5rem, 2.5vw, 2rem);    
+    --font-size-header: clamp(1.5rem, 2.5vw, 2rem);
 
     /* Font Weight */
     --font-light: 300;
-    --font-semibold: 400; 
-    --font-bold: 500; 
+    --font-semibold: 400;
+    --font-bold: 500;
     --font-bolder: 600;
 
     /* Line Height */
     --standard-line-height: 1.5rem;
-    --book-title-line-height:1.4;
-    --a-lineheight:1;
+    --book-title-line-height: 1.4;
+    --a-lineheight: 1;
 
     /* Spacing */
     --spacing-minus-xxl: -2rem;
-    --spacing-xs: 0.125rem ;  
-    --spacing-sm: 0.25rem ;    
-    --spacing-md: 0.5rem ;      
-    --spacing-lg: 0.8rem ;      
-    --spacing-xl: 1rem ;          
-    --spacing-xxl: 1.5rem;       
-    --spacing-xxxl: 2rem;       
-    --spacing-4xl: 4rem;       
+    --spacing-xs: 0.125rem;
+    --spacing-sm: 0.25rem;
+    --spacing-md: 0.5rem;
+    --spacing-lg: 0.8rem;
+    --spacing-xl: 1rem;
+    --spacing-xxl: 1.5rem;
+    --spacing-xxxl: 2rem;
+    --spacing-4xl: 4rem;
     --spacing-5xl: 5rem;
     --content-width-lg: 1200px;
-    --card-height:4.2rem;       
+    --card-height: 4.2rem;
 
     /* Border Radius */
     --border-radius-sm: 0.25rem;
-    --border-radius-md: 0.5rem;     
-    --border-radius-lg: 0.75rem;  
-    --border-radius-xl: 1rem;  
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 0.75rem;
+    --border-radius-xl: 1rem;
     --border-radius-full: 100%;
 
     /* Border width */
@@ -80,9 +80,9 @@
     --social-icon-size: 30px;
 
     /* scale */
-    --scale-minus-mini:-1px;
-    --scale-mini:1px;
-    --scale-sm:1.02;
+    --scale-minus-mini: -1px;
+    --scale-mini: 1px;
+    --scale-sm: 1.02;
     --full-scale: 100%;
     --width-xs: 150px;
     --width-s: 200px;
@@ -97,11 +97,11 @@
     --vh-30: 35vh;
     --vh-50: 50vh;
     --vh-50: 60vh;
-    --error-width:37.5rem;
+    --error-width: 37.5rem;
     --form-max-width: 34rem;
     --max-main-width: 1100px;
     --card-width: 250px;
-    --book-detail-width:800px;
+    --book-detail-width: 800px;
 
     /* opacity */
     --opacity-xs: 0.1;
@@ -111,14 +111,14 @@
     /* blur */
     --blur-sm: 5px;
 
-    /* touch, input and checkbox*/ 
-    --touch-size:3rem;
-    --checkbox-size:1.25rem;
-    --touch-target:0.95rem;
-    --new-touch-target:48px;
+    /* touch, input and checkbox*/
+    --touch-size: 3rem;
+    --checkbox-size: 1.25rem;
+    --touch-target: 0.95rem;
+    --new-touch-target: 48px;
 
     /* side_menu */
-    --right-side-menu:-250px;
+    --right-side-menu: -250px;
 
     /* z-index */
     --z-index-1: 1;
@@ -129,8 +129,8 @@
 
 
     /* transitions */
-    --trasnition-shorter:0.2s;
-    --trasnition-short:0.3s;
+    --trasnition-shorter: 0.2s;
+    --trasnition-short: 0.3s;
 
     /* character width */
     --ch-width-xs: 40ch;
@@ -144,14 +144,12 @@
     --shadow-px-xxl: 25px;
 
     /* hex */
-    --white-hex:255;
+    --white-hex: 255;
 
-    --aspec-ratio-1:1;
-    --aspec-ratio-2:2;
-    --aspec-ratio-3:3;
-    --aspec-ratio-4:4;
+    /* aspec ratio */
+    --aspec-ratio-1: 1;
+    --aspec-ratio-2: 2;
+    --aspec-ratio-3: 3;
+    --aspec-ratio-4: 4;
 
 }
-
-
-

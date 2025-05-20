@@ -110,10 +110,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top:var(--spacing-4xl);
+    margin-top: var(--spacing-4xl);
   }
 
-  #search_btn{
+  #search_btn {
     margin-bottom: var(--spacing-xxl);
   }
 }
