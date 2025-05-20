@@ -22,7 +22,7 @@ const fetchBooks = (numBooks = DEFAULT_BOOKS) => {
     .then((data) => {
       allBooks = data;
       updateBookList();
-      
+
     })
     .catch(handleError);
 };
@@ -56,6 +56,13 @@ const updateBookList = () => {
         book.title.toLowerCase().includes(query) ||
         book.author.toLowerCase().includes(query)
     );
+  }
+
+  if (filtered.length === 0 && query.length >= 2) {
+    container.innerHTML = "";
+    loadMoreBtn.classList.add("hidden");
+    handleError("No books matched your search. Please try again.");
+    return;
   }
   const booksToShow = filtered.slice(0, visibleCount);
   container.innerHTML = "";
