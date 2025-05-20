@@ -75,7 +75,7 @@ body {
 
       th,
       td {
-        border: var(--border-width-sm) solid var(--quaternary-color);
+        border: var(--border-width-sm) solid var(--tertiary-color);
         padding: var(--spacing-sm) var(--spacing-md);
         text-align: left;
       }

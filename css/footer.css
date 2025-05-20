@@ -14,7 +14,7 @@ footer {
     align-items: center;
     gap: var(--spacing-xxl);
     padding: var(--spacing-xxl) 0;
-    border-bottom: var(--border-width-sm) solid var(--quaternary-color);
+    border-bottom: var(--border-width-sm) solid var(--tertiary-color);
 
     a {
       text-decoration: none;

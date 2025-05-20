@@ -35,7 +35,6 @@ body > header {
   a img {
     width: var(--logo-size);
     height: auto;
-    padding: var(--spacing-lg);
   }
 }
 
@@ -106,7 +105,7 @@ body > header {
   #mobile_utility_not_logged ul,
   #mobile_utility_logged ul {
     display: flex;
-    border-bottom: var(--border-width-sm) solid var(--quaternary-color);
+    border-bottom: var(--border-width-sm) solid var(--tertiary-color);
     padding-bottom: var(--spacing-lg);
   }
 

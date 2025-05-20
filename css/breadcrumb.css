@@ -16,7 +16,7 @@
         &::after {
           content: "›";
           margin: 0 var(--spacing-md);
-          color: var(--quaternary-color);
+          color: var(--tertiary-color);
           font-size: var(--font-size-xl);
         }
   

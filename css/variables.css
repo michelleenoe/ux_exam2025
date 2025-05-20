@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..600&display=swap&text=abcdefghijklknoprstuxyABDEFILNRS");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300..600&display=swap");
+
+
 :root {
     /* Color Palette */
     --primary-color: #0064D0;
     --secondary-color: #493EFF;
-    --tertiary-color: #EF0000; 
-    --quaternary-color: #707070;
+    --tertiary-color: #707070;
     --hover-color: #A49FFC;
     --input-bg: #c1e1f1;
     --focus-color:#007bff;
@@ -23,6 +26,8 @@
     --light-text-color: #FFFFFF; 
 
     /* Typography */
+    --font-head: "Open Sans", sans-serif;
+    --font-main:"Inter", sans-serif;
 
     /* Font Sizes */
     --font-size-sm: clamp(0.75rem, 1vw, 0.875rem);  
@@ -88,7 +93,7 @@
     --height-lg: 400px;
     --vh-100: 100vh;
     --vw-100: 100vw;
-    --vh-30: 30vh;
+    --vh-30: 35vh;
     --vh-50: 50vh;
     --vh-50: 60vh;
     --error-width:37.5rem;
@@ -136,6 +141,9 @@
     --shadow-px-md: 4px;
     --shadow-px-lg: 8px;
     --shadow-px-xxl: 25px;
+
+    /* hex */
+    --white-hex:255;
 
     --aspec-ratio-3:3;
     --aspec-ratio-4:4;

@@ -14,7 +14,7 @@
     padding-bottom: var(--spacing-xl);
 
     #hero_text {
-        background-color: rgba(255, 255, 255, var(--opacity-md));
+        background-color: rgba(var(--white-hex), var(--white-hex), var(--white-hex), var(--opacity-md));
         padding: var(--spacing-lg);
         margin: var(--spacing-lg);
         border-radius: var(--border-radius-lg);

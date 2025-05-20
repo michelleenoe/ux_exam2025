@@ -61,7 +61,7 @@
       .book_detail_year,
       .book_detail_publisher {
         font-size: var(--font-size-lg);
-        color: var(--quaternary-color);
+        color: var(--tertiary-color);
         margin: var(--spacing-xs) 0;
         padding-bottom: var(--spacing-lg);
         font-weight: var(--font-bold);

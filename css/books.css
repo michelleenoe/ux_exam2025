@@ -25,7 +25,7 @@
     align-items: center;
     padding: 0 var(--spacing-lg) var(--spacing-xl) var(--spacing-lg);
     margin-bottom: var(--spacing-4xl);
-    border-bottom: var(--border-width-sm) solid var(--quaternary-color);
+    border-bottom: var(--border-width-sm) solid var(--tertiary-color);
 
     h1 {
       font-size: var(--font-size-xl);

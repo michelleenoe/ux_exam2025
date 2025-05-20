@@ -30,7 +30,7 @@ main {
     }
 
     input {
-      width: 100%;
+      width: var(--full-scale);
       min-height: var(--touch-size);
       padding: var(--spacing-md);
       border: var(--border-width-sm) solid transparent;

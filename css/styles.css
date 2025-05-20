@@ -12,12 +12,16 @@
 body {
   background-color: var(--light-background-color);
   color: var(--dark-text-color);
-  font-family: poppins, sans-serif;
   min-height: var(--vh-100);
 
 
   h1 {
     font-size: var(--font-size-xl);
+    font-family: var(--font-head);
+  }
+
+  h2, h3, h4, p, a, label, small, th, tbody, li{
+    font-family: var(--font-main);
   }
 
   .hidden {
