@@ -65,17 +65,29 @@ main {
     flex-direction: row;
     align-items: center;
     margin-bottom: var(--spacing-lg);
+    align-content: center;
 
     input {
       width: var(--checkbox-size);
+      padding: var(--new-touch-target);
       height: var(--checkbox-size);
+
     }
 
     label {
       margin-left: var(--spacing-sm);
       font-size: var(--font-size-sm);
+      height:  var(--new-touch-target);
+      align-content: center
     }
+    
   }
+
+  .field.checkbox:has(input:focus-visible) {
+  outline: var(--border-width-md) solid var(--focus-color, var(--primary-color));
+  border-radius: var(--border-radius-sm);
+}
+
 
   .btn-primary {
     width: var(--full-scale);

@@ -102,7 +102,6 @@ body {
 
 button,
 a,
-input[type="checkbox"],
 input[type="search"] {
   min-width: var(--new-touch-target);
   min-height: var(--new-touch-target);
