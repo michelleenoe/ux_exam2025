@@ -88,7 +88,7 @@ document.querySelector("#frmSignup").addEventListener("submit", (e) => {
     .then(handleAPIError)
     .then((data) => {
       if ("user_id" in data) {
-        window.location.href = "login.html";
+        window.location.replace("login.html");
       } else {
         throw new Error(data.error);
       }

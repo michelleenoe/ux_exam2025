@@ -37,8 +37,8 @@ document.querySelector("#frmLogin").addEventListener("submit", (e) => {
         sessionStorage.setItem("app_user_token", data.auth_token);
         sessionStorage.setItem("app_user_is_admin", data.is_admin);
 
-        window.location.href =
-          data.is_admin === 1 ? "admin.html" : "profile.html";
+        window.location.replace(data.is_admin === 1 ? "admin.html" : "profile.html");
+
       } else {
         throw new Error(data.error);
       }

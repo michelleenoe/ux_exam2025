@@ -7,7 +7,7 @@ function logout() {
 
   utilityLog();
 
-  window.location.href = "index.html";
+  window.location.replace("index.html");
 }
 
 export function initLogout() {
