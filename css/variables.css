@@ -91,6 +91,7 @@
     --width-mdd: 320px;
     --width-lg: 400px;
     --height-lg: 400px;
+    --height-xl: 450px;
     --vh-100: 100vh;
     --vw-100: 100vw;
     --vh-30: 35vh;
@@ -145,6 +146,7 @@
     /* hex */
     --white-hex:255;
 
+    --aspec-ratio-1:1;
     --aspec-ratio-2:2;
     --aspec-ratio-3:3;
     --aspec-ratio-4:4;

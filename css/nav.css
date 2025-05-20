@@ -34,7 +34,8 @@ body > header {
 
   a img {
     width: var(--logo-size);
-    height: auto;
+    aspect-ratio: var(--aspec-ratio-3) / var(--aspec-ratio-1);
+    object-fit: contain;
   }
 }
 

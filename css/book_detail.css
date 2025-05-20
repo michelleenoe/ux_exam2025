@@ -33,7 +33,8 @@
   width: var(--full-scale);
 
   .book_detail_cover {
-    height: auto;
+    height: var(--height-xl);
+    aspect-ratio: var(--aspec-ratio-2) / var(--aspec-ratio-3);
     width: var(--full-scale);
     max-width: var(--width-md);
     object-fit: cover;
