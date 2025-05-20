@@ -12,7 +12,7 @@ const template = document.querySelector("#showAllBooks_template");
 const loadMoreBtn = document.querySelector("#load_more_btn");
 const authorSelect = document.querySelector("#select_author");
 
-let allBooks = []; //acts like a local cache of all books for efficient filtering and rendering without repeated API calls
+let allBooks = [];
 let visibleCount = 9;
 const DEFAULT_BOOKS = 2100;
 

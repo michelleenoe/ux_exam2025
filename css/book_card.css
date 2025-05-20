@@ -43,12 +43,12 @@
         line-height: var(--book-title-line-height);
 
         display: -webkit-box;
-        -webkit-line-clamp: 2; /* not able to make into a variable */
+        -webkit-line-clamp: 2; 
         -webkit-box-orient: vertical;
 
         display: box;
         box-orient: vertical;
-        line-clamp: 2; /* not able to make into a variable */
+        line-clamp: 2;
 
         overflow: hidden;
         text-overflow: ellipsis;
