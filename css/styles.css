@@ -13,7 +13,7 @@
   visibility: hidden;
 }
 [aria-hidden="false"] {
-  display: flex;
+  display: block;
 }
 
 body {
