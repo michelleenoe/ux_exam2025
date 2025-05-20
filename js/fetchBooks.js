@@ -46,9 +46,6 @@ export const handleLoanButton = (card, userId, bookId) => {
 };
 
 
-
-
-
 export const updateBookLinks = (card, book) => {
   const imageLink = card.querySelector("a.book_image_link");
   if (imageLink) {
