@@ -59,7 +59,7 @@
     --spacing-xxxl: 2rem;
     --spacing-4xl: 4rem;
     --spacing-5xl: 5rem;
-    --content-width-lg: 1200px;
+    --content-width-lg: 75rem;
     --card-height: 4.2rem;
 
     /* Border Radius */
@@ -80,18 +80,18 @@
     --social-icon-size: 30px;
 
     /* scale */
-    --scale-minus-mini: -1px;
-    --scale-mini: 1px;
+    --scale-minus-mini: -0.0625rem;
+    --scale-mini: 0.0625rem;
     --scale-sm: 1.02;
     --full-scale: 100%;
     --width-xs: 150px;
-    --width-s: 200px;
-    --width-sm: 250px;
-    --width-md: 300px;
-    --width-mdd: 320px;
-    --width-lg: 400px;
-    --height-lg: 400px;
-    --height-xl: 450px;
+    --width-s: 12.5rem;
+    --width-sm: 15.625rem;
+    --width-md: 18.75rem;
+    --width-mdd: 20rem;
+    --width-lg: 25rem;
+    --height-lg: 25rem;
+    --height-xl: 28.125rem;
     --vh-100: 100vh;
     --vw-100: 100vw;
     --vh-30: 35vh;
@@ -99,9 +99,9 @@
     --vh-50: 60vh;
     --error-width: 37.5rem;
     --form-max-width: 34rem;
-    --max-main-width: 1100px;
-    --card-width: 250px;
-    --book-detail-width: 800px;
+    --max-main-width: 68.75rem;
+    --card-width: 15.625rem;
+    --book-detail-width: 50rem;
 
     /* opacity */
     --opacity-xs: 0.1;
@@ -118,7 +118,7 @@
     --new-touch-target: 48px;
 
     /* side_menu */
-    --right-side-menu: -250px;
+    --right-side-menu: -15.625rem;
 
     /* z-index */
     --z-index-1: 1;
