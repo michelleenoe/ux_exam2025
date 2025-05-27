@@ -60,7 +60,7 @@
 
 @media (min-width: 768px) {
     #hero_home {
-        background-image: url("../assets/images/abstract-blur-defocused-library-book-store-shop-interior_desk.jpg");
+        background-image: url("../assets/images/abstract-blur-defocused-library-book-store-shop-interior_desk.webp");
         height: var(--vh-50);
     }
 }
