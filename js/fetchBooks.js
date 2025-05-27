@@ -20,9 +20,10 @@ export const loadBookImage = (imgElement, book, title) => {
 
 export const handleLoanButton = (card, userId, bookId) => {
   const loanBtn = card.querySelector(".loan_btn");
+  const isAdmin = sessionStorage.getItem("app_user_is_admin") === "1";
 
   if (loanBtn) {
-    if (!userId) {
+    if (!userId || isAdmin) {
       loanBtn.classList.add("hidden");
       return;
     } else {
@@ -44,6 +45,7 @@ export const handleLoanButton = (card, userId, bookId) => {
     });
   }
 };
+
 
 
 export const updateBookLinks = (card, book) => {
