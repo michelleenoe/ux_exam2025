@@ -77,6 +77,18 @@
             <p id="profileHelp" class="sr-only">
                 Use this form to update your profile information.
             </p>
+            <section id="error" class="hidden" aria-live="assertive" aria-label="Error message" aria-hidden="true">
+                <header>
+                    <h3>Error</h3>
+                </header>
+                <p id="errorText"></p>
+            </section>
+            <section id="success" class="hidden" aria-live="assertive" aria-label="Success message" aria-hidden="true">
+                <header>
+                    <h3>Success</h3>
+                </header>
+                <p id="successText"></p>
+            </section>
             <form id="frmProfile" aria-describedby="profileHelp">
                 <div class="field">
                     <label for="txtEmail">Email</label>
@@ -119,18 +131,6 @@
                     Delete My Account
                 </button>
             </form>
-            <section id="error" class="hidden" aria-live="assertive" aria-label="Error message" aria-hidden="true">
-                <header>
-                    <h3>Error</h3>
-                </header>
-                <p id="errorText"></p>
-            </section>
-            <section id="success" class="hidden" aria-live="assertive" aria-label="Success message" aria-hidden="true">
-                <header>
-                    <h3>Success</h3>
-                </header>
-                <p id="successText"></p>
-            </section>
         </section>
         <dialog id="deleteDialog">
             <h3 id="deleteDialogTitle">Confirm account deletion</h3>
