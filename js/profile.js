@@ -83,7 +83,11 @@ function showSuccess(msg) {
   hideAllMessages();
   els.successText.innerText = msg;
   els.successBox.classList.remove("hidden");
-  setTimeout(() => els.successBox.classList.add("hidden"), 3000);
+  els.successBox.setAttribute("aria-hidden", "false");
+  setTimeout(() => {
+    els.successBox.classList.add("hidden");
+    els.successBox.setAttribute("aria-hidden", "true");
+  }, 3000);
 }
 
 function bindFormSubmit() {
